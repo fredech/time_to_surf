@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
   resources :preferred_spots, only: [ :destroy] do
   end
-  resources :sessions, only: [ :index, :create, :edit, :update, :destroy ] do
+  resources :surf_sessions, only: [ :index, :create, :edit, :update, :destroy ] do
     resources :reviews, only: [ :new, :create ]
   end
 

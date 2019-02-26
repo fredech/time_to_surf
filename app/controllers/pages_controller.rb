@@ -13,7 +13,7 @@ class PagesController < ApplicationController
 
   def dashboard
     @profile = Profile.where(user: current_user)
-    @sessions = Session.where(user: current_user)
-    @preferred_spots = Preferred_spot.where(user: current_user)
+    @surf_sessions = SurfSession.where(user: current_user)
+    @preferred_spots = PreferredSpot.where(user: current_user)
   end
 end

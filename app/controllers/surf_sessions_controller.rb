@@ -1,4 +1,4 @@
-class SessionsController < ApplicationController
+class SurfSessionsController < ApplicationController
   def index
   end
 

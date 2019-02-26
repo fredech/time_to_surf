@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   # association
-  has_many :sessions
+  has_many :surf_sessions
   has_many :preferred_spots
   has_one :profile
 
