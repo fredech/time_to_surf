@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+import "bootstrap";
+import "../plugins/flatpickr";
+=======
 console.log("Hello from app/javascript/packs/application.js!");
 
 import 'bootstrap';
@@ -18,3 +22,4 @@ tabEffect();
 // inithover();
 // initMapbox();
 // initAutocomplete();
+>>>>>>> master
