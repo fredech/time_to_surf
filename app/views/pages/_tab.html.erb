@@ -14,12 +14,8 @@
       <%= link_to 'Edit', edit_user_registration_path(current_user), class: "button" %>
       <h2>Avatar</h2>
       <%= cl_image_tag current_user.photo, class: "avatar-large" %>
-      <h2>First Name</h2>
-      <p><%= "#{current_user.first_name}" %><button class="tab_btn">update</button></p>
-      <h2>Last Name</h2>
-      <p><%= "#{current_user.last_name}" %><button class="tab_btn">update</button></p>
-      <h2>Address</h2>
-      <p><%= "#{current_user.address}" %></p>
+      <h2>Username</h2>
+      <p><%= "#{current_user.pseudo}" %><button class="tab_btn">update</button></p>
       <h2>Email</h2>
       <p><%= "#{current_user.email} " %><button class="tab_btn">update</button></p>
       <h2>Password </h2>
