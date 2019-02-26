@@ -1,5 +1,5 @@
-class ApplicationController < ActionController::Base
-  # before_action :set_painting, only: [:show, :edit, :update, :destroy]
+class SpotsController < ActionController::Base
+  # before_action :set_spot, only: [:show, :edit, :update, :destroy]
   # skip_before_action :authenticate_user!, only: [:edit, :index, :show]
   # skip_after_action :verify_authorized, only:[:update, :search, :index]
 
@@ -17,12 +17,14 @@ class ApplicationController < ActionController::Base
   def show
   end
 
+  private
+
   def set_spot
     @spot = Spot.find(params[:id])
   end
 
   def spot_params
-    params.require(:spot).permit(:name, :address, :description, :photo, :video, :longitude, :latitude)
+    params.require(:spot).permit(:name, :address, :description, :photo, :video, :longitude, :latitude, :seabed, :best_tide, :difficulty_level)
   end
 
 end

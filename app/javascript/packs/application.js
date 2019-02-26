@@ -16,6 +16,5 @@ initSelect2();
 initUpdateNavbarOnScroll();
 previewImageOnFileSelect();
 tabEffect();
-// inithover();
 initMapbox();
 initAutocomplete();
