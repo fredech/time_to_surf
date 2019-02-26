@@ -1,6 +1,6 @@
 class Spot < ApplicationRecord
   has_many :sessions, dependent: :destroy
-  has_many :spots_services
+  has_many :spot_services
   has_many :services, through: :spot_services
   has_many :preferred_spots
 
