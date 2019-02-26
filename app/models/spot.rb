@@ -18,4 +18,6 @@ class Spot < ApplicationRecord
   validates :description, presence: true
   # validates :video, presence: true
 
+  mount_uploader :photo, PhotoUploader
+
 end
