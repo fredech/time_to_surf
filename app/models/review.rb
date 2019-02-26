@@ -1,6 +1,6 @@
 class Review < ApplicationRecord
   #association
-  belongs_to :session
+  belongs_to :surf_session
 
   #RATES = %w(0 1 2 3 4 5)
   validates :content, presence: true

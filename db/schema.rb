@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_26_172213) do
+ActiveRecord::Schema.define(version: 2019_02_26_213402) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,17 +51,6 @@ ActiveRecord::Schema.define(version: 2019_02_26_172213) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "sessions", force: :cascade do |t|
-    t.datetime "start_time"
-    t.datetime "end_time"
-    t.bigint "spot_id"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["spot_id"], name: "index_sessions_on_spot_id"
-    t.index ["user_id"], name: "index_sessions_on_user_id"
-  end
-
   create_table "spot_services", force: :cascade do |t|
     t.bigint "spot_id"
     t.bigint "service_id"
@@ -86,6 +75,17 @@ ActiveRecord::Schema.define(version: 2019_02_26_172213) do
     t.integer "difficulty_level"
   end
 
+  create_table "surf_sessions", force: :cascade do |t|
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.bigint "spot_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["spot_id"], name: "index_surf_sessions_on_spot_id"
+    t.index ["user_id"], name: "index_surf_sessions_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -103,9 +103,9 @@ ActiveRecord::Schema.define(version: 2019_02_26_172213) do
   add_foreign_key "preferred_spots", "spots"
   add_foreign_key "preferred_spots", "users"
   add_foreign_key "profiles", "users"
-  add_foreign_key "reviews", "sessions"
-  add_foreign_key "sessions", "spots"
-  add_foreign_key "sessions", "users"
+  add_foreign_key "reviews", "surf_sessions", column: "session_id"
   add_foreign_key "spot_services", "services"
   add_foreign_key "spot_services", "spots"
+  add_foreign_key "surf_sessions", "spots"
+  add_foreign_key "surf_sessions", "users"
 end
