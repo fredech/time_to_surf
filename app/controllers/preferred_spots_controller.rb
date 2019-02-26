@@ -1,4 +1,4 @@
-class PreferredSpotsController < ActionController::Base
+class PreferredSpotsController < ApplicationController
   def create
   end
 

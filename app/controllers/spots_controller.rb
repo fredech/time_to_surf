@@ -1,4 +1,4 @@
-class SpotsController < ActionController::Base
+class SpotsController < ApplicationController
   # before_action :set_spot, only: [:show, :edit, :update, :destroy]
   # skip_before_action :authenticate_user!, only: [:edit, :index, :show]
   # skip_after_action :verify_authorized, only:[:update, :search, :index]

@@ -1,4 +1,4 @@
-class ReviewsController < ActionController::Base
+class ReviewsController < ApplicationController
   def new
   end
 end
