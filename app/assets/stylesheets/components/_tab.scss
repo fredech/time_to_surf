@@ -1,0 +1,193 @@
+$heading_tab: 'Montserrat', sans-serif;
+$body_tab: 'Roboto', sans-serif;
+
+.tab_container {
+  background: $white;
+  width: 90%;
+  height: 80vh;
+  margin: 0 auto;
+  position: relative;
+  margin-top: 5%;
+  box-shadow: 2px 5px 20px rgba($gray, .5);
+}
+
+.CTA {
+  width: 80px;
+  height: 40px;
+  right: -20px;
+  bottom: 0;
+  margin-bottom: 90px;
+  position: absolute;
+  z-index: 1;
+  background: $gray;
+  font-size: 1.2em;
+  transform: rotate(-90deg);
+  transition: all .5s ease-in-out;
+  cursor: pointer;
+  h1 {
+    color: $white;
+    margin-top: 10px;
+    margin-left: 9px;
+  }
+  &:hover {
+    background: $light-gray;
+    transform: scale(1.1);
+  }
+}
+
+
+.leftbox {
+  float: left;
+  top: -5%;
+  left: 5%;
+  position: absolute;
+  width: 90px;
+  height: 110%;
+  background-color: #FF5A5F;
+  box-shadow: 3px 3px 10px rgba($gray, .5);
+}
+
+.tab_container nav a {
+  list-style: none;
+  padding: 35px;
+  color: $white;
+  font-size: 1.3em;
+  display: block;
+  block-size: 0.8em;
+  transition: all .3s ease-in-out;
+  &:hover {
+    color: $light-gray;
+    transform: scale(1.2);
+    cursor: pointer;
+  }
+  &:first-child {
+    margin-top: 7px;
+  }
+}
+nav a .text2 {
+  position:relative;
+  bottom:30px;
+  left:50px;
+  font-size: 0.4em;
+  font-weight: bold;
+  visibility:hidden;
+}
+nav a:hover .text2 {
+  visibility:visible;
+}
+
+.active {
+  color: $light-gray;
+}
+
+.rightbox {
+  float: left;
+  margin-left: 20%;
+  width: 70%;
+  height: 100%;
+  overflow: scroll;
+  position: relative;
+}
+
+
+.profile, .payment, .subscription, .privacy, .settings {
+  transition: opacity .5s ease-in;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.tab_container h1 {
+  font-family: $heading_tab;
+  color: $gray;
+  font-size: 1.2em;
+  margin-top: 40px;
+  margin-bottom: 35px;
+}
+
+.tab_container h2 {
+  color: $gray;
+  font-family: $body_tab;
+  width: 80%;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 1px;
+  margin-left: 2px;
+}
+
+.tab_container p {
+  border-width: 1px;
+  border-style: solid;
+  border-image: linear-gradient(to right, $light-gray, rgba($gray,.5)) 1 0%;
+  border-top: 0;
+  width: 80%;
+  font-family: $heading_tab;
+  font-size: .9em;
+  padding: 7px 0;
+  color: $black;
+}
+.tab_container span {
+  font-size: .7em;
+  color: $gray;
+}
+
+.tab_btn {
+  float: right;
+  font-family: $body_tab;
+  text-transform: uppercase;
+  font-size: 12px;
+  border: none;
+  color: $light-gray;
+}
+
+.tab_btn:hover {
+  text-decoration: underline;
+  font-weight: 900;
+}
+
+.tab_container input {
+  border: 1px solid lighten($gray,40%);
+  font-family: $body_tab;
+  padding: 2px;
+  margin: 0;
+}
+
+.privacy h2{
+  margin-top: 25px;
+}
+.bookings {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.settings h2{
+  margin-top: 25px;
+}
+
+.noshow {
+  display: none;
+}
+
+.tab_container footer {
+  position: absolute;
+  width: 20%;
+  bottom: 0;
+  right: -20px;
+  text-align: right;
+  font-size: 1em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: $body_tab;
+  p {
+    border: none;
+    padding: 0;
+  }
+  a {
+    color: #ffffff;
+    text-decoration: none;
+    &:hover {
+      color: #7d7d7d;
+    }
+  }
+}
