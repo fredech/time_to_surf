@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :spots, only: [ :index, :show] do
-    resources :preferred_spots, only: [ :create, :destroy ]
+    resources :preferred_spots, only: [ :create ]
+  end
+  resources :preferred_spots, only: [ :destroy] do
   end
   resources :sessions, only: [ :index, :create, :edit, :update, :destroy ] do
     resources :reviews, only: [ :new, :create ]
