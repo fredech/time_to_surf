@@ -4,7 +4,7 @@ class Spot < ApplicationRecord
   has_many :services, through: :spot_services
   has_many :preferred_spots
 
-  default_scope { order(step: :asc) }
+  default_scope { order(name: :asc) }
 
   mount_uploader :photo, PhotoUploader
 
@@ -23,5 +23,4 @@ class Spot < ApplicationRecord
   validates :best_tide, presence: true
   validates :difficulty_level, presence: true
   # validates :video, presence: true
-
 end
