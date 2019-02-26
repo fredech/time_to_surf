@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2019_02_26_151516) do
     t.bigint "session_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "photo"
     t.index ["session_id"], name: "index_reviews_on_session_id"
   end
 
