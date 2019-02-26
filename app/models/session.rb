@@ -5,4 +5,6 @@ class Session < ApplicationRecord
 
   validates :start_time, presence: true
   validates :end_time, presence: true
+  validates :spot_id, presence: true, null: false
+  validates :user_id, presence: true, null: false
 end
