@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_one :profile
 
 
+  mount_uploader :photo, PhotoUploader
 
   # validations
   validates :pseudo, presence: true
