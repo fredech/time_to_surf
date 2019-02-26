@@ -1,11 +1,8 @@
-<<<<<<< HEAD
-import "bootstrap";
-import "../plugins/flatpickr";
-=======
 console.log("Hello from app/javascript/packs/application.js!");
 
 import 'bootstrap';
 import 'select2/dist/css/select2.css';
+import "../plugins/flatpickr";
 import { initSelect2 } from '../components/init_select2';
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { previewImageOnFileSelect } from '../components/photo_preview';
@@ -22,4 +19,3 @@ tabEffect();
 // inithover();
 // initMapbox();
 // initAutocomplete();
->>>>>>> master
