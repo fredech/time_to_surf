@@ -7,6 +7,7 @@ class Spot < ApplicationRecord
   default_scope { order(name: :asc) }
 
   mount_uploader :photo, PhotoUploader
+  # mount_uploader :video, VideoUploader
 
   validates_presence_of :photo
   validates_integrity_of :photo

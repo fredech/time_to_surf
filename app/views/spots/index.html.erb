@@ -1,34 +1,6 @@
-<!-- To cut/past to the show view -->
-
-<div class="spot_wrapper" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path('https://res.cloudinary.com/dwze88uqm/image/upload/v1551275845/bckgd5.jpg') %>);">
-  <div class="container">
-    <br>
-    <br>
-    <h1 style="text-align: center">Spot details</h1>
-    <div class="spot_container">
-      <div class="fun_container">
-        <div class="spot_map">
-          <%= render 'shared/map', markers: @marker %>
-        </div>
-        <div class="spot_image"></div>
-        <div class="spot_video"></div>
-      </div>
-      <div class="content_container">
-        <div class="spot_sum">
-          <h1>@spot.name</h1>
-          <p>@spot.address</p>
-        </div>
-        <div class="spot_details">
-          <p>@spot.description</p>
-          <p>@spot.seabed</p>
-          <p>Weather</p>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="container" style="width: 1000px; height: 80vh;">
+  <br>
+  <br>
+  <h1>Spots</h1>
+  <%= render 'shared/map', markers: @markers %>
 </div>
-
-
-t.string "seabed"
-    t.string "best_tide"
-    t.integer "difficulty_level"

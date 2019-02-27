@@ -9,18 +9,19 @@ class SpotsController < ApplicationController
     @markers = @spots.map do |spot|
       {
         lng: spot.longitude,
-        lat: spot.latitude
+        lat: spot.latitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { spot: spot }),
+        image_url: helpers.asset_url('map_pin.png')
       }
     end
   end
 
   def show
-    @marker = {
-      lng: @spot.longitude,
-      lat: @spot.latitude,
-      infoWindow: render_to_string(partial: "infowindow", locals: { spot: @spot }),
-      image_url: helpers.asset_url('map_pin.png')
-    }
+    @markers = [{
+          lng: @spot.longitude,
+          lat: @spot.latitude,
+          image_url: helpers.asset_url('map_pin.png')
+        }]
   end
 
   private
