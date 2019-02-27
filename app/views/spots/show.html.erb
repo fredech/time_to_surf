@@ -1,5 +1,5 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path 'bckgd4.jpg' %>);">
-  <h1>Spot details</h1>
+<div class="banner" style="background-image: url(<%= image_path 'bckgd4.jpg' %>);">
+  <h1> Spot details</h1>
 </div>
 <div class="container">
   <div class="spot_container">
@@ -18,7 +18,7 @@
     </div>
     <div class="content_container">
       <div class="spot_sum">
-        <h1><%= @spot.name %></h1>
+        <h2><%= @spot.name %></h2>
         <p><%= @spot.address %></p>
       </div>
       <div class="spot_details">

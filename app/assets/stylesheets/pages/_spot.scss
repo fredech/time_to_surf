@@ -22,26 +22,24 @@
 }
 
 .fun_container {
+  background-color: $white;
   width: 448px;
   height: 996px;
   justify-content: space-around;
   padding-left: 24px;
   padding-right: 24px;
+  border-bottom: solid 1px $light-gray;
 }
 .spot_map {
-  background-color: $gray;
   width: 400px;
   height: 300px;
-  border-radius: 10px;
   margin-top: 32px;
   overflow: hidden;
 
 }
 .spot_image {
-  background-color: $gray;
   width: 400px;
   height: 300px;
-  border-radius: 10px;
   margin-top: 16px;
   overflow: hidden;
   position: relative;
@@ -52,10 +50,8 @@
   }
 }
 .spot_video {
-  background-color: $gray;
   width: 400px;
   height: 300px;
-  border-radius: 10px;
   margin-top: 16px;
   margin-bottom: 32px;
   overflow: hidden;
@@ -68,25 +64,23 @@
 }
 
 .content_container {
+  background-color: $white;
   width: 648px;
   height: 996px;
   justify-content: space-around;
   padding-left: 24px;
   padding-right: 24px;
+  border-bottom: solid 1px $light-gray;
 }
 .spot_sum {
-  background-color: $gray;
   width-max: 600px;
   height: 200px;
-  border-radius: 10px;
   margin-top: 32px;
   text-align: center;
 }
 .spot_details {
-  background-color: $gray;
   width-max: 600px;
   height: 700px;
-  border-radius: 10px;
   margin-top: 32px;
   padding: 20px;
 }
