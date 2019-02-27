@@ -21,9 +21,9 @@ puts "#{User.count} users created"
 
 puts "create Spots..."
 
-url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1551275874/Lesconil.jpg"
-spot_1.remote_photo_url = url
-spot_1.save!
+# url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1551275874/Lesconil.jpg"
+# spot_1.remote_photo_url = url
+# spot_1.save!
 
 url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1551283963/pors_carn.jpg"
 spot_2 = Spot.new(name: 'Pors Carn', address: "Pors carn, Penmarch",
