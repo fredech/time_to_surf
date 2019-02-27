@@ -1,4 +1,9 @@
 class User < ApplicationRecord
+  # extend Devise::Models
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
   # association
   has_many :surf_sessions
   has_many :preferred_spots
@@ -12,8 +17,4 @@ class User < ApplicationRecord
   validates_integrity_of :photo
   validates_processing_of :photo
 
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
 end
