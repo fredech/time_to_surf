@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_26_213402) do
+ActiveRecord::Schema.define(version: 2019_02_27_111807) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 2019_02_26_213402) do
     t.string "seabed"
     t.string "best_tide"
     t.integer "difficulty_level"
+    t.integer "msw_id"
   end
 
   create_table "surf_sessions", force: :cascade do |t|
