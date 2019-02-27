@@ -1,0 +1,20 @@
+ .main-container {
+  display: flex;
+ }
+
+ #map {
+  flex: 0 0 800px;
+  height: 100vh !important;
+  position: sticky !important;
+  top: 75px !important;
+  margin-left: 10px;
+ }
+
+.search-summary {
+  text-align: center;
+  margin-top: 150px;
+}
+
+.search-summary h1 {
+  font-size: 30px;
+}

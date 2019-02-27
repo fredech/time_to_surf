@@ -1,0 +1,36 @@
+.simple_form.search {
+  display: flex;
+  align-items: center;
+}
+
+.form-group {
+  margin-right: 10px;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 300px;
+}
+
+.form-wrapper {
+  justify-content: center;
+  margin-right: 50%;
+}
+
+#search-container{
+  .btn-style {
+    height: 45px;
+    margin-top: 15px;
+  }
+}
+
+.label {
+  color: $white;
+}
+
+.form-wrapper {
+  // padding-left: 155px;
+  color: $white;
+}
+
+#spot_location {
+  width: 400px;
+}
