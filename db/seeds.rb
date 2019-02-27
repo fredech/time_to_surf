@@ -5,8 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+puts "Destroy datas..."
 User.destroy_all
 Spot.destroy_all
+puts "Datas destroyed!"
 
 puts "create Users..."
 
@@ -20,11 +22,6 @@ puts "#{User.count} users created"
 puts "create Spots..."
 
 url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1551275874/Lesconil.jpg"
-spot_1 = Spot.new(name: 'Lesconil', address: "Anse de Lesconil, Lesconil",
-                    description: "This stretch of coast, including nearby Benodet and Beg Meil, requires a rare combination of S swell and N winds to provide anything else than windsurf conditions. When on, a reef close to the harbour offers hollow, powerful, low tide lefts and some lesser rights.",
-                    seabed: "Unever reef and sand", best_tide: "Low Mid",
-                    difficulty_level: 4.5,
-                    msw_id: 1534 )
 spot_1.remote_photo_url = url
 spot_1.save!
 
