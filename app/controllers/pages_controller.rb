@@ -11,6 +11,10 @@ class PagesController < ApplicationController
     end
   end
 
+  def search
+    redirect_to spots_path
+  end
+
   def dashboard
     @profile = Profile.where(user: current_user)
     @surf_sessions = SurfSession.where(user: current_user)

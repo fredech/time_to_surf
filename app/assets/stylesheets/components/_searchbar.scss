@@ -1,16 +1,19 @@
+
 .simple_form.search {
   display: flex;
-  width: 1500px;
   align-items: center;
 }
 
 .form-group {
   margin-right: 10px;
   justify-content: center;
+  align-items: center;
+  flex: 0 0 300px;
 }
 
 .form-wrapper {
   justify-content: center;
+  margin-right: 50%;
 }
 
 #search-container{
@@ -25,7 +28,10 @@
 }
 
 .form-style {
-  width: 400px;
-  padding-left: 155px;
+  // padding-left: 155px;
   color: $white;
+}
+
+#spot_location {
+  width: 400px;
 }
