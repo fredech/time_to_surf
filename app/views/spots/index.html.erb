@@ -1,6 +1,16 @@
-<div class="container" style="width: 1000px; height: 80vh;">
-  <br>
-  <br>
-  <h1>Spots</h1>
-  <%= render 'shared/map', markers: @markers %>
+<div class="search-summary">
+  <h1>Suggestions for <%= current_user.pseudo %></h1>
+</div>
+  <%= render 'shared/searchbar'%>
+<div class="main-container">
+  <%= render 'shared/map', markers: @markers%>
+  <div class="card-container">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-6 col-sm-12">
+          <%= render 'shared/card' %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
