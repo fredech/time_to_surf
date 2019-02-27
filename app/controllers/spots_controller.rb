@@ -4,6 +4,15 @@ class SpotsController < ApplicationController
   # skip_after_action :verify_authorized, only:[:update, :search, :index]
 
   def index
+    # @spots = Spot.where(query)
+    # @markers = @spots.map do |spot|
+    #   {
+    #     lng: painting.longitude,
+    #     lat: painting.latitude,
+    #     infoWindow: render_to_string(partial: "infowindow", locals: { spot: spot }),
+    #     image_url: helpers.asset_url('map_pin.png')
+    #   }
+    # end
     @spots = Spot.where.not(latitude: nil, longitude: nil)
 
     @markers = @spots.map do |spot|
