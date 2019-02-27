@@ -1,6 +1,8 @@
 <div id="search-container">
   <div class="<%= controller_name == 'pages' ? 'form-wrapper' : 'index-style' %>">
-    <h3>Find a spot</h3>
+    <% if local_assigns[:needs_h3] %>
+      <h3>Find a spot</h3>
+    <% end %>
     <%= simple_form_for :search, method: "get" do |f| %>
       <%= f.input :location, as: :string, placeholder: "Hossegor", required: true, input_html: { id: 'spot_location'}  %>
       <%= f.input :start_time, as: :string, required: true, placeholder: "YYYY-MM-DD HH:HH", input_html: {class: "datepicker"} %>
