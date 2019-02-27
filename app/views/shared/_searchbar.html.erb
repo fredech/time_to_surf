@@ -1,9 +1,11 @@
-<div class="container">
-  <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
+<div id="search-container">
+  <div class="form-wrapper form-style">
     <h3>Find a spot</h3>
     <%= simple_form_for :search, method: "get" do |f| %>
-      <%= f.input :start_time, as: :string, required: false, input_html: {class: "datepicker"} %>
-      <%= f.button :submit, "Go", class: "btn btn-primary" %>
+      <%= f.input :location, as: :string, placeholder: "Hossegor", required: true %>
+      <%= f.input :start_time, as: :string, required: true, placeholder: "YYYY-MM-DD 09:00", input_html: {class: "datepicker"} %>
+      <%= f.input :travel_time, label: "Travel time (minutes)", placeholder: '30', as: :integer, required: true %>
+      <%= f.button :submit, "Surf's up!", class: "btn btn-primary btn-style" %>
     <% end %>
   </div>
 </div>

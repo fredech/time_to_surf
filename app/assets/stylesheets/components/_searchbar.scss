@@ -1,0 +1,31 @@
+.simple_form.search {
+  display: flex;
+  width: 1500px;
+  align-items: center;
+}
+
+.form-group {
+  margin-right: 10px;
+  justify-content: center;
+}
+
+.form-wrapper {
+  justify-content: center;
+}
+
+#search-container{
+  .btn-style {
+    height: 45px;
+    margin-top: 15px;
+  }
+}
+
+.label {
+  color: $white;
+}
+
+.form-style {
+  width: 400px;
+  padding-left: 175px;
+  color: $white;
+}
