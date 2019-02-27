@@ -1,5 +1,5 @@
 <div id="search-container">
-  <div class="form-wrapper form-style">
+  <div class="<%= controller_name == 'pages' ? 'form-wrapper' : 'index-style' %>">
     <h3>Find a spot</h3>
     <%= simple_form_for :search, method: "get" do |f| %>
       <%= f.input :location, as: :string, placeholder: "Hossegor", required: true, input_html: { id: 'spot_location'}  %>
