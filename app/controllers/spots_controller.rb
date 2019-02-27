@@ -1,5 +1,5 @@
 class SpotsController < ApplicationController
-  # before_action :set_spot, only: [:show, :index]
+  before_action :set_spot, only: [:show]
   # skip_before_action :authenticate_user!, only: [:edit, :index, :show]
   # skip_after_action :verify_authorized, only:[:update, :search, :index]
 
@@ -13,9 +13,24 @@ class SpotsController < ApplicationController
     #     image_url: helpers.asset_url('map_pin.png')
     #   }
     # end
+    @spots = Spot.where.not(latitude: nil, longitude: nil)
+
+    @markers = @spots.map do |spot|
+      {
+        lng: spot.longitude,
+        lat: spot.latitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { spot: spot }),
+        image_url: helpers.asset_url('map_pin.png')
+      }
+    end
   end
 
   def show
+    @markers = [{
+          lng: @spot.longitude,
+          lat: @spot.latitude,
+          image_url: helpers.asset_url('map_pin.png')
+        }]
   end
 
   private

@@ -1,25 +1,40 @@
-<h2>Sign up</h2>
+<div class="row">
+  <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
+    <br>
+    <br>
+    <h1>Sign up</h1>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+      <div class="form-inputs">
+        <%= f.input :pseudo,
+                    required: true,
+                    autofocus: true,
+                    input_html: { placeholder: "Raymond", autocomplete: "pseudo" }%>
+        <%= f.input :email,
+                    required: true,
+                    autofocus: true,
+                    input_html: { placeholder: "raymond@gmail.com", autocomplete: "email" }%>
+        <%= f.input :password,
+                    required: true,
+                    hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                    input_html: { placeholder: "******", autocomplete: "new-password" } %>
+        <%= f.input :password_confirmation,
+                    required: true,
+                    input_html: { placeholder: "******", autocomplete: "new-password" } %>
+        <%= f.input :photo,
+                    required: true,
+                    input_html: { class: 'hidden', id: 'photo-input', autocomplete: "photo" },
+                    label_html: { class: 'upload-photo'}, label: '📷 Télécharger une photo' %>
+        <%= f.input :photo_cache, as: :hidden %>
+        <%= cl_image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
+      </div>
+      <div class="form-actions">
+        <br>
+        <%= f.button :submit, "Sign up" %>
+        <br>
+      </div>
+    <% end %>
+   </div>
+</div>
