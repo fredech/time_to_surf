@@ -1,5 +1,5 @@
 class Service < ApplicationRecord
-  has many :spots, through: :spots_services
+  has_many :spots, through: :spots_services
 
   validates :name, presence: true
 end
