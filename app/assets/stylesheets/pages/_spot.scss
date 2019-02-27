@@ -1,0 +1,66 @@
+.spot_wrapper{
+  height: 200vh;
+}
+
+.spot_container {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.fun_container {
+  width: 448px;
+  height: 996px;
+  justify-content: space-around;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+.spot_map {
+  background-color: $green;
+  width: 400px;
+  height: 300px;
+  border-radius: 10px;
+  margin-top: 32px;
+  overflow: hidden;
+}
+.spot_image {
+  background-color: $red;
+  width: 400px;
+  height: 300px;
+  border-radius: 10px;
+  margin-top: 16px;
+}
+.spot_video {
+  background-color: $blue;
+  width: 400px;
+  height: 300px;
+  border-radius: 10px;
+  margin-top: 16px;
+  margin-bottom: 32px;
+}
+
+.content_container {
+  width: 648px;
+  height: 996px;
+  justify-content: space-around;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+.spot_sum {
+  background-color: $yellow;
+  width-max: 600px;
+  height: 200px;
+  border-radius: 10px;
+  margin-top: 32px;
+  text-align: center;
+}
+.spot_details {
+  background-color: $orange;
+  width-max: 600px;
+  height: 700px;
+  border-radius: 10px;
+  margin-top: 32px;
+}
+
