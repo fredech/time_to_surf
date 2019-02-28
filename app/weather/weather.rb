@@ -3,10 +3,13 @@ require 'open-uri'
 
 def weather_condition(lat, long, hour)
   api_key = '2e9f60ab2bdf4bda881161945192502'
-  url = "http://api.worldweatheronline.com/premium/v1/marine.ashx?key=#{api_key}&format=json&q=#{lat},#{long}"
+  url = "http://api.worldweatheronline.com/premium/v1/marine.ashx?key=#{api_key}&format=json&q=#{lat},#{long}&tide=yes"
   url_serialized = open(url).read
   spot_weather = JSON.parse(url_serialized)
   result = {}
+
+  date = spot_weather["data"]["weather"][0]["date"]
+  result[:date] = date
 
   sunrise = spot_weather["data"]["weather"][0]["astronomy"][0]["sunrise"]
   result[:sunrise] = sunrise
@@ -47,8 +50,21 @@ def weather_condition(lat, long, hour)
   swell_period = spot_weather["data"]["weather"][0]["hourly"][hour]["swellPeriod_secs"]
   result[:swell_period] = swell_period
 
-  return result
+  tide_1_time = spot_weather["data"]["weather"][0]["tides"][0]["tide_data"][1]["tideTime"]
+  result[:tide_1_time] = tide_1_time
+
+  tide_1_low_or_high = spot_weather["data"]["weather"][0]["tides"][0]["tide_data"][1]["tide_type"]
+  result[:tide_1_time] = tide_1_low_or_high
+
+  tide_2_time = spot_weather["data"]["weather"][0]["tides"][0]["tide_data"][2]["tideTime"]
+  result[:tide_2_time] = tide_2_time
+
+  tide_2_low_or_high = spot_weather["data"]["weather"][0]["tides"][0]["tide_data"][2]["tide_type"]
+  result[:tide_2_time] = tide_2_low_or_high
+
+
+  p result
 end
 
-# hour = { "0h" => 0, "3h" => 1, "6h" => 2, "9h" => 3, "12h" => 4, "15h" => 5, "18h" => 6, "21h" => 7 }
-# weather_condition("47.84", "-4.35", hour["12h"])
+hour = { "0h" => 0, "3h" => 1, "6h" => 2, "9h" => 3, "12h" => 4, "15h" => 5, "18h" => 6, "21h" => 7 }
+weather_condition("47.84", "-4.35", hour["12h"])
