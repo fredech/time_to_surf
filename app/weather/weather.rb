@@ -1,70 +1,60 @@
 require 'json'
 require 'open-uri'
+# require_relative '../../ENV'
 
-def weather_condition(lat, long, hour)
+def weather_condition(lat, long, hour_searched)
+  # api_key = ENV['WEATHER_API_KEY']
   api_key = '2e9f60ab2bdf4bda881161945192502'
   url = "http://api.worldweatheronline.com/premium/v1/marine.ashx?key=#{api_key}&format=json&q=#{lat},#{long}&tide=yes"
   url_serialized = open(url).read
   spot_weather = JSON.parse(url_serialized)
   result = {}
 
-  date = spot_weather["data"]["weather"][0]["date"]
-  result[:date] = date
+  hour = define_hour(hour_searched)
 
-  sunrise = spot_weather["data"]["weather"][0]["astronomy"][0]["sunrise"]
-  result[:sunrise] = sunrise
+  result[:date] = spot_weather["data"]["weather"][0]["date"]
 
-  sunset = spot_weather["data"]["weather"][0]["astronomy"][0]["sunset"]
-  result[:sunset] = sunset
+  result[:sunrise] = spot_weather["data"]["weather"][0]["astronomy"][0]["sunrise"]
 
-  air_temperature = spot_weather["data"]["weather"][0]["hourly"][hour]["tempC"]
-  result[:air_temperature] = air_temperature
+  result[:sunset] = spot_weather["data"]["weather"][0]["astronomy"][0]["sunset"]
 
-  water_temperature = spot_weather["data"]["weather"][0]["hourly"][hour]["waterTemp_C"]
-  result[:water_temperature] = water_temperature
+  result[:air_temperature] = spot_weather["data"]["weather"][0]["hourly"][hour]["tempC"]
 
-  wind_speed = spot_weather["data"]["weather"][0]["hourly"][hour]["windspeedKmph"]
-  result[:wind_speed] = wind_speed
+  result[:water_temperature] = spot_weather["data"]["weather"][0]["hourly"][hour]["waterTemp_C"]
 
-  wind_direction = spot_weather["data"]["weather"][0]["hourly"][hour]["winddirDegree"]
-  result[:wind_direction] = wind_direction
+  result[:wind_speed] = spot_weather["data"]["weather"][0]["hourly"][hour]["windspeedKmph"]
 
-  wind_direction_string = spot_weather["data"]["weather"][0]["hourly"][hour]["winddir16Point"]
-  result[:wind_direction_string] = wind_direction_string
+  result[:wind_direction] = spot_weather["data"]["weather"][0]["hourly"][hour]["winddirDegree"]
 
-  weather_icon = spot_weather["data"]["weather"][0]["hourly"][hour]["weatherIconUrl"][0]["value"]
-  result[:weather_icon] = weather_icon
+  result[:wind_direction_string] = spot_weather["data"]["weather"][0]["hourly"][hour]["winddir16Point"]
 
-  weather_description = spot_weather["data"]["weather"][0]["hourly"][hour]["weatherDesc"][0]["value"]
-  result[:weather_description] = weather_description
+  result[:weather_icon] = spot_weather["data"]["weather"][0]["hourly"][hour]["weatherIconUrl"][0]["value"]
 
-  swell_height = spot_weather["data"]["weather"][0]["hourly"][hour]["swellHeight_m"]
-  result[:swell_height] = swell_height
+  result[:weather_description] = spot_weather["data"]["weather"][0]["hourly"][hour]["weatherDesc"][0]["value"]
 
-  swell_direction = spot_weather["data"]["weather"][0]["hourly"][hour]["swellDir"]
-  result[:swell_direction] = swell_direction
+  result[:swell_height] = spot_weather["data"]["weather"][0]["hourly"][hour]["swellHeight_m"]
 
-  swell_direction_string = spot_weather["data"]["weather"][0]["hourly"][hour]["swellDir16Point"]
-  result[:swell_direction_string] = swell_direction_string
+  result[:swell_direction] = spot_weather["data"]["weather"][0]["hourly"][hour]["swellDir"]
 
-  swell_period = spot_weather["data"]["weather"][0]["hourly"][hour]["swellPeriod_secs"]
-  result[:swell_period] = swell_period
+  result[:swell_direction_string] = spot_weather["data"]["weather"][0]["hourly"][hour]["swellDir16Point"]
 
-  tide_1_time = spot_weather["data"]["weather"][0]["tides"][0]["tide_data"][1]["tideTime"]
-  result[:tide_1_time] = tide_1_time
+  result[:swell_period] = spot_weather["data"]["weather"][0]["hourly"][hour]["swellPeriod_secs"]
 
-  tide_1_low_or_high = spot_weather["data"]["weather"][0]["tides"][0]["tide_data"][1]["tide_type"]
-  result[:tide_1_time] = tide_1_low_or_high
+  result[:tide_1_time] = spot_weather["data"]["weather"][0]["tides"][0]["tide_data"][1]["tideTime"]
 
-  tide_2_time = spot_weather["data"]["weather"][0]["tides"][0]["tide_data"][2]["tideTime"]
-  result[:tide_2_time] = tide_2_time
+  result[:tide_1_low_or_high] = spot_weather["data"]["weather"][0]["tides"][0]["tide_data"][1]["tide_type"]
 
-  tide_2_low_or_high = spot_weather["data"]["weather"][0]["tides"][0]["tide_data"][2]["tide_type"]
-  result[:tide_2_time] = tide_2_low_or_high
+  result[:tide_2_time] = spot_weather["data"]["weather"][0]["tides"][0]["tide_data"][2]["tideTime"]
 
+  result[:tide_2_low_or_high] = spot_weather["data"]["weather"][0]["tides"][0]["tide_data"][2]["tide_type"]
 
-  p result
+  return result
 end
 
-hour = { "0h" => 0, "3h" => 1, "6h" => 2, "9h" => 3, "12h" => 4, "15h" => 5, "18h" => 6, "21h" => 7 }
-weather_condition("47.84", "-4.35", hour["12h"])
+def define_hour(hour_searched)
+   elements = { "0h" => 0, "3h" => 1, "6h" => 2, "9h" => 3, "12h" => 4, "15h" => 5, "18h" => 6, "21h" => 7 }
+   return elements[hour_searched]
+end
+
+# hour = { "0h" => 0, "3h" => 1, "6h" => 2, "9h" => 3, "12h" => 4, "15h" => 5, "18h" => 6, "21h" => 7 }
+p weather_condition("47.84", "-4.35", "12h")
