@@ -1,4 +1,4 @@
-<div class="search-summary">
+`<div class="search-summary">
   <h1>Suggestions for <%= current_user.pseudo %></h1>
 </div>
   <%= render 'shared/searchbar'%>
@@ -8,8 +8,8 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-6 col-sm-12">
-          <%= render 'shared/card' %>
-<!--           <%#= render 'shared/card_new', spot: Spot.last %> -->
+          <%#= render 'shared/card' %>
+            <%= render 'shared/card_new', spot: Spot.last %> -->
         </div>
       </div>
     </div>
