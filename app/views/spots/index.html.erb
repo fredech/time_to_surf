@@ -9,7 +9,9 @@
       <div class="row">
         <div class="col-xs-6 col-sm-12">
           <%#= render 'shared/card' %>
-            <%= render 'shared/card_new', spot: Spot.last %> -->
+          <%= @spots.each do |spot| %>
+            <%= render 'shared/card_new', spot: spot, conditions_rates: @conditions_rates, matching_rates: @matching_rates %>
+          <% end %>
         </div>
       </div>
     </div>

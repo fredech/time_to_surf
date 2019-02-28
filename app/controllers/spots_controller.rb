@@ -1,4 +1,5 @@
-require_relative '../weather/weather.rb'
+require_relative '../services/weather.rb'
+require_relative '../services/algo.rb'
 
 class SpotsController < ApplicationController
   before_action :set_spot, only: [:show]
@@ -24,6 +25,12 @@ class SpotsController < ApplicationController
         infoWindow: render_to_string(partial: "infowindow", locals: { spot: spot }),
         image_url: helpers.asset_url('map_pin.png')
       }
+    end
+    @conditions_rates = {}
+    @matching_rates = {}
+    @spots.each do |spot|
+      @conditions_rates["#{spot.id}"] = conditions_rate(spot, "12")
+      @matching_rates["#{spot.id}"] = matching_rate(spot, current_user)
     end
   end
 

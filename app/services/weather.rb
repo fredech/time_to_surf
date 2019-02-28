@@ -48,6 +48,8 @@ def weather_condition(lat, long, hour_searched)
 
   result[:tide_2_low_or_high] = spot_weather["data"]["weather"][0]["tides"][0]["tide_data"][2]["tide_type"]
 
+  result[:solid_rating] = 4
+
   return result
 end
 

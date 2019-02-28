@@ -2,5 +2,7 @@
   <figcaption>
     <h2><%= spot.name %></h2>
     <p><%= spot.address %></p><%= link_to "#{spot.name}", spot_path(spot) %>
+    <p><%= conditions_rates["#{spot.id}"] %></p>
+    <p><%= matching_rates["#{spot.id}"] %></p>
   </figcaption>
 </figure>
