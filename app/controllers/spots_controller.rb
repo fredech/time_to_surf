@@ -41,7 +41,7 @@ class SpotsController < ApplicationController
           lat: @spot.latitude,
           image_url: helpers.asset_url('map_pin.png')
         }]
-    @weather = weather_condition(@spot.latitude, @spot.longitude, "12h")
+    @weather = weather_condition(@spot, "12h")
     d = DateTime.now
     @date = d.next_day.strftime("%d/%m/%Y")
   end

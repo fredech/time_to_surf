@@ -1,9 +1,12 @@
 require 'json'
 require 'open-uri'
 
-def weather_condition(lat, long, hour_searched, msw_id)
+def weather_condition(spot, hour_searched)
   api_key = ENV['WEATHER_API_KEY']
   api_key_msw = ENV['MAGICSEAWEED_API_KEY']
+  lat = spot.latitude
+  long = spot.longitude
+  msw_id = spot.msw_id
 
   url = "http://api.worldweatheronline.com/premium/v1/marine.ashx?key=#{api_key}&format=json&q=#{lat},#{long}&tide=yes"
   url_serialized = open(url).read
