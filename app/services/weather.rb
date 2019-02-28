@@ -1,17 +1,14 @@
 require 'json'
 require 'open-uri'
-# require_relative '../../ENV'
 
 def weather_condition(lat, long, hour_searched, msw_id)
   api_key = ENV['WEATHER_API_KEY']
   api_key_msw = ENV['MAGICSEAWEED_API_KEY']
 
-  # api_key = '2e9f60ab2bdf4bda881161945192502'
   url = "http://api.worldweatheronline.com/premium/v1/marine.ashx?key=#{api_key}&format=json&q=#{lat},#{long}&tide=yes"
   url_serialized = open(url).read
   spot_weather = JSON.parse(url_serialized)
 
-  # api_key_msw = 'jWD770v2Kp3d2VKW12l0o4TVuYrb555r'
   url_msw = "http://magicseaweed.com/api/#{api_key_msw}/forecast/?spot_id=#{msw_id}&units=eu&fields=timestamp,solidRating,fadedRating"
   url_msw_serialized = open(url_msw).read
   spot_wave_conditions = JSON.parse(url_msw_serialized)
@@ -66,7 +63,6 @@ def define_hour(hour_searched)
    elements = { "0h" => 0, "3h" => 1, "6h" => 2, "9h" => 3, "12h" => 4, "15h" => 5, "18h" => 6, "21h" => 7 }
    return elements[hour_searched]
 end
-
 
 
 # hour = { "0h" => 0, "3h" => 1, "6h" => 2, "9h" => 3, "12h" => 4, "15h" => 5, "18h" => 6, "21h" => 7 }
