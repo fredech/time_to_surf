@@ -13,14 +13,24 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { cardEffect } from '../components/card';
 
-initSelect2();
-initUpdateNavbarOnScroll();
-previewImageOnFileSelect();
-tabEffect();
-initMapbox();
-initAutocomplete();
-
-const card = document.querySelector(".snip1360");
-if ( card ) {
+if ( document.querySelector(".select2") ) {
+  initSelect2();
+}
+if ( document.querySelector(".navbar-wagon") ) {
+  initUpdateNavbarOnScroll();
+}
+if ( document.querySelector("#photo-preview") ) {
+  previewImageOnFileSelect();
+}
+if ( document.querySelector(".tab_container") ) {
+  tabEffect();
+}
+if ( document.querySelector("#map") ) {
+  initMapbox();
+}
+if ( document.querySelector("#spot_location") ) {
+  initAutocomplete();
+}
+if ( document.querySelector(".snip1360") ) {
   cardEffect();
 }

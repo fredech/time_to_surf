@@ -1,10 +1,11 @@
-<div class="home-banner">
+<div class="home-video">
   <div class="container" id="flex-box">
     <div>
       <h1>Time to surf !</h1>
       <p>Find an adapted spot to your level and needs</p>
     </div>
-    <br>
     <%= render 'shared/searchbar', needs_h3: true %>
+    <%= cl_video_tag("4k_Aerial_Beach_Footage", :loop => true, :autoplay => true, class: "video",
+  :fallback_content => "Your browser does not support HTML5 video tags") %>
   </div>
 </div>
