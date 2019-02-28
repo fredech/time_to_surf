@@ -1,34 +1,36 @@
 <div class="banner" style="background-image: url(<%= image_path 'bckgd4.jpg' %>);">
-  <h1> Spot details</h1>
+  <h1><%= " Spot details" %></h1>
 </div>
 <div class="container">
   <div class="spot_container">
-    <div class="fun_container">
-      <div class="spot_map">
-        <%= render 'shared/map', markers: @markers %>
-      </div>
-      <div class="spot_image">
-        <p style="padding-right: 20px;">General view</p>
-        <%= cl_image_tag @spot.photo, class: "spot-image" %>
-      </div>
-      <div class="spot_video">
-        <p style="padding-right: 20px;">Live video</p>
-         <iframe width="100%" height="100%" src="https://www.youtube.com/embed/UdSTPyS66as?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-    </div>
     <div class="content_container">
       <div class="spot_sum">
         <h2><%= @spot.name %></h2>
         <p><%= @spot.address %></p>
       </div>
       <div class="spot_details">
-        <h3>Description:</h3>
+        <h3>Description</h3>
         <p><%= @spot.description %></p>
         <p><strong>Seabed: </strong><%= @spot.seabed %></p>
-        <h3><strong>Weather</strong></h3>
-        <p><strong>Température de l'eau: </strong><%= %></p>
-        <p><strong>Température de l'air: </strong><%= %></p>
-        <p><strong>Cloudiness: </strong><%= %></p>
+      </div>
+      <div class="spot_weather">
+        <h3><%= "Weather #{@date}" %></h3>
+        <p><strong>Water temperature: </strong><%= @weather[:water_temperature] %> °C</p>
+        <p><strong>Air temperature: </strong><%= @weather[:air_temperature] %> °C</p>
+        <%= image_tag @weather[:weather_icon], class: "avatar-large" %>
+      </div>
+    </div>
+    <div class="fun_container">
+      <div class="spot_map">
+        <%= render 'shared/map', markers: @markers %>
+      </div>
+      <div class="spot_video">
+        <p>Live video</p>
+         <iframe width="100%" height="100%" src="https://www.youtube.com/embed/UdSTPyS66as?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="spot_image">
+        <p>General view</p>
+        <%= cl_image_tag @spot.photo, class: "spot-image" %>
       </div>
     </div>
   </div>

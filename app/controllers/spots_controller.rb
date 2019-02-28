@@ -1,3 +1,5 @@
+require_relative '../weather/weather.rb'
+
 class SpotsController < ApplicationController
   before_action :set_spot, only: [:show]
   # skip_before_action :authenticate_user!, only: [:edit, :index, :show]
@@ -31,6 +33,9 @@ class SpotsController < ApplicationController
           lat: @spot.latitude,
           image_url: helpers.asset_url('map_pin.png')
         }]
+    @weather = weather_condition(@spot.latitude, @spot.longitude, 4)
+    d = DateTime.now
+    @date = d.next_day.strftime("%d/%m/%Y")
   end
 
   private
