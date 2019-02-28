@@ -1,13 +1,21 @@
 require 'json'
 require 'open-uri'
-# require_relative '../../ENV'
 
-def weather_condition(lat, long, hour_searched)
-  # api_key = ENV['WEATHER_API_KEY']
-  api_key = '2e9f60ab2bdf4bda881161945192502'
+def weather_condition(spot, hour_searched)
+  api_key = ENV['WEATHER_API_KEY']
+  api_key_msw = ENV['MAGICSEAWEED_API_KEY']
+  lat = spot.latitude
+  long = spot.longitude
+  msw_id = spot.msw_id
+
   url = "http://api.worldweatheronline.com/premium/v1/marine.ashx?key=#{api_key}&format=json&q=#{lat},#{long}&tide=yes"
   url_serialized = open(url).read
   spot_weather = JSON.parse(url_serialized)
+
+  url_msw = "http://magicseaweed.com/api/#{api_key_msw}/forecast/?spot_id=#{msw_id}&units=eu&fields=timestamp,solidRating,fadedRating"
+  url_msw_serialized = open(url_msw).read
+  spot_wave_conditions = JSON.parse(url_msw_serialized)
+
   result = {}
 
   hour = define_hour(hour_searched)
@@ -48,6 +56,9 @@ def weather_condition(lat, long, hour_searched)
 
   result[:tide_2_low_or_high] = spot_weather["data"]["weather"][0]["tides"][0]["tide_data"][2]["tide_type"]
 
+  result[:faded_rating] = spot_wave_conditions[hour]["fadedRating"]
+  result[:solid_rating] = spot_wave_conditions[hour]["solidRating"]
+
   return result
 end
 
@@ -56,5 +67,7 @@ def define_hour(hour_searched)
    return elements[hour_searched]
 end
 
+
 # hour = { "0h" => 0, "3h" => 1, "6h" => 2, "9h" => 3, "12h" => 4, "15h" => 5, "18h" => 6, "21h" => 7 }
-p weather_condition("47.84", "-4.35", "12h")
+# p weather_condition("47.84", "-4.35", "12h", "1531")
+
