@@ -1,4 +1,4 @@
-`<div class="search-summary">
+<div class="search-summary">
   <h1>Suggestions for <%= current_user.pseudo %></h1>
 </div>
   <%= render 'shared/searchbar'%>
@@ -9,8 +9,9 @@
       <div class="row">
         <div class="col-xs-6 col-sm-12">
           <%#= render 'shared/card' %>
-          <%= @spots.each do |spot| %>
-            <%= render 'shared/card_new', spot: spot, conditions_rates: @conditions_rates, matching_rates: @matching_rates %>
+          <%= 3.times do %>
+            <% spot = @spots.sample %>
+            <%= render 'shared/card_new', spot: spot, conditions_rates: conditions_rate(spot, "12h"), matching_rates: matching_rate(spot, current_user, "12h") %>
           <% end %>
         </div>
       </div>

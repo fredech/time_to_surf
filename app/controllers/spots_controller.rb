@@ -16,6 +16,7 @@ class SpotsController < ApplicationController
     #     image_url: helpers.asset_url('map_pin.png')
     #   }
     # end
+
     @spots = Spot.where.not(latitude: nil, longitude: nil)
 
     @markers = @spots.map do |spot|
@@ -26,12 +27,12 @@ class SpotsController < ApplicationController
         image_url: helpers.asset_url('map_pin.png')
       }
     end
-    @conditions_rates = {}
-    @matching_rates = {}
-    @spots.each do |spot|
-      @conditions_rates["#{spot.id}"] = conditions_rate(spot, "12")
-      @matching_rates["#{spot.id}"] = matching_rate(spot, current_user)
-    end
+    # @conditions_rates = {}
+    # @matching_rates = {}
+    # @spots.each do |spot|
+    #   @conditions_rates["#{spot.id}"] = conditions_rate(spot, "12h")
+    #   @matching_rates["#{spot.id}"] = matching_rate(spot, current_user, "12h")
+    # end
   end
 
   def show
@@ -40,7 +41,7 @@ class SpotsController < ApplicationController
           lat: @spot.latitude,
           image_url: helpers.asset_url('map_pin.png')
         }]
-    @weather = weather_condition(@spot.latitude, @spot.longitude, 4)
+    @weather = weather_condition(@spot.latitude, @spot.longitude, "12h")
     d = DateTime.now
     @date = d.next_day.strftime("%d/%m/%Y")
   end
