@@ -1,6 +1,9 @@
+ @import url(https://fonts.googleapis.com/css?family=Quattrocento);
+
+
  .main-container {
   display: flex;
-  padding-left: 100px;
+  padding-left: 150px;
   padding-right: 100px;
  }
 
@@ -34,3 +37,31 @@
   font-size: 30px;
   color: $green;
 }
+
+#card-one {
+  position: relative;
+}
+
+#card-two {
+  position: relative;
+}
+
+#card-three {
+  position: relative;
+}
+
+#card-number {
+  color: $white;
+  font-size: 30px;
+  position: absolute;
+  bottom: 390px;
+  left: 18px;
+  z-index: 1;
+  background-color: $gray;
+  border-radius: 3%;
+  width: 425px;
+  text-align: center;
+  opacity: 0.3;
+}
+
+

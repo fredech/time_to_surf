@@ -7,9 +7,18 @@
     <%= render 'shared/map', markers: @markers%>
   </div>
   <div class="card-container">
-    <%= render 'shared/card_new', spot: Spot.last %>
-    <%= render 'shared/card_new', spot: Spot.last %>
-    <%= render 'shared/card_new', spot: Spot.last %>
+    <div id="card-one">
+      <p id="card-number">one</p>
+      <%= render 'shared/card_new', spot: Spot.last %>
+    </div>
+    <div id="card-two">
+      <p id="card-number">two</p>
+      <%= render 'shared/card_new', spot: Spot.last %>
+    </div>
+    <div id="card-three">
+      <%= render 'shared/card_new', spot: Spot.last %>
+      <p id="card-number">three</p>
+    </div>
   </div>
 </div>
 
