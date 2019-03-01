@@ -3,19 +3,27 @@
 
  .main-container {
   display: flex;
-  padding-left: 150px;
-  padding-right: 100px;
+  // align-items: flex-start;
+  flex-wrap: wrap;
+  padding-left: 10px;
+  padding-right: 10px;
  }
 
  .map-container {
-  max-width: 648px;
-  flex: 10;
+  min-width: 500px;
+  flex: auto;
   margin-top: 10px;
  }
 
 .card-container {
   padding-left: 20px;
-  flex: auto;
+  padding-right: 20px;
+  flex: 0.7;
+}
+
+ .card-container > * {
+  margin-bottom: 15px;
+  align-items: center;
  }
 
 
@@ -27,15 +35,14 @@
   margin-left: 10px;
  }
 
-.search-summary {
-  text-align: center;
-  margin-top: 120px;
-  margin-bottom: 50px;
-}
+// .search-summary {
+//   text-align: center;
+//   margin-top: 120px;
+//   margin-bottom: 50px;
+// }
 
-.search-summary h1 {
-  font-size: 30px;
-  color: $green;
+.index-search {
+  margin-top: 90px;
 }
 
 #card-one {
@@ -51,17 +58,26 @@
 }
 
 #card-number {
-  color: $white;
-  font-size: 30px;
-  position: absolute;
-  bottom: 390px;
-  left: 18px;
-  z-index: 1;
-  background-color: $gray;
-  border-radius: 3%;
-  width: 425px;
-  text-align: center;
-  opacity: 0.3;
+ text-align: center;
+ border: 1px solid $gray;
 }
+
+#card-number h3 {
+ font-size: 100px;
+ background-color: white;
+}
+
+#card-number p {
+ text-align: center;
+ font-style: italic;
+}
+
+#card-number h2 {
+  text-transform: uppercase;
+  font-size: 28px;
+  color: black;
+}
+
+
 
 

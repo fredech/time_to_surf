@@ -1,11 +1,22 @@
 .index-style {
-  color: $green;
-  margin-bottom: 50px;
-  text-align: center;
+  margin-bottom: 20px;
+  text-align: left;
+    .simple_form.search {
+      font-size: 15px;
+      color: $gray;
+    }
 }
 
-.index-style h3{
-  font-size: 20px;
-}
+// .index-style {
+//   .btn-style {
+//     height: 100px;
+//     margin-top: 25px;
+//     width: 100%;
+//   }
+// }
+
+
+
+
 
 

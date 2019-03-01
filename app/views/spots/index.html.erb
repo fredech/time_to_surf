@@ -1,26 +1,32 @@
-<div class="search-summary">
-  <h1>Suggestions for <%= current_user.pseudo %></h1>
-</div>
+<div class="index-search">
   <%= render 'shared/searchbar'%>
+</div>
 <div class="main-container">
   <div class="map-container">
-    <%= render 'shared/map', markers: @markers%>
-  </div>
+<!--     <#%= render 'shared/map', markers: @markers%>
+ -->  </div>
   <div class="card-container">
-    <div id="card-one">
-      <p id="card-number">one</p>
-      <%= render 'shared/card_new', spot: Spot.last %>
+    <div id="card-number">
+      <h3>1</h3>
+      <p>matching-rate: 96%</p>
+      <h2>Vieux Boucqux%></h2>
+      <p>meteo favorable</p>
     </div>
-    <div id="card-two">
-      <p id="card-number">two</p>
-      <%= render 'shared/card_new', spot: Spot.last %>
+    <div id="card-number">
+      <h3>1</h3>
+      <p>matching-rate: 96%</p>
+      <h2>Vieux Boucqux</h2>
+      <p>meteo favorable</p>
+      <!-- <#%= render 'shared/card_new', spot: Spot.last %> -->
     </div>
-    <div id="card-three">
-      <%= render 'shared/card_new', spot: Spot.last %>
-      <p id="card-number">three</p>
+    <div id="card-number">
+      <h3>1</h3>
+      <p>matching-rate: 96%</p>
+      <h2>Vieux Boucqux</h2>
+      <p>meteo favorable</p>
+      <!-- <#%= render 'shared/card_new', spot: Spot.last %> -->
     </div>
   </div>
 </div>
-
 
 

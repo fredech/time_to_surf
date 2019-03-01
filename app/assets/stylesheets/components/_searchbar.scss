@@ -21,14 +21,21 @@
   }
 }
 
-// .label {
-//   color: $white;
-// }
+.label {
+  color: $white;
+}
 
-// .form-wrapper {
-//   // padding-left: 155px;
-//   color: $white;
-// }
+.form-wrapper {
+  // padding-left: 155px;
+  color: $white;
+    h3 {
+      color: $white;
+    }
+}
+
+.search-text {
+  margin-left: 13px;
+}
 
 // #spot_location {
 //   width: 400px;

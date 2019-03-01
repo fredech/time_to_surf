@@ -1,7 +1,9 @@
 <div id="search-container">
   <div class="<%= controller_name == 'pages' ? 'form-wrapper' : 'index-style' %>">
     <% if local_assigns[:needs_h3] %>
+    <div class="search-text">
       <h3>Find a spot</h3>
+    </div>
     <% end %>
     <div class="container">
       <div class="row">
@@ -15,7 +17,7 @@
         <div class="col-xs-12 col-sm-3 col-lg-3">
           <%= f.input :travel_time, label: "Travel time (minutes)", placeholder: '30', as: :integer, required: true %>
         </div>
-        <div class="col-xs-12 col-sm-3 col-lg-3">
+        <div class="col-xs-12 col-sm-3 col-lg-3 index-style">
           <%= f.button :submit, "Surf's up!", class: "btn btn-primary btn-style" %>
         </div>
         <% end %>
