@@ -1,12 +1,21 @@
 .index-style {
-  padding-top: 10px;
-  padding-bottom: 100px;
-  margin-left: 110px;
-  color: $white;
+  text-align: left;
+    .simple_form.search {
+      font-size: 15px;
+      color: $gray;
+    }
 }
 
-.index-style h3{
-  font-size: 20px;
-}
+// .index-style {
+//   .btn-style {
+//     height: 100px;
+//     margin-top: 25px;
+//     width: 100%;
+//   }
+// }
+
+
+
+
 
 
