@@ -3,6 +3,7 @@ class Spot < ApplicationRecord
   has_many :spot_services
   has_many :services, through: :spot_services
   has_many :preferred_spots
+  has_many :reviews, through: :surf_sessions
 
   default_scope { order(name: :asc) }
 
