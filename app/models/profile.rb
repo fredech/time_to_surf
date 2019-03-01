@@ -1,4 +1,4 @@
-class Profile < ApplicationRecord
+class  < ApplicationRecord
   belongs_to :user, dependant: :destroy
 
   geocoded_by :address
