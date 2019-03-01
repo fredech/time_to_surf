@@ -311,9 +311,29 @@ High consistency in the 7-8 range, means it is always crowded with shortboarders
                     difficulty_level: 4,
                     msw_id: 883 )
 spot_30.remote_photo_url = url
-spot_30.save
+spot_30.save!
+
 
 puts "#{Spot.count} spots created"
+
+puts "create Surf sessions..."
+
+surf_session_1 = SurfSession.new( start_time: "2019-03-01 12:00",
+                                  user: georgette,
+                                  spot: spot_3 )
+surf_session_1.save!
+
+puts "#{SurfSession.count} Surf sessions created"
+
+puts "create reviews..."
+
+url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1551442126/la_torche_2.jpg"
+review_1 = Review.new( content: "Very good session with perfect conditions. Waves awesome !!",
+                       surf_session: surf_session_1 )
+review_1.remote_photo_url = url
+review_1.save!
+
+puts "#{Review.count} reviews created"
 
 puts 'Finished!'
 

@@ -4,6 +4,7 @@ class Review < ApplicationRecord
 
   RATES = %w(0 1 2 3 4 5)
   validates :content, presence: true
+  validates :surf_session_id, presence: true
 
   mount_uploader :photo, PhotoUploader
 
