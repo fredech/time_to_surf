@@ -9,18 +9,28 @@ import { previewImageOnFileSelect } from '../components/photo_preview';
 import { tabEffect } from '../components/tab';
 import 'mapbox-gl/dist/mapbox-gl.css'; // <-- you need to uncomment the stylesheet_pack_tag in the layout!
 import { initMapbox } from '../plugins/init_mapbox';
-import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
+// import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { cardEffect } from '../components/card';
 
-initSelect2();
-initUpdateNavbarOnScroll();
-previewImageOnFileSelect();
-tabEffect();
-initMapbox();
-initAutocomplete();
-
-const card = document.querySelector(".snip1360");
-if ( card ) {
+if ( document.querySelector(".select2") ) {
+  initSelect2();
+}
+if ( document.querySelector(".navbar-wagon") ) {
+  initUpdateNavbarOnScroll();
+}
+if ( document.querySelector("#photo-preview") ) {
+  previewImageOnFileSelect();
+}
+if ( document.querySelector(".tab_container") ) {
+  tabEffect();
+}
+if ( document.querySelector("#map") ) {
+  initMapbox();
+}
+if ( document.querySelector("#spot_location") ) {
+  initAutocomplete();
+}
+if ( document.querySelector(".snip1360") ) {
   cardEffect();
 }

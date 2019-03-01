@@ -15,9 +15,12 @@ puts "create Users..."
 url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1551203149/Georgette.png"
 georgette = User.new(pseudo: "Georgette", email: "georgette@gmail.com", password:"topsecret", password_confirmation:"topsecret")
 georgette.remote_photo_url = url
+profile = Profile.new(level: 2, address: "16 villa gaudelet, Paris", level: "Intermediate")
+profile.user = georgette
 georgette.save!
+profile.save!
 
-puts "#{User.count} users created"
+puts "#{User.count} users with #{Profile.count} profiles created"
 
 puts "create Spots..."
 

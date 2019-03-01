@@ -1,19 +1,19 @@
-.spot_wrapper{
-  height: 150vh;
-  background-size: cover;
-  margin-top: 0;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  z-index: 0;
-  h1 {
-    font-size: 80px;
-    font-weight: 700;
-    text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
-    text-transform: uppercase;
-    text-align: left;
-  }
-}
+// .spot_wrapper{
+//   height: 150vh;
+//   background-size: cover;
+//   margin-top: 0;
+//   background-size: cover;
+//   background-position: center;
+//   position: relative;
+//   z-index: 0;
+//   h1 {
+//     font-size: 80px;
+//     font-weight: 700;
+//     text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+//     text-transform: uppercase;
+//     text-align: left;
+//   }
+// }
 
 .spot_container {
   display: flex;
@@ -23,32 +23,42 @@
   padding: 20px;
   position: absolute;
   top: 10vh;
-  right: 10%;
+  // right: 10%;
 }
 
 .fun_container {
-  max-width: 448px;
+  width: 448px;
   justify-content: center;
   align-items: center;
   padding-left: 24px;
   padding-right: 24px;
+  padding-top: 70px;
   z-index: 1;
 }
 .spot_map {
-  max-width: 300px;
+  width: 300px;
   height: 300px;
   border-radius: 50%;
   background-position: center;
   overflow: hidden;
   background-size: cover;
+  margin: auto;
+  #map {
+    width: 300px;
+    height: 300px;
+  }
 }
-.spot_video {
-  max-width: 400px;
+.spot_image {
+  width: 400px;
   height: 300px;
-  margin-top: 32px;
-  margin-bottom: 32px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  border-radius: 6px;
+  box-shadow: 6px 6px 6px rgba(30, 30, 30, 0.4);
   overflow: hidden;
   position: relative;
+  background-size: cover;
+  background-position: center;
   p {
     position: absolute;
     color: $white;
@@ -56,15 +66,19 @@
     left: 20px;
   }
 }
-.spot_image {
-  max-width: 400px;
+.spot_video {
+  width: 400px;
   height: 300px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  box-shadow: 6px 6px 6px rgba(30, 30, 30, 0.4);
+  border-radius: 6px;
   overflow: hidden;
   position: relative;
   p {
     position: absolute;
     color: $white;
-    top: 5px;
+    top: -10px;
     left: 20px;
   }
 }
@@ -75,20 +89,37 @@
   justify-content: center;
   padding-left: 24px;
   padding-right: 24px;
-  padding-top: 16vh;
+  padding-top: 40vh;
   z-index: -1;
 }
-.spot_sum {
-  margin-top: 24px;
-  padding-bottom: 24px;
+
+.spot_info {
+  margin-top: 8px;
+  padding-bottom: 10px;
   border-bottom: solid 1px $light-gray;
 }
+
 .spot_details {
   margin-top: 24px;
   padding-bottom: 24px;
   border-bottom: solid 1px $light-gray;
 }
+
 .spot_weather {
+  margin-top: 24px;
+  padding-bottom: 24px;
+  border-bottom: solid 1px $light-gray;
+}
+
+.weather_box {
+  display: flex;
+}
+
+.weather_box_item {
+  width: 50%;
+}
+
+.spot_review {
   margin-top: 24px;
   padding-bottom: 24px;
   border-bottom: solid 1px $light-gray;

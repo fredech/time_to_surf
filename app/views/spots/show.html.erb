@@ -1,23 +1,71 @@
-<div class="banner" style="background-image: url(<%= image_path 'bckgd4.jpg' %>);">
-  <h1><%= " Spot details" %></h1>
+<!-- <div class="banner-spot" style="background-image: url(<%#= image_path 'bckgd4.jpg' %>);">
+  <div class="banner-spot-name">
+    <h2><%#= @spot.name %></h2>
+  </div> -->
+<!-- </div> -->
+
+<div class="banner-spot" style="background-image: url(<%= cl_image_path @spot.photo %>);">
+  <div class="banner-spot-name">
+    <h2><strong><%= @spot.name.upcase %></strong></h3>
+  </div>
 </div>
+
 <div class="container">
   <div class="spot_container">
     <div class="content_container">
-      <div class="spot_sum">
-        <h2><%= @spot.name %></h2>
-        <p><%= @spot.address %></p>
+      <div class="spot_info">
+        <h3><%= @spot.name.upcase %> - <%= @weather[:date] %> <%= image_tag @weather[:weather_icon], class: "avatar-medium" %></p> </h3>
       </div>
       <div class="spot_details">
-        <h3>Description</h3>
+        <h3>DESCRIPTION</h3>
         <p><%= @spot.description %></p>
         <p><strong>Seabed: </strong><%= @spot.seabed %></p>
+        <p><strong>Best tide for the spot: </strong><%= @spot.best_tide %></p>
       </div>
       <div class="spot_weather">
-        <h3><%= "Weather #{@date}" %></h3>
-        <p><strong>Water temperature: </strong><%= @weather[:water_temperature] %> °C</p>
-        <p><strong>Air temperature: </strong><%= @weather[:air_temperature] %> °C</p>
-        <%= image_tag @weather[:weather_icon], class: "avatar-large" %>
+        <h3>TEMPERATURE - SUNRISE - SUNSET </h3>
+        <div class="weather_box">
+          <div class="weather_box_item">
+            <p><%= image_tag 'temperature.png', width: 25, height: 25 %><%= image_tag 'water.png', width: 25, height: 25 %>  <%= @weather[:water_temperature] %> °C</p>
+            <p><%= image_tag 'sunrise.png', width: 25, height: 25 %> <%= @weather[:sunrise] %></p>
+          </div>
+          <div class="weather_box_item">
+            <p><%= image_tag 'temperature.png', width: 25, height: 25 %><%= image_tag 'air.png', width: 25, height: 25 %>  <%= @weather[:air_temperature] %> °C</p>
+            <p><%= image_tag 'sunset.png', width: 25, height: 25 %> <%= @weather[:sunset] %></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="spot_weather">
+        <h3>WAVE - WIND</h3>
+        <div class="weather_box">
+          <div class="weather_box_item">
+            <p><%= image_tag 'air.png', width: 25, height: 25 %><%= image_tag 'speed.png', width: 25, height: 25 %>  <%= @weather[:wind_speed] %> km/h </p>
+            <p><%= image_tag 'air.png', width: 25, height: 25 %><%= image_tag 'compass.png', width: 25, height: 25 %>  <%= @weather[:wind_direction_string] %> </p>
+          </div>
+          <div class="weather_box_item">
+            <p><%= image_tag 'wave.png', width: 25, height: 25 %> <%= image_tag 'height.png', width: 25, height: 25 %> <%= @weather[:swell_height] %> meters </p>
+            <p><%= image_tag 'wave.png', width: 25, height: 25 %> <%= image_tag 'frequency.png', width: 25, height: 25 %> <%= @weather[:swell_period] %> seconds</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="spot_weather">
+        <h3>TIDE</h3>
+        <div class="weather_box">
+          <div class="weather_box_item">
+            <p><%= image_tag 'tide.png', width: 25, height: 25 %> <%= @weather[:tide_1_time] %>: <%= @weather[:tide_1_low_or_high].capitalize %> </p>
+          </div>
+          <div class="weather_box_item">
+            <p><%= image_tag 'tide.png', width: 25, height: 25 %> <%= @weather[:tide_2_time] %>: <%= @weather[:tide_2_low_or_high].capitalize %> </p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="spot_review">
+        <h3>Reviews</h3>
+        <p></p>
       </div>
     </div>
     <div class="fun_container">
@@ -28,9 +76,8 @@
         <p>Live video</p>
          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/UdSTPyS66as?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
-      <div class="spot_image">
+      <div class="spot_image" style="background-image: url(<%= cl_image_path @spot.photo %>);">
         <p>General view</p>
-        <%= cl_image_tag @spot.photo, class: "spot-image" %>
       </div>
     </div>
   </div>

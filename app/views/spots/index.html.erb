@@ -2,17 +2,13 @@
   <%= render 'shared/searchbar'%>
 </div>
 <div class="main-container">
-  <div class="map-container index-map">
-    <!-- <#%= render 'shared/map', markers: @markers%> -->
+  <div class="map-container index-map" id="map" >
+    <%= render 'shared/map', markers: @markers%>
   </div>
   <div class="card-container">
     <%= render 'shared/card', spot: Spot.last%>
     <%= render 'shared/card', spot: Spot.first%>
     <%= render 'shared/card', spot: Spot.last%>
+    <!-- <#%= render 'shared/card_new', spot: spot, conditions_rates: conditions_rate(spot, "12h"), matching_rates: matching_rate(spot, current_user, "12h") %> -->
   </div>
 </div>
-
-
-      <!-- <#%= render 'shared/card_new', spot: Spot.last %> -->
-            <!-- <#%= render 'shared/card_new', spot: Spot.last %> -->
-
