@@ -1,68 +1,117 @@
-//===========> all below is temporary CSS, can be deleted!
-.card {
-  height: 300px;
-  width: 550px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-  background-size: cover !important;
-  background-position: center;
-  color: white;
+#card-one {
   position: relative;
-  background-color: $red;
-  margin-top: 0px;
-  margin-bottom: 35px;
-  margin-right: 5px;
 }
 
-.last-card{
-  background-color: $green;
-  margin-bottom: 5px;
+#card-two {
+  position: relative;
 }
 
-.card-user {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  width: 40px;
-  border-radius: 50%;
+#card-three {
+  position: relative;
 }
-.card-category {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  font-size: 15px;
+
+#card-number {
+ text-align: center;
+ border: 1px solid $gray;
+ position: relative;
+}
+
+#card-number h3 {
+ font-size: 100px;
+ background-color: white;
+}
+
+#card-number p {
+ text-align: center;
+ font-style: italic;
+}
+
+#card-number h2 {
   text-transform: uppercase;
-}
-.card-description {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-}
-.card-description h2 {
-  font-size: 24px;
-}
-.card-description p {
-  font-size: 14px;
-  opacity: 0.7;
-  font-weight: lighter;
-}
-.card-link {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  z-index: 2;
-  background: black;
-  opacity: 0;
-}
-.card-link:hover {
-  opacity: 0.1;
+  font-size: 28px;
 }
 
-.snip1360 {
-  background-color: $green;
-  height: 400px;
+#card-number h2 a {
+  color: $gray;
 }
+
+#card-number h2 :hover {
+  text-decoration: none;
+}
+
+.fa-heart {
+  position: absolute;
+  top: 14px;
+  left: 324px;
+}
+
+
+
+// //===========> all below is temporary CSS, can be deleted!
+// .card {
+//   height: 300px;
+//   width: 550px;
+//   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+//   background-size: cover !important;
+//   background-position: center;
+//   color: white;
+//   position: relative;
+//   background-color: $red;
+//   margin-top: 0px;
+//   margin-bottom: 35px;
+//   margin-right: 5px;
+// }
+
+// .last-card{
+//   background-color: $green;
+//   margin-bottom: 5px;
+// }
+
+// .card-user {
+//   position: absolute;
+//   right: 10px;
+//   top: 10px;
+//   width: 40px;
+//   border-radius: 50%;
+// }
+// .card-category {
+//   position: absolute;
+//   top: 10px;
+//   left: 10px;
+//   font-size: 15px;
+//   text-transform: uppercase;
+// }
+// .card-description {
+//   position: absolute;
+//   bottom: 10px;
+//   left: 10px;
+// }
+// .card-description h2 {
+//   font-size: 24px;
+// }
+// .card-description p {
+//   font-size: 14px;
+//   opacity: 0.7;
+//   font-weight: lighter;
+// }
+// .card-link {
+//   position: absolute;
+//   top: 0;
+//   bottom: 0;
+//   right: 0;
+//   width: 100%;
+//   z-index: 2;
+//   background: black;
+//   opacity: 0;
+// }
+// .card-link:hover {
+//   opacity: 0.1;
+// }
+
+// .snip1360 {
+//   background-color: $green;
+//   height: 400px;
+// }
 // //===========> all above is temporary CSS, can be deleted!
 // @import url(https://fonts.googleapis.com/css?family=Oswald);
 // @import url(https://fonts.googleapis.com/css?family=Quattrocento);

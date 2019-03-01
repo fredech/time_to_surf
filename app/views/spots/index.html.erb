@@ -2,31 +2,17 @@
   <%= render 'shared/searchbar'%>
 </div>
 <div class="main-container">
-  <div class="map-container">
-<!--     <#%= render 'shared/map', markers: @markers%>
- -->  </div>
+  <div class="map-container index-map">
+    <!-- <#%= render 'shared/map', markers: @markers%> -->
+  </div>
   <div class="card-container">
-    <div id="card-number">
-      <h3>1</h3>
-      <p>matching-rate: 96%</p>
-      <h2>Vieux Boucqux%></h2>
-      <p>meteo favorable</p>
-    </div>
-    <div id="card-number">
-      <h3>1</h3>
-      <p>matching-rate: 96%</p>
-      <h2>Vieux Boucqux</h2>
-      <p>meteo favorable</p>
-      <!-- <#%= render 'shared/card_new', spot: Spot.last %> -->
-    </div>
-    <div id="card-number">
-      <h3>1</h3>
-      <p>matching-rate: 96%</p>
-      <h2>Vieux Boucqux</h2>
-      <p>meteo favorable</p>
-      <!-- <#%= render 'shared/card_new', spot: Spot.last %> -->
-    </div>
+    <%= render 'shared/card', spot: Spot.last%>
+    <%= render 'shared/card', spot: Spot.first%>
+    <%= render 'shared/card', spot: Spot.last%>
   </div>
 </div>
 
+
+      <!-- <#%= render 'shared/card_new', spot: Spot.last %> -->
+            <!-- <#%= render 'shared/card_new', spot: Spot.last %> -->
 

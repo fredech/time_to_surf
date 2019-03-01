@@ -3,7 +3,7 @@
 
  .main-container {
   display: flex;
-  // align-items: flex-start;
+  align-items: flex-start;
   flex-wrap: wrap;
   padding-left: 10px;
   padding-right: 10px;
@@ -13,12 +13,16 @@
   min-width: 500px;
   flex: auto;
   margin-top: 10px;
+  background-color: $green;
  }
 
 .card-container {
+  align-items: center;
+  justify-content: center;
   padding-left: 20px;
   padding-right: 20px;
   flex: 0.7;
+  margin-top: 10px;
 }
 
  .card-container > * {
@@ -27,8 +31,8 @@
  }
 
 
- #map {
-  flex: 0 0 800px;
+ .index-map {
+  // flex: 0 0 800px;
   height: 100vh !important;
   position: sticky !important;
   top: 75px !important;
@@ -45,38 +49,6 @@
   margin-top: 90px;
 }
 
-#card-one {
-  position: relative;
-}
-
-#card-two {
-  position: relative;
-}
-
-#card-three {
-  position: relative;
-}
-
-#card-number {
- text-align: center;
- border: 1px solid $gray;
-}
-
-#card-number h3 {
- font-size: 100px;
- background-color: white;
-}
-
-#card-number p {
- text-align: center;
- font-style: italic;
-}
-
-#card-number h2 {
-  text-transform: uppercase;
-  font-size: 28px;
-  color: black;
-}
 
 
 
