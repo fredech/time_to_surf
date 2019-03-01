@@ -5,7 +5,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   # association
-  has_many :surf_sessions
+  has_many :surf_sessions, dependent: :destroy
   has_many :preferred_spots
   has_one :profile, dependent: :destroy
 
