@@ -13,7 +13,11 @@
           <%= f.input :travel_time, label: "Travel time (min.)", placeholder: '30', as: :integer %>
         </div>
         <div class="col-xs-12 col-sm-2 col-lg-2">
-          <%= f.input :level, prompt: current_user.profile.level, selected: current_user.profile.level, input_html: { label: 'Your surfing level', class: 'select2' }, collection: Profile::LEVELS %>
+          <% if user_signed_in? %>
+            <%= f.input :level, prompt: current_user.profile.level, selected: current_user.profile.level, input_html: { label: 'Your surfing level', class: 'select2' }, collection: Profile::LEVELS %>
+          <% else %>
+            <%= f.input :level, prompt: "Beginner", input_html: { label: 'Your surfing level', class: 'select2' }, collection: Profile::LEVELS %>
+          <% end %>
         </div>
         <div class="col-xs-12 col-sm-2 col-lg-2 index-style">
           <%= f.button :submit, "Surf's up!", class: "btn btn-primary btn-style" %>
