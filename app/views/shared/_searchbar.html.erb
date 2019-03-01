@@ -3,10 +3,12 @@
     <% if local_assigns[:needs_h3] %>
       <h3>Find a spot</h3>
     <% end %>
-    <%= simple_form_for :search, method: "get" do |f| %>
+    <%= simple_form_for :spots, method: "get" do |f| %>
       <%= f.input :location, as: :string, placeholder: "Hossegor", required: true, input_html: { id: 'spot_location'}  %>
       <%= f.input :start_time, as: :string, required: true, placeholder: "YYYY-MM-DD HH:HH", input_html: {class: "datepicker"} %>
       <%= f.input :travel_time, label: "Travel time (minutes)", placeholder: '30', as: :integer, required: true %>
+      <%= f.input :level, label: "Your surfing level", prompt: 'Beginner', as: :string, required: true %>
+      <%= f.input :level, input_html: { label: 'Your surfing level', value: current_user.profile.level, class: 'select2' }, collection: Profile::LEVELS %>
       <%= f.button :submit, "Surf's up!", class: "btn btn-primary btn-style" %>
     <% end %>
   </div>

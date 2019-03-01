@@ -5,12 +5,10 @@ namespace :test do
       api_key = ENV['WEATHER_API_KEY']
       api_key_msw = ENV['MAGICSEAWEED_API_KEY']
       puts "#{args[:lat]}"
-      # api_key = '2e9f60ab2bdf4bda881161945192502'
       url = "http://api.worldweatheronline.com/premium/v1/marine.ashx?key=#{api_key}&format=json&q=#{args[:lat]},#{args[:long]}&tide=yes"
       url_serialized = open(url).read
       spot_weather = JSON.parse(url_serialized)
 
-      # api_key_msw = 'jWD770v2Kp3d2VKW12l0o4TVuYrb555r'
       url_msw = "http://magicseaweed.com/api/#{api_key_msw}/forecast/?spot_id=#{args[:msw_id]}&units=eu&fields=timestamp,solidRating,fadedRating"
       url_msw_serialized = open(url_msw).read
       spot_wave_conditions = JSON.parse(url_msw_serialized)

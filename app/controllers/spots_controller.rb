@@ -1,5 +1,6 @@
 require_relative '../services/weather.rb'
 require_relative '../services/algo.rb'
+require_relative '../services/search.rb'
 
 class SpotsController < ApplicationController
   before_action :set_spot, only: [:show]
