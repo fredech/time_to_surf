@@ -17,8 +17,7 @@ class SpotsController < ApplicationController
     #     image_url: helpers.asset_url('map_pin.png')
     #   }
     # end
-
-    @spots = Spot.where.not(latitude: nil, longitude: nil)
+    search
 
     @markers = @spots.map do |spot|
       {

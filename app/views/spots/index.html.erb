@@ -1,20 +1,14 @@
-<div class="search-summary">
-  <h1>Suggestions for <%= current_user.pseudo %></h1>
-</div>
+<div class="index-search">
   <%= render 'shared/searchbar'%>
+</div>
 <div class="main-container">
-  <%= render 'shared/map', markers: @markers%>
+  <div class="map-container index-map" >
+    <%= render 'shared/map', markers: @markers%>
+  </div>
   <div class="card-container">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-6 col-sm-12">
-          <%#= render 'shared/card' %>
-          <%= 3.times do %>
-            <% spot = @spots.sample %>
-            <%= render 'shared/card_new', spot: spot, conditions_rates: conditions_rate(spot, "12h"), matching_rates: matching_rate(spot, current_user, "12h") %>
-          <% end %>
-        </div>
-      </div>
-    </div>
+    <%= render 'shared/card', spot: Spot.last%>
+    <%= render 'shared/card', spot: Spot.first%>
+    <%= render 'shared/card', spot: Spot.last%>
+    <!-- <#%= render 'shared/card_new', spot: spot, conditions_rates: conditions_rate(spot, "12h"), matching_rates: matching_rate(spot, current_user, "12h") %> -->
   </div>
 </div>
