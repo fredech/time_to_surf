@@ -4,13 +4,13 @@
       <div class="row">
         <%= simple_form_for :spot, url: spots_path, method: 'GET' do |f| %>
         <div class="col-xs-12 col-sm-4 col-lg-4">
-          <%= f.input :address, as: :string, placeholder: "Hossegor", input_html: { id: 'spot_location'} %>
+          <%= f.input :address, as: :string, placeholder: "Hossegor", value: params[:spot][:address], input_html: { id: 'spot_location'} %>
         </div>
         <div class="col-xs-12 col-sm-2 col-lg-2">
-          <%= f.input :start_time, as: :string, placeholder: "YYYY-MM-DD HH:HH", input_html: {class: "datepicker"} %>
+          <%= f.input :start_time, as: :string, placeholder: "YYYY-MM-DD HH:HH", value: params[:spot][:start_time], input_html: {class: "datepicker"} %>
         </div>
         <div class="col-xs-12 col-sm-2 col-lg-2">
-          <%= f.input :travel_time, label: "Travel time (min.)", placeholder: '30', as: :integer %>
+          <%= f.input :travel_time, label: "Travel time (min.)", value: params[:spot][:travel_time], placeholder: '30', as: :integer %>
         </div>
         <div class="col-xs-12 col-sm-2 col-lg-2">
           <%= f.input :level, prompt: current_user.profile.level, selected: current_user.profile.level, input_html: { label: 'Your surfing level', class: 'select2' }, collection: Profile::LEVELS %>
