@@ -9,7 +9,7 @@
         <%= f.input :start_time, as: :string, placeholder: "YYYY-MM-DD HH:MM", input_html: {class: 'form-search datepicker'}, label_html: { class: 'navbar-wagon-link' }, required: true %>
       </div>
       <div class="col-xs-12 col-sm-2 col-lg-2">
-        <%= f.input :travel_time, label: "Travel time (min.)", placeholder: '30', as: :integer, input_html: { class: 'form-search'}, label_html: { class: 'navbar-wagon-link' }, required: true %>
+        <%= f.input :travel_time, label: "Travel time (min.)", placeholder: '30', required: true, as: :integer, input_html: { class: 'form-search'}, label_html: { class: 'navbar-wagon-link' } %>
       </div>
       <div class="col-xs-12 col-sm-2 col-lg-2">
         <% if user_signed_in? %>
