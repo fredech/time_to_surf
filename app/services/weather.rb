@@ -7,12 +7,6 @@ def weather_condition(spot, hour_searched)
   lat = spot.latitude
   long = spot.longitude
   msw_id = spot.msw_id
-# def weather_condition(hour_searched)
-  # api_key = "2e9f60ab2bdf4bda881161945192502"
-  # api_key_msw = "jWD770v2Kp3d2VKW12l0o4TVuYrb555r"
-  # lat = "47.84"
-  # long = "-4.35"
-  # msw_id = '1531'
 
   url = "http://api.worldweatheronline.com/premium/v1/marine.ashx?key=#{api_key}&format=json&q=#{lat},#{long}&tide=yes"
   url_serialized = open(url).read
@@ -66,25 +60,26 @@ end
 # hour = { "0h" => 0, "3h" => 1, "6h" => 2, "9h" => 3, "12h" => 4, "15h" => 5, "18h" => 6, "21h" => 7 }
 # p weather_condition("12h")
 
-
-# @weather = { :date=>"2019-03-01",
-#                 :sunrise=>"07:59 AM",
-#                 :sunset=>"07:02 PM",
-#                 :air_temperature=>"12",
-#                 :water_temperature=>"11",
-#                 :wind_speed=>"17",
-#                 :wind_direction=>"212",
-#                 :wind_direction_string=>"SSW",
-#                 :weather_icon=>"http://cdn.worldweatheronline.net/images/wsymbols01_png_64/wsymbol_0002_sunny_intervals.png",
-#                 :weather_description=>"Partly cloudy",
-#                 :swell_height=>"1.8",
-#                 :swell_direction=>"260",
-#                 :swell_direction_string=>"W",
-#                 :swell_period=>"10.0",
-#                 :tide_1_time=>"7:04 AM",
-#                 :tide_1_low_or_high=>"LOW",
-#                 :tide_2_time=>"1:35 PM",
-#                 :tide_2_low_or_high=>"HIGH",
-#                 :faded_rating=>0,
-#                 :solid_rating=>2 }
-
+def weather_condition_fixed
+  @weather = { :date=>"2019-03-01",
+               :sunrise=>"07:59 AM",
+               :sunset=>"07:02 PM",
+               :air_temperature=>"12",
+               :water_temperature=>"11",
+               :wind_speed=>"17",
+               :wind_direction=>"212",
+               :wind_direction_string=>"SSW",
+               :weather_icon=>"http://cdn.worldweatheronline.net/images/wsymbols01_png_64/wsymbol_0002_sunny_intervals.png",
+               :weather_description=>"Partly cloudy",
+               :swell_height=>"1.8",
+               :swell_direction=>"260",
+               :swell_direction_string=>"W",
+               :swell_period=>"10.0",
+               :tide_1_time=>"7:04 AM",
+               :tide_1_low_or_high=>"LOW",
+               :tide_2_time=>"1:35 PM",
+               :tide_2_low_or_high=>"HIGH",
+               :faded_rating=>0,
+               :solid_rating=>2
+  }
+end
