@@ -1,19 +1,63 @@
-#card-one {
+.card-container {
+  padding: 0px;
+  margin: 0px;
+}
+.card-number {
+  margin-left: 0px;
+  background-color: $white;
+  text-align: center;
+  border: 2px solid $light-gray;
   position: relative;
+  width: 200px;
+  height: 280px;
+  background-size: cover;
+  background-position: center;
+  &:hover {
+    margin-left: -30px;
+    transition: all ease 0.5s;
+    border: 2px solid $red;
+    z-index: 10;
+  }
 }
 
-#card-two {
-  position: relative;
+.card-image {
+  position: absolute;
+  top: 0px;
+  width: 196px;
+  height: 190px;
+  background-size: cover;
+  background-position: center;
 }
 
-#card-three {
-  position: relative;
-}
-
-#card-number {
- text-align: center;
- border: 1px solid $gray;
- position: relative;
+.card-content {
+  position: absolute;
+  top: 20px;
+  width: 200px;
+  align-items: center;
+  text-align: center;
+  margin: 0px;
+  padding: 0px;
+  h2 {
+    padding-top: 0px;
+    margin: 0px;
+    font-size: 120px;
+    font-weight: bold;
+    color: $white;
+  }
+  h3 {
+    .navbar-wagon-link {
+      padding-top: 5px;
+      text-transform: uppercase;
+      font-size: 24px;
+    }
+  }
+  p {
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+    font-style: italic;
+    line-height: 1;
+  }
 }
 
 // #card-div :hover{
@@ -22,29 +66,6 @@
 //   transition: all ease 0.5s;
 // }
 
-#card-number h3 {
- font-size: 100px;
- background-color: white;
-}
-
-#card-number p {
- text-align: center;
- font-style: italic;
-}
-
-#card-number h2 {
-  text-transform: uppercase;
-  font-size: 28px;
-}
-
-#card-number h2 a {
-  color: $gray;
-}
-
-#card-number h2 :hover {
-  text-decoration: none;
-}
-
 .fa-heart {
   position: absolute;
   top: 14px;
@@ -52,162 +73,95 @@
 }
 
 
+@import url(https://fonts.googleapis.com/css?family=Oswald);
+@import url(https://fonts.googleapis.com/css?family=Quattrocento);
+.snip1360 {
+  font-family: 'Quattrocento', Arial, sans-serif;
+  position: relative;
+  overflow: hidden;
+  margin: 10px;
+  // min-width: 230px;
+  // max-width: 315px;
+  color: #141414;
+  text-align: left;
+  line-height: 1.4em;
+  font-size: 16px;
+  background-color: #ffffff;
+  width: 440px;
+}
 
-// //===========> all below is temporary CSS, can be deleted!
-// .card {
-//   height: 300px;
-//   width: 550px;
-//   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-//   background-size: cover !important;
-//   background-position: center;
-//   color: white;
-//   position: relative;
-//   background-color: $red;
-//   margin-top: 0px;
-//   margin-bottom: 35px;
-//   margin-right: 5px;
-// }
+.snip1360 :hover {
 
-// .last-card{
-//   background-color: $green;
-//   margin-bottom: 5px;
-// }
+}
 
-// .card-user {
-//   position: absolute;
-//   right: 10px;
-//   top: 10px;
-//   width: 40px;
-//   border-radius: 50%;
-// }
-// .card-category {
-//   position: absolute;
-//   top: 10px;
-//   left: 10px;
-//   font-size: 15px;
-//   text-transform: uppercase;
-// }
-// .card-description {
-//   position: absolute;
-//   bottom: 10px;
-//   left: 10px;
-// }
-// .card-description h2 {
-//   font-size: 24px;
-// }
-// .card-description p {
-//   font-size: 14px;
-//   opacity: 0.7;
-//   font-weight: lighter;
-// }
-// .card-link {
-//   position: absolute;
-//   top: 0;
-//   bottom: 0;
-//   right: 0;
-//   width: 100%;
-//   z-index: 2;
-//   background: black;
-//   opacity: 0;
-// }
-// .card-link:hover {
-//   opacity: 0.1;
-// }
+.snip-image :hover{
+  /* border: solid; */
+  transform: scale(1.05);
+  transition: all ease 0.5s;
+}
 
-// .snip1360 {
-//   background-color: $green;
-//   height: 400px;
-// }
-// //===========> all above is temporary CSS, can be deleted!
-// @import url(https://fonts.googleapis.com/css?family=Oswald);
-// @import url(https://fonts.googleapis.com/css?family=Quattrocento);
-// .snip1360 {
-//   font-family: 'Quattrocento', Arial, sans-serif;
-//   position: relative;
-//   overflow: hidden;
-//   margin: 10px;
-//   // min-width: 230px;
-//   // max-width: 315px;
-//   color: #141414;
-//   text-align: left;
-//   line-height: 1.4em;
-//   font-size: 16px;
-//   background-color: #ffffff;
-//   width: 440px;
-// }
+.snip-image {
+  margin-bottom: 20px;
+  width: 500px;
+}
 
-// .snip1360 :hover {
-
-// }
-
-// .snip-image :hover{
-//   /* border: solid; */
-//   transform: scale(1.05);
-//   transition: all ease 0.5s;
-// }
-
-// .snip-image {
-//   margin-bottom: 20px;
-//   width: 500px;
-// }
-
-// .snip1360 * {
-//  /*  -webkit-box-sizing: border-box;
-//  box-sizing: border-box; */
-//   -webkit-transition: all 0.25s ease;
-//   transition: all 0.25s ease;
-// }
-// .snip1360 img {
-//   vertical-align: top;
-// }
-// .snip1360 figcaption {
-//   width: 100%;
-//   background-color: #ffffff;
-//   padding: 10px 25px 55px;
-//   position: relative;
-// }
-// .snip1360 figcaption:before {
-//   position: absolute;
-//   content: '';
-//   z-index: 2;
-//   bottom: 100%;
-//   left: 0;
-//   width: 100%;
-//   height: 80px;
-//   background-image: -webkit-linear-gradient(top, transparent 0%, #ffffff 100%);
-//   background-image: linear-gradient(to bottom, transparent 0%, #ffffff 100%);
-// }
-// .snip1360 figcaption a {
-//   position: absolute;
-//   bottom: 0;
-//   left: 0;
-//   padding: 10px;
-//   background-color: #cccccc;
-//   color: #000000;
-//   font-size: 0.8em;
-//   text-transform: uppercase;
-//   opacity: 0.65;
-//   width: 440px;
-//   text-align: center;
-//   text-decoration: none;
-//   letter-spacing: 1px;
-// }
-// .snip1360 figcaption a:hover {
-//   opacity: 1;
-// }
-// .snip1360 h2 {
-//   margin: 0 0 10px;
-//   font-weight: 300;
-//   font-size: 1.5em;
-//   line-height: 1.2em;
-//   font-family: 'Oswald', Arial, sans-serif;
-//   text-transform: uppercase;
-// }
-// .snip1360 p {
-//   margin: 0 0 10px;
-//   font-size: 0.9em;
-//   letter-spacing: 1px;
-//   opacity: 0.9;
-// }
+.snip1360 * {
+ /*  -webkit-box-sizing: border-box;
+ box-sizing: border-box; */
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+.snip1360 img {
+  vertical-align: top;
+}
+.snip1360 figcaption {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 10px 25px 55px;
+  position: relative;
+}
+.snip1360 figcaption:before {
+  position: absolute;
+  content: '';
+  z-index: 2;
+  bottom: 100%;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background-image: -webkit-linear-gradient(top, transparent 0%, #ffffff 100%);
+  background-image: linear-gradient(to bottom, transparent 0%, #ffffff 100%);
+}
+.snip1360 figcaption a {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 10px;
+  background-color: #cccccc;
+  color: #000000;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  opacity: 0.65;
+  width: 440px;
+  text-align: center;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+.snip1360 figcaption a:hover {
+  opacity: 1;
+}
+.snip1360 h2 {
+  margin: 0 0 10px;
+  font-weight: 300;
+  font-size: 1.5em;
+  line-height: 1.2em;
+  font-family: 'Oswald', Arial, sans-serif;
+  text-transform: uppercase;
+}
+.snip1360 p {
+  margin: 0 0 10px;
+  font-size: 0.9em;
+  letter-spacing: 1px;
+  opacity: 0.9;
+}
 
 
