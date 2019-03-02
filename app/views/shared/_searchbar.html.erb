@@ -4,22 +4,22 @@
       <div class="row">
         <%= simple_form_for :spot, url: spots_path, method: 'GET' do |f| %>
         <div class="col-xs-12 col-sm-4 col-lg-4">
-          <%= f.input :address, as: :string, placeholder: "Hossegor", input_html: { id: 'spot_location'} %>
+          <%= f.input :address, as: :string, placeholder: "Hossegor", input_html: { id: 'spot_location', class: 'form-search'}, label_html: { class: 'navbar-wagon-link' } %>
         </div>
         <div class="col-xs-12 col-sm-2 col-lg-2">
-          <%= f.input :start_time, as: :string, placeholder: "YYYY-MM-DD HH:HH", input_html: {class: "datepicker"} %>
+          <%= f.input :start_time, as: :string, placeholder: "YYYY-MM-DD HH:MM", input_html: {class: "datepicker", class: 'form-search datepicker'}, label_html: { class: 'navbar-wagon-link' } %>
         </div>
         <div class="col-xs-12 col-sm-2 col-lg-2">
-          <%= f.input :travel_time, label: "Travel time (min.)", placeholder: '30', as: :integer %>
+          <%= f.input :travel_time, label: "Travel time (min.)", placeholder: '30', as: :integer, input_html: { class: 'form-search'}, label_html: { class: 'navbar-wagon-link' } %>
         </div>
         <div class="col-xs-12 col-sm-2 col-lg-2">
           <% if user_signed_in? %>
-            <%= f.input :level, prompt: current_user.profile.level, selected: current_user.profile.level, input_html: { label: 'Your surfing level', class: 'select2' }, collection: Profile::LEVELS %>
+            <%= f.input :level, prompt: current_user.profile.level, selected: current_user.profile.level, input_html: { label: 'Your surfing level', class: 'select2' }, collection: Profile::LEVELS, label_html: { class: 'navbar-wagon-link' } %>
           <% else %>
-            <%= f.input :level, prompt: "Beginner", input_html: { label: 'Your surfing level', class: 'select2' }, collection: Profile::LEVELS %>
+            <%= f.input :level, prompt: "Beginner", input_html: { label: 'Your surfing level', class: 'select2' }, collection: Profile::LEVELS, label_html: { class: 'navbar-wagon-link' } %>
           <% end %>
         </div>
-        <div class="col-xs-12 col-sm-2 col-lg-2 index-style">
+        <div class="col-xs-4 col-sm-2 col-lg-2">
           <%= f.button :submit, "Surf's up!", class: "btn btn-primary btn-style" %>
         </div>
         <% end %>

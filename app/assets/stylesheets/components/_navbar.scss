@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: transparent;
+  background:rgba(255,255,255,0.4);
   transition: 0.5s background-color ease;
 }
 
@@ -54,7 +54,7 @@
 /* Navbar link */
 .navbar-wagon-link {
   color: #616668;
-  font-size: 14px;
+  font-size: 16px;
 }
 .navbar-wagon-link:hover {
   color: #da552f;
