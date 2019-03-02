@@ -4,7 +4,7 @@
       <h1>Time to surf !</h1>
       <p>Find an adapted spot to your level and needs</p>
     </div>
-    <%= render 'shared/searchbar' %>
+    <%= render 'shared/searchbar', level: @level %>
     <%= cl_video_tag("4k_Aerial_Beach_Footage", :loop => true, :autoplay => true, class: "video",
   :fallback_content => "Your browser does not support HTML5 video tags") %>
   </div>

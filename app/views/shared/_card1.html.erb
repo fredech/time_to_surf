@@ -9,7 +9,7 @@
     <div class="card-content">
       <h2><%= rank %></h2>
       <p>match rate: <%= @matching_rates[3-rank][1] %></p>
-      <h3><%= link_to "#{spot.name}", spot_path(spot, start_time: params[:spot][:start_time], travel_time: params[:spot][:travel_time], address: params[:spot][:address]), class: 'navbar-wagon-link'%></h3>
+      <h3><%= link_to "#{spot.name}", spot_path(spot, start_time: params[:search][:start_time], travel_time: params[:search][:travel_time], address: params[:search][:address]), class: 'navbar-wagon-link'%></h3>
       <p><%= spot.address %></p>
     </div>
   </div>

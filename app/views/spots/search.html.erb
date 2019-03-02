@@ -1,16 +1,15 @@
-<div class="index-search">
+<div class="search_bar">
   <%= render 'shared/searchbar_index'%>
 </div>
-<div class="main-container">
-  <div class="map-container index-map" >
-    <%= render 'shared/map', markers: @markers%>
-  </div>
-  <div class="card-container">
-<!--     <#%= render 'shared/card', spot: @selected_spots[2], rank: 1 %>
-    <#%= render 'shared/card', spot: @selected_spots[1], rank: 2 %>
-    <#%= render 'shared/card', spot: @selected_spots[0], rank: 3 %> -->
-    <%= render 'shared/card_new', spot: @selected_spots[2], rank: 1 %>
-    <%= render 'shared/card_new', spot: @selected_spots[1], rank: 2 %>
-    <%= render 'shared/card_new', spot: @selected_spots[0], rank: 3 %>
+<div class="container">
+  <div class="main-container">
+    <div class="map-container" >
+      <%= render 'shared/map', markers: @markers%>
+    </div>
+    <div class="cards-container">
+      <%= render 'shared/card1', spot: @selected_spots[2], rank: 1 %>
+      <%= render 'shared/card2', spot: @selected_spots[1], rank: 2 %>
+      <%= render 'shared/card3', spot: @selected_spots[0], rank: 3 %>
+    </div>
   </div>
 </div>
