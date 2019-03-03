@@ -42,30 +42,30 @@
 
     <div class="subscription noshow">
       <div class="sub-tab">
-        <h1><%= "Preferred spots" %></h1>
-<!--         <%#= link_to 'Add a painting', new_painting_path, class: "button" %>
+        <h1><%= "Preferred spots" %><%#= link_to ' | Add a spot', new_preferred_spot_path, class: "navbar-wagon-link" %></h1>
         <ul>
           <ul class="list-inline bookings">
-            <li style= "width: 15%;"><h2><%#= "Title" %></h2></li>
-            <li style= "width: 15%;"><h2><%#= "Author" %></h2></li>
-            <li style= "width: 15%;"><h2><%#= "Address" %></h2></li>
-            <li style= "width: 15%;"><h2><%#= "Style" %></h2></li>
-            <li style= "width: 15%;"><h2><%#= "Price per day" %></h2></li>
-            <li style= "width: 25%;"><h2><%#= "Image" %></h2></li>
+            <li style= "width: 15%;"><h2><%= "Name" %></h2></li>
+            <li style= "width: 25%;"><h2><%= "Address" %></h2></li>
+            <li style= "width: 15%;"><h2><%= "Best_tide" %></h2></li>
+            <li style= "width: 15%;"><h2><%= "Difficulty" %></h2></li>
+            <li style= "width: 30%;"><h2><%= "Image" %></h2></li>
           </ul><hr style="margin-top: 0; margin-bottom: 0">
           <div class="sub-tab-content">
-            <#% @paintings.each do |painting| %>
-              <ul class="list-inline bookings" id="<%#= painting.id %>">
-                <li style= "width: 15%;"><h2><%#= painting.name %></h2></li>
-                <li style= "width: 15%;"><h2><%#= painting.author %></h2></li>
-                <li style= "width: 15%;"><h2><%#= painting.location %></h2></li>
-                <li style= "width: 15%;"><h2><%#= painting.style %></h2></li>
-                <li style= "width: 15%;"><h2><%#= painting.price %></h2></li>
-                <li style= "width: 25%;"><h2><img class="avatar-large" src="<%#= painting.photo %>"><%#= link_to ' Edit ', edit_painting_path(painting), method: :get%><%#= link_to ' | Delete ', painting_path(painting), method: :delete, remote: true %></h2></li>
+            <% i = 0 %>
+            <% @preferred_spots.count.times do %>
+              <% spot = Spot.find(@preferred_spots[i].spot_id) %>
+              <ul class="list-inline bookings">
+                <li style= "width: 15%;"><h2><%= spot.name %></h2></li>
+                <li style= "width: 25%;"><h2><%= spot.address %></h2></li>
+                <li style= "width: 15%;"><h2><%= spot.best_tide %></h2></li>
+                <li style= "width: 15%;"><h2><%= spot.difficulty_level %></h2></li>
+                <li style= "width: 30%;"><h2><img class="avatar-large" src="<%= spot.photo %>"><%= link_to ' Details ', spot_path(spot), class: "navbar-wagon-link" %><%= link_to ' | Delete ', preferred_spot_path(spot), method: :delete, data: { confirm: "Do you want to exclude it from your preferred spots list ?" }, class: "navbar-wagon-link" %></h2></li>
               </ul>
-            <#% end %>
+              <% i = i + 1 %>
+            <% end %>
           </div>
-        </ul> -->
+        </ul>
       </div>
     </div>
 
@@ -87,7 +87,7 @@
                 <li style= "width: 15%;"><h2><%#= booking.painting.name %></h2></li>
                 <li style= "width: 15%;"><h2><%#= booking.painting.author %></h2></li>
                 <li style= "width: 15%;"><h2><%#= "#{booking.total_paid} €" %></h2></li>
-                <li style= "width: 40%;"><h2><%#= "from #{booking.start_date} to #{booking.end_date}.  " %><%#= link_to 'Edit', edit_painting_booking_path(booking.painting, booking), class: "button" %></h2></li>
+                <li style= "width: 40%;"><h2><%#= "from #{booking.start_date} to #{booking.end_date}.  " %><%#= link_to 'Edit', edit_painting_booking_path(booking.painting, booking), class: "navbar-wagon-link" %></h2></li>
               </ul>
             <%# end %>
           </div>
