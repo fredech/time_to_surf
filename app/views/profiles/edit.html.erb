@@ -1,0 +1,36 @@
+<br>
+<br>
+<div class="tab_container">
+  <div class="leftbox">
+    <nav>
+      <a id="profile"></a>
+      <a id="payment" class="active"><i class="fa fa-user-cog"><p class="text2">Profile</p></i></a>
+      <a id="subscription"></a>
+      <a id="privacy"></a>
+      <a id="settings"></a>
+    </nav>
+  </div>
+  <div class="rightbox">
+    <div class="payment">
+      <%= simple_form_for @profile do |f| %>
+        <h1>Profile<%= link_to " | Back", :back, class: "navbar-wagon-link" %></h1>
+        <h2>Address</h2>
+        <% if @profile.address.nil? %>
+          <%= f.input :address, label: false, input_html: { id: 'spot_location', class: 'form-input' } %>
+        <% else %>
+          <%= f.input :address, label: false, input_html: { id: 'spot_location', value: current_user.profile.address, class: 'form-input' } %>
+        <% end %>
+        <h2>Surfing level</h2>
+        <%= f.input :level, label: false, input_html: { class: 'select2',  value: current_user.profile.level, class: 'form-input' }, collection: Profile::LEVELS %>
+        <p>Your surf level is a <u>very important factor</u> in determining which spots are best for you.</p>
+        <ol>
+          <li>Beginner:     wave height less than 1 meter</li>
+          <li>Intermediate: wave height less than 1.5 meter</li>
+          <li>Advanced:     wave height less than 2.0 meters</li>
+          <li>Expert:       you can surf anywhere ;)</li>
+        </ol>
+        <%= f.button :submit, "Update", class: "form-button", class: "navbar-wagon-link" %>
+      <% end %>
+    </div>
+  </div>
+</div>

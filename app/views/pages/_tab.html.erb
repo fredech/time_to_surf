@@ -1,8 +1,8 @@
 <div class="tab_container">
   <div class="leftbox">
     <nav>
-      <a id="profile" class="active"><i class="fa fa-user"><p class="text2">Profile</p></i></a>
-      <a id="payment"><i class="fa fa-credit-card"><p class="text2">Payment</p></i></a>
+      <a id="profile" class="active"><i class="fa fa-user"><p class="text2">Infos</p></i></a>
+      <a id="payment"><i class="fa fa-user-cog"><p class="text2">Profile</p></i></a>
       <a id="subscription"><i class="fa fa-heart"><p class="text2">Preferred spots</p></i></a>
       <a id="privacy"><i class="fas fa-water"><p class="text2">Surf sessions</p></i></a>
       <a id="settings"><i class="fa fa-cog"><p class="text2">Settings</p></i></a>
@@ -10,8 +10,7 @@
   </div>
   <div class="rightbox">
     <div class="profile">
-      <h1>Personal Info</h1>
-      <%= link_to 'Edit', edit_user_registration_path(current_user), class: "button" %>
+      <h1>Personal Infos<%= link_to ' | Update', edit_user_registration_path, class: "navbar-wagon-link" %></h1>
       <h2>Avatar</h2>
       <%= cl_image_tag current_user.photo, class: "avatar-large" %>
       <h2>Username</h2>
@@ -23,45 +22,50 @@
     </div>
 
     <div class="payment noshow">
-      <h1><strong>Payment Info</strong></h1>
-      <h2>Payment Method</h2>
-      <p>Mastercard •••• •••• •••• 0000 <button class="tab_btn">update</button></p>
-      <h2>Billing Address</h2>
-      <p>1234 Example Ave | Seattle, WA <button class="tab_btn">change</button></p>
-      <h2>Zipcode</h2>
-      <p>999000</p>
-      <h2>Billing History</h2>
-      <p>2018<button class="tab_btn">view</button></p>
-      <h2>Redeem Gift Subscription </h2>
-      <p><input type="text" placeholder="Enter Gift Code"></input> <button class="tab_btn">Redeem</button></p>
+      <h1>Profile<%= link_to ' | Update', edit_profile_path(current_user), class: "navbar-wagon-link" %></h1>
+      <h2>Address</h2>
+      <% if current_user.profile.nil? %>
+        <p><%= "To de defined" %><button class="tab_btn">update</button></p>
+      <% else %>
+        <p><%= "#{current_user.profile.address}" %><button class="tab_btn">update</button></p>
+      <% end %>
+      <h2>Surfing level</h2>
+      <p><%= "#{level}" %><button class="tab_btn">update</button></p>
+      <p>Your surf level is a <u>very important factor</u> in determining which spots are best for you.</p>
+      <ol>
+        <li>Beginner:     wave height less than 1 meter</li>
+        <li>Intermediate: wave height less than 1.5 meter</li>
+        <li>Advanced:     wave height less than 2.0 meters</li>
+        <li>Expert:       you can surf anywhere ;)</li>
+      </ul>
     </div>
 
     <div class="subscription noshow">
       <div class="sub-tab">
-        <h1><%= "Preferred spots" %></h1>
-<!--         <%#= link_to 'Add a painting', new_painting_path, class: "button" %>
+        <h1><%= "Preferred spots" %><%#= link_to ' | Add a spot', new_preferred_spot_path, class: "navbar-wagon-link" %></h1>
         <ul>
           <ul class="list-inline bookings">
-            <li style= "width: 15%;"><h2><%#= "Title" %></h2></li>
-            <li style= "width: 15%;"><h2><%#= "Author" %></h2></li>
-            <li style= "width: 15%;"><h2><%#= "Address" %></h2></li>
-            <li style= "width: 15%;"><h2><%#= "Style" %></h2></li>
-            <li style= "width: 15%;"><h2><%#= "Price per day" %></h2></li>
-            <li style= "width: 25%;"><h2><%#= "Image" %></h2></li>
+            <li style= "width: 15%;"><h2><%= "Name" %></h2></li>
+            <li style= "width: 25%;"><h2><%= "Address" %></h2></li>
+            <li style= "width: 15%;"><h2><%= "Best_tide" %></h2></li>
+            <li style= "width: 15%;"><h2><%= "Difficulty" %></h2></li>
+            <li style= "width: 30%;"><h2><%= "Image" %></h2></li>
           </ul><hr style="margin-top: 0; margin-bottom: 0">
           <div class="sub-tab-content">
-            <#% @paintings.each do |painting| %>
-              <ul class="list-inline bookings" id="<%#= painting.id %>">
-                <li style= "width: 15%;"><h2><%#= painting.name %></h2></li>
-                <li style= "width: 15%;"><h2><%#= painting.author %></h2></li>
-                <li style= "width: 15%;"><h2><%#= painting.location %></h2></li>
-                <li style= "width: 15%;"><h2><%#= painting.style %></h2></li>
-                <li style= "width: 15%;"><h2><%#= painting.price %></h2></li>
-                <li style= "width: 25%;"><h2><img class="avatar-large" src="<%#= painting.photo %>"><%#= link_to ' Edit ', edit_painting_path(painting), method: :get%><%#= link_to ' | Delete ', painting_path(painting), method: :delete, remote: true %></h2></li>
+            <% i = 0 %>
+            <% @preferred_spots.count.times do %>
+              <% spot = Spot.find(@preferred_spots[i].spot_id) %>
+              <ul class="list-inline bookings">
+                <li style= "width: 15%;"><h2><%= spot.name %></h2></li>
+                <li style= "width: 25%;"><h2><%= spot.address %></h2></li>
+                <li style= "width: 15%;"><h2><%= spot.best_tide %></h2></li>
+                <li style= "width: 15%;"><h2><%= spot.difficulty_level %></h2></li>
+                <li style= "width: 30%;"><h2><img class="avatar-large" src="<%= spot.photo %>"><%= link_to ' Details ', spot_path(spot), class: "navbar-wagon-link" %><%= link_to ' | Delete ', preferred_spot_path(spot), method: :delete, data: { confirm: "Do you want to exclude it from your preferred spots list ?" }, class: "navbar-wagon-link" %></h2></li>
               </ul>
-            <#% end %>
+              <% i = i + 1 %>
+            <% end %>
           </div>
-        </ul> -->
+        </ul>
       </div>
     </div>
 
@@ -83,7 +87,7 @@
                 <li style= "width: 15%;"><h2><%#= booking.painting.name %></h2></li>
                 <li style= "width: 15%;"><h2><%#= booking.painting.author %></h2></li>
                 <li style= "width: 15%;"><h2><%#= "#{booking.total_paid} €" %></h2></li>
-                <li style= "width: 40%;"><h2><%#= "from #{booking.start_date} to #{booking.end_date}.  " %><%#= link_to 'Edit', edit_painting_booking_path(booking.painting, booking), class: "button" %></h2></li>
+                <li style= "width: 40%;"><h2><%#= "from #{booking.start_date} to #{booking.end_date}.  " %><%#= link_to 'Edit', edit_painting_booking_path(booking.painting, booking), class: "navbar-wagon-link" %></h2></li>
               </ul>
             <%# end %>
           </div>
