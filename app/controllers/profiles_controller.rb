@@ -31,7 +31,13 @@ class ProfilesController < ApplicationController
   private
 
   def set_profile
-    @profile = Profile.find_by_user_id(current_user)
+    if current_user.profile.nil?
+      @profile = Profile.new(level: "Beginner")
+      @profile.user = current_user
+      @profile.save!
+    else
+      @profile = Profile.find_by_user_id(current_user)
+    end
   end
 
   def profile_params

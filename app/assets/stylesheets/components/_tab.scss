@@ -127,12 +127,12 @@ nav a:hover .text2 {
   border-top: 0;
   width: 80%;
   font-family: $body_tab;
-  font-size: 1em;
+  font-size: 0.9em;
   padding: 7px 0;
   color: $black;
 }
 .tab_container span {
-  font-size: 18px;
+  font-size: 16px;
   color: $gray;
 }
 
@@ -141,7 +141,13 @@ nav a:hover .text2 {
     font-size: 1em;
   }
 }
-
+.tab_container ol li {
+  width: 80%;
+  font-family: $body_tab;
+  font-size: 0.9em;
+  padding: 7px 0;
+  color: $gray;
+}
 
 .tab_btn {
   float: right;

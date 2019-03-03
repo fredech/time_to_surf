@@ -22,16 +22,16 @@
     </div>
 
     <div class="payment noshow">
-      <% if current_user.profile.nil? %>
-        <h1>Profile<%= link_to ' | Create', new_profile_path, class: "navbar-wagon-link" %></h1>
-      <% else %>
-        <h1>Profile<%= link_to ' | Update', edit_profile_path(current_user), class: "navbar-wagon-link" %></h1>
-      <% end %>
+      <h1>Profile<%= link_to ' | Update', edit_profile_path(current_user), class: "navbar-wagon-link" %></h1>
       <h2>Address</h2>
-      <p><%= "#{current_user.profile.address}" %><button class="tab_btn">update</button></p>
+      <% if current_user.profile.nil? %>
+        <p><%= "To de defined" %><button class="tab_btn">update</button></p>
+      <% else %>
+        <p><%= "#{current_user.profile.address}" %><button class="tab_btn">update</button></p>
+      <% end %>
       <h2>Surfing level</h2>
-      <p><%= "#{current_user.profile.level} " %><button class="tab_btn">update</button></p>
-      <p>Your surfing level is a very key factor to well determine the spots adapted to you.</p>
+      <p><%= "#{level}" %><button class="tab_btn">update</button></p>
+      <p>Your surf level is a <u>very important factor</u> in determining which spots are best for you.</p>
       <ol>
         <li>Beginner:     wave height less than 1 meter</li>
         <li>Intermediate: wave height less than 1.5 meter</li>

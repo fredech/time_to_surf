@@ -13,7 +13,7 @@ end
 
 def matching_rate(spot, user, searched_hour, weather)
   swell_height = weather[:swell_height].to_i
-  level_user = user.profile.level
+  level_user = set_level
   rate_swell = rate_swell(swell_height, level_user)
 
   difficulty = spot.difficulty_level
@@ -133,5 +133,17 @@ def rate_difficulty(difficulty, level)
     else
       return 0
     end
+  end
+end
+
+def set_level
+  if user_signed_in?
+    if Profile.exists?(user_id: current_user)
+      if current_user.profile.level.nil? == false
+        return level = current_user.profile.level
+      end
+    end
+  else
+    return level = "Beginner"
   end
 end
