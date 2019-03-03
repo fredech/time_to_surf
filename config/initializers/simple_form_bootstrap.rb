@@ -417,23 +417,23 @@ SimpleForm.setup do |config|
   config.wrapper_mappings = {
     boolean:       :vertical_boolean,
     check_boxes:   :vertical_collection,
-    date:          :vertical_multi_select,
-    datetime:      :vertical_multi_select,
+    # date:          :vertical_multi_select,
+    # datetime:      :vertical_multi_select,
     file:          :vertical_file,
     radio_buttons: :vertical_collection,
     range:         :vertical_range,
-    time:          :vertical_multi_select
-  }
+    time:          :vertical_multi_select,
+  # }
 
   # enable custom form wrappers
   # config.wrapper_mappings = {
   #   boolean:       :custom_boolean,
   #   check_boxes:   :custom_collection,
-  #   date:          :custom_multi_select,
-  #   datetime:      :custom_multi_select,
+    date:          :custom_multi_select,
+    datetime:      :custom_multi_select
   #   file:          :custom_file,
   #   radio_buttons: :custom_collection,
   #   range:         :custom_range,
   #   time:          :custom_multi_select
-  # }
+  }
 end

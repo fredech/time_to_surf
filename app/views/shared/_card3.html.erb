@@ -1,16 +1,38 @@
 <div class="card-container">
   <div class="card-number" >
     <div class="card-image" style="background-image: url(<%= image_path "https://res.cloudinary.com/dwze88uqm/image/upload/c_scale,w_300/v1551464015/surf_002.jpg" %>);">
-    <!-- <#% if current_user.preferred_spots == spot %>
-      <i class="fas fa-heart"></i>
-    <#% else %>
-      <i class="far fa-heart"></i>
-    <#% end %> -->
+    </div>
+    <% if @preferred_spots.include?(spot) %>
+      <% if params[search].nil? %>
+        <%= link_to '<i class="fas fa-heart card-heart"></i>'.html_safe, preferred_spot_path(spot, start_time: params[:start_time], travel_time: params[:travel_time], address: params[:address]),
+          method: :delete,
+          data: { confirm: "Do you want to exclude it from your preferred spots list ?" } %>
+      <% else %>
+        <%= link_to '<i class="fas fa-heart card-heart"></i>'.html_safe, preferred_spot_path(spot, start_time: params[:search][:start_time], travel_time: params[:search][:travel_time], address: params[:search][:address]),
+          method: :delete,
+          data: { confirm: "Do you want to exclude it from your preferred spots list ?" } %>
+      <% end %>
+    <% else %>
+      <% if params[search].nil? %>
+        <%= link_to '<i class="far fa-heart card-heart"></i>'.html_safe, spot_preferred_spots_path(spot, start_time: params[:start_time], travel_time: params[:travel_time], address: params[:address]),
+          method: :post,
+          data: { confirm: "Do you want to add it to your preferred spots list ?" } %>
+      <% else %>
+        <%= link_to '<i class="far fa-heart card-heart"></i>'.html_safe, spot_preferred_spots_path(spot, start_time: params[:search][:start_time], travel_time: params[:search][:travel_time], address: params[:search][:address]),
+          method: :post,
+          data: { confirm: "Do you want to add it to your preferred spots list ?" } %>
+      <% end %>
+    <% end %>
     <div class="card-content">
       <h2><%= rank %></h2>
       <p>match rate: <%= @matching_rates[3-rank][1] %></p>
-      <h3><%= link_to "#{spot.name}", spot_path(spot, start_time: params[:search][:start_time], travel_time: params[:search][:travel_time], address: params[:search][:address]), class: 'navbar-wagon-link'%></h3>
+      <% if params[search].nil? %>
+        <h3><%= link_to "#{spot.name}", spot_path(spot, start_time: params[:start_time], travel_time: params[:travel_time], address: params[:address]), class: 'navbar-wagon-link'%></h3>
+      <% else %>
+        <h3><%= link_to "#{spot.name}", spot_path(spot, start_time: params[:search][:start_time], travel_time: params[:search][:travel_time], address: params[:search][:address]), class: 'navbar-wagon-link'%></h3>
+      <% end %>
       <p><%= spot.address %></p>
     </div>
   </div>
 </div>
+
