@@ -2,17 +2,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
 
   def home
-    # @spots = Spot.where.not(latitude: nil, longitude: nil)
-    # @markers = @spots.map do |spot|
-    #   {
-    #     lng: spot.longitude,
-    #     lat: spot.latitude
-    #   }
-    # end
-  end
-
-  def search
-    redirect_to spots_path
+    @level = current_user.profile.level if user_signed_in?
   end
 
   def dashboard

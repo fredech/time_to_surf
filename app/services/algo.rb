@@ -1,8 +1,7 @@
 require_relative './weather.rb'
 require 'time'
 
-def conditions_rate(spot, searched_hour)
-  weather = weather_condition(spot, searched_hour)
+def conditions_rate(spot, searched_hour, weather)
   weather_tide = weather_tide(weather, searched_hour)
   spot_tide = spot.best_tide
   rate_tide = rate_tide(weather_tide, spot_tide)
@@ -12,8 +11,7 @@ def conditions_rate(spot, searched_hour)
   return rate_tide + rate_msw
 end
 
-def matching_rate(spot, user, searched_hour)
-  weather = weather_condition(spot, searched_hour)
+def matching_rate(spot, user, searched_hour, weather)
   swell_height = weather[:swell_height].to_i
   level_user = user.profile.level
   rate_swell = rate_swell(swell_height, level_user)

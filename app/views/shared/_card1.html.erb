@@ -1,0 +1,16 @@
+<div class="card-container">
+  <div class="card-number" >
+    <div class="card-image" style="background-image: url(<%= image_path "https://res.cloudinary.com/dwze88uqm/image/upload/c_scale,e_grayscale,w_500/v1551464059/surf_005.jpg" %>);">
+    <!-- <#% if current_user.preferred_spots == spot %>
+      <i class="fas fa-heart"></i>
+    <#% else %>
+      <i class="far fa-heart"></i>
+    <#% end %> -->
+    <div class="card-content">
+      <h2><%= rank %></h2>
+      <p>match rate: <%= @matching_rates[3-rank][1] %></p>
+      <h3><%= link_to "#{spot.name}", spot_path(spot, start_time: params[:search][:start_time], travel_time: params[:search][:travel_time], address: params[:search][:address]), class: 'navbar-wagon-link'%></h3>
+      <p><%= spot.address %></p>
+    </div>
+  </div>
+</div>
