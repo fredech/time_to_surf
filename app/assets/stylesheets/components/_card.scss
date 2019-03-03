@@ -15,7 +15,7 @@
   &:hover {
     margin-left: -30px;
     transition: all ease 0.5s;
-    z-index: 10;
+    z-index: 1;
     .card-content h2 {
       color: $red;
     }
@@ -62,8 +62,11 @@
   }
 }
 
-.fa-heart {
+.card-heart {
   position: absolute;
-  top: 14px;
-  left: 324px;
+  color: $red;
+  font-size: 25px;
+  top: 20px;
+  right: 20px;
+  z-index: 2;
 }

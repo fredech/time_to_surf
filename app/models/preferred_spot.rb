@@ -4,4 +4,5 @@ class PreferredSpot < ApplicationRecord
 
   validates :spot_id, presence: true, null: false
   validates :user_id, presence: true, null: false
+  validates :user_id, uniqueness: { scope: :spot_id }
 end

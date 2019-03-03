@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :surf_sessions, only: [ :index, :create, :edit, :update, :destroy ] do
     resources :reviews, only: [ :new, :create ]
   end
+  resources :profile, only: [ :create, :edit, :update]
 
   get "/dashboard", to: "pages#dashboard", as: :dashboard
 end

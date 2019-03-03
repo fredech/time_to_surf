@@ -32,10 +32,11 @@ class SpotsController < ApplicationController
         }
       end
     end
-    @address = params[:search][:address]
-    @start_time = params[:search][:start_time]
-    @travel_time = params[:search][:travel_time].to_i
+    @address = set_params(:address)
+    @start_time = set_params(:start_time)
+    @travel_time = set_params(:travel_time).to_i
     @level = current_user.profile.level
+    @preferred_spots = set_preferred_spots
   end
 
   def show
@@ -60,5 +61,18 @@ class SpotsController < ApplicationController
 
   def spot_params
     params.require(:spot).permit(:name, :address, :description, :photo, :video, :longitude, :latitude, :seabed, :best_tide, :difficulty_level)
+  end
+
+  def set_preferred_spots
+    pref = PreferredSpot.where(user_id: current_user)
+    array = []
+    pref.each do |p|
+      array << p.spot
+    end
+    array
+  end
+
+  def set_params(element)
+    params[:search].nil? ? @element = params[:element] : @element = params[:search][:element]
   end
 end
