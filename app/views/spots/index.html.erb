@@ -7,9 +7,9 @@
       <%= render 'shared/map', markers: @markers%>
     </div>
     <div class="cards-container">
-      <%= render 'shared/card1', spot: @selected_spots[2], rank: 1 %>
-      <%= render 'shared/card2', spot: @selected_spots[1], rank: 2 %>
-      <%= render 'shared/card3', spot: @selected_spots[0], rank: 3 %>
+      <%= render 'shared/card1', spot: @selected_spots[2], rank: 1, start_time: params[:search][:start_time], travel_time: params[:search][:travel_time], address: params[:search][:address] %>
+      <%= render 'shared/card2', spot: @selected_spots[1], rank: 2, start_time: params[:search][:start_time], travel_time: params[:search][:travel_time], address: params[:search][:address] %>
+      <%= render 'shared/card3', spot: @selected_spots[0], rank: 3, start_time: params[:search][:start_time], travel_time: params[:search][:travel_time], address: params[:search][:address] %>
     </div>
   </div>
 </div>
