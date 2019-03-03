@@ -1,4 +1,4 @@
-$heading_tab: 'Montserrat', sans-serif;
+$heading_tab: 'Hind', sans-serif;
 $body_tab: 'Roboto', sans-serif;
 
 .tab_container {
@@ -100,9 +100,14 @@ nav a:hover .text2 {
 .tab_container h1 {
   font-family: $heading_tab;
   color: $gray;
-  font-size: 1.2em;
+  font-size: 1.4em;
   margin-top: 40px;
   margin-bottom: 35px;
+  .navbar-wagon-link {
+    font-size: 16px;
+    font-weight: lighter;
+    font-family: $body_tab;
+  }
 }
 
 .tab_container h2 {
@@ -121,15 +126,22 @@ nav a:hover .text2 {
   border-image: linear-gradient(to right, $light-gray, rgba($gray,.5)) 1 0%;
   border-top: 0;
   width: 80%;
-  font-family: $heading_tab;
-  font-size: .9em;
+  font-family: $body_tab;
+  font-size: 1em;
   padding: 7px 0;
   color: $black;
 }
 .tab_container span {
-  font-size: .7em;
+  font-size: 18px;
   color: $gray;
 }
+
+.tab_container {
+  .navbar-wagon-link {
+    font-size: 1em;
+  }
+}
+
 
 .tab_btn {
   float: right;

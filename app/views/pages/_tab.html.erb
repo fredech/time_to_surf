@@ -2,7 +2,7 @@
   <div class="leftbox">
     <nav>
       <a id="profile" class="active"><i class="fa fa-user"><p class="text2">Infos</p></i></a>
-      <a id="payment"><i class="fa fa-credit-card"><p class="text2">Profile</p></i></a>
+      <a id="payment"><i class="fa fa-user-cog"><p class="text2">Profile</p></i></a>
       <a id="subscription"><i class="fa fa-heart"><p class="text2">Preferred spots</p></i></a>
       <a id="privacy"><i class="fas fa-water"><p class="text2">Surf sessions</p></i></a>
       <a id="settings"><i class="fa fa-cog"><p class="text2">Settings</p></i></a>
@@ -10,8 +10,7 @@
   </div>
   <div class="rightbox">
     <div class="profile">
-      <h1>Personal Infos</h1>
-      <%= link_to 'Edit', edit_user_registration_path(current_user), class: "button" %>
+      <h1>Personal Infos<%= link_to ' | Update', edit_user_registration_path, class: "navbar-wagon-link" %></h1>
       <h2>Avatar</h2>
       <%= cl_image_tag current_user.photo, class: "avatar-large" %>
       <h2>Username</h2>
@@ -23,18 +22,21 @@
     </div>
 
     <div class="payment noshow">
-      <h1>Profile</h1>
-      <%= link_to 'Edit', edit_profile_path(Profile.find_by_user_id(current_user)), class: "button" %>
+      <% if current_user.profile.nil? %>
+        <h1>Profile<%= link_to ' | Create', new_profile_path, class: "navbar-wagon-link" %></h1>
+      <% else %>
+        <h1>Profile<%= link_to ' | Update', edit_profile_path(current_user), class: "navbar-wagon-link" %></h1>
+      <% end %>
       <h2>Address</h2>
       <p><%= "#{current_user.profile.address}" %><button class="tab_btn">update</button></p>
       <h2>Surfing level</h2>
       <p><%= "#{current_user.profile.level} " %><button class="tab_btn">update</button></p>
       <p>Your surfing level is a very key factor to well determine the spots adapted to you.</p>
       <ol>
-        <li>Beginner : up to 1m wave high</li>
-        <li>Intermediate : </li>
-        <li>Advanced :</li>
-        <li>Expert</li>
+        <li>Beginner:     wave height less than 1 meter</li>
+        <li>Intermediate: wave height less than 1.5 meter</li>
+        <li>Advanced:     wave height less than 2.0 meters</li>
+        <li>Expert:       you can surf anywhere ;)</li>
       </ul>
     </div>
 
