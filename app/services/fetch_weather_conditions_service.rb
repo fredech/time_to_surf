@@ -10,29 +10,26 @@ class FetchWeatherConditionsService
   end
 
   def call
-
-    api_key = ENV['WEATHER_API_KEY']
-    api_key_msw = ENV['MAGICSEAWEED_API_KEY']
-    lat = @spot.latitude
-    long = @spot.longitude
-    msw_id = @spot.msw_id
-
-    url = "http://api.worldweatheronline.com/premium/v1/marine.ashx?key=#{api_key}&format=json&q=#{lat},#{long}&tide=yes"
-    url_serialized = open(url).read
-    spot_weather = JSON.parse(url_serialized)
-    @spot.data_weather_online = spot_weather
+    @spot.data_weather_online = fetch_weather
+    @spot.data_msw = fetch_wave_conditions
     @spot.save!
-
-    url_msw = "http://magicseaweed.com/api/#{api_key_msw}/forecast/?spot_id=#{msw_id}&units=eu&fields=timestamp,solidRating,fadedRating"
-    url_msw_serialized = open(url_msw).read
-    spot_wave_conditions = JSON.parse(url_msw_serialized)
-    @spot.data_msw = spot_wave_conditions
-    @spot.save!
-
   end
 
   private
 
-  def sous_traitance
+  def fetch_weather
+    api_key = ENV['WEATHER_API_KEY']
+    url = "http://api.worldweatheronline.com/premium/v1/marine.ashx?key=#{api_key}&format=json&q=#{@spot.latitude},#{@spot.longitude}&tide=yes"
+    url_serialized = open(url).read
+
+    return JSON.parse(url_serialized)
+  end
+
+  def fetch_wave_conditions
+    api_key_msw = ENV['MAGICSEAWEED_API_KEY']
+    url_msw = "http://magicseaweed.com/api/#{api_key_msw}/forecast/?spot_id=#{@spot.msw_id}&units=eu&fields=timestamp,solidRating,fadedRating"
+    url_msw_serialized = open(url_msw).read
+
+    return JSON.parse(url_msw_serialized)
   end
 end

@@ -4,24 +4,39 @@ require 'date'
 require 'pry-byebug'
 
 def define_searched_date(searched_date)
-  return (searched_date - Date.today).to_i
+  (searched_date - Date.today).to_i
 end
 
 def define_hour(hour_searched)
-   elements = { "0h" => 0, "3h" => 1, "6h" => 2, "9h" => 3, "12h" => 4, "15h" => 5, "18h" => 6, "21h" => 7 }
-   return elements[hour_searched]
+  elements = {
+    "0h" => 0, "01h" => 0, "02h" => 0,
+    "03h" => 1, "04h" => 1, "05h" => 1,
+    "06h" => 2, "07h" => 2, "08h" => 2,
+    "09h" => 3, "10h" => 3, "11h" => 3,
+    "12h" => 4, "13h" => 4, "14h" => 4,
+    "15h" => 5, "16h" => 5, "17h" => 5,
+    "18h" => 6, "19h" => 6, "20h" => 6,
+    "21h" => 7, "22h" => 7, "23h" => 7
+  }
+  return elements[hour_searched]
 end
 
 def define_hour_msw(searched_date, hour_searched)
   add_hour = define_searched_date(searched_date) * 8
-  elements = { "0h" => 0, "3h" => 1, "6h" => 2, "9h" => 3, "12h" => 4, "15h" => 5, "18h" => 6, "21h" => 7 }
+  elements = {
+    "0h" => 0, "01h" => 0, "02h" => 0,
+    "03h" => 1, "04h" => 1, "05h" => 1,
+    "06h" => 2, "07h" => 2, "08h" => 2,
+    "09h" => 3, "10h" => 3, "11h" => 3,
+    "12h" => 4, "13h" => 4, "14h" => 4,
+    "15h" => 5, "16h" => 5, "17h" => 5,
+    "18h" => 6, "19h" => 6, "20h" => 6,
+    "21h" => 7, "22h" => 7, "23h" => 7
+  }
   return (elements[hour_searched] + add_hour)
 end
 
-
-
 def weather_condition(spot, date_s, hour_searched)
-
   result = {}
 
   hour = define_hour(hour_searched)
