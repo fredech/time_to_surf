@@ -20,7 +20,7 @@ profile.user = georgette
 georgette.save!
 profile.save!
 
-puts "#{User.count} users with #{Profile.count} profiles created"
+puts "#{User.count} user with #{Profile.count} profile created"
 
 puts "create Spots..."
 
@@ -322,6 +322,26 @@ surf_session_1 = SurfSession.new( start_time: "2019-03-01 12:00",
                                   user: georgette,
                                   spot: spot_3 )
 surf_session_1.save!
+
+surf_session_2 = SurfSession.new( start_time: "2019-03-01 12:00",
+                                  user: georgette,
+                                  spot: spot_4 )
+surf_session_2.save!
+
+surf_session_3 = SurfSession.new( start_time: "2019-03-01 12:00",
+                                  user: georgette,
+                                  spot: spot_5 )
+surf_session_3.save!
+
+surf_session_4 = SurfSession.new( start_time: "2019-03-01 12:00",
+                                  user: georgette,
+                                  spot: spot_6 )
+surf_session_4.save!
+
+surf_session_5 = SurfSession.new( start_time: "2019-03-01 12:00",
+                                  user: georgette,
+                                  spot: spot_7 )
+surf_session_5.save!
 
 puts "#{SurfSession.count} Surf sessions created"
 
