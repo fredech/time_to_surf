@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_01_133157) do
+ActiveRecord::Schema.define(version: 2019_03_04_112509) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,8 @@ ActiveRecord::Schema.define(version: 2019_03_01_133157) do
     t.string "best_tide"
     t.float "difficulty_level"
     t.integer "msw_id"
+    t.jsonb "data_weather_online"
+    t.jsonb "data_msw"
   end
 
   create_table "surf_sessions", force: :cascade do |t|

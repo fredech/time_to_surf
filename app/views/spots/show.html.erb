@@ -65,6 +65,7 @@
 
       <div class="spot_review" >
         <h3>REVIEWS</h3>
+        <h3><%= @weather[:solid_rating] %></h3>
         <% @spot.reviews.each do |review| %>
           <div class="review_photo" style="background-image: url(<%= cl_image_path review.photo %>);">
            <h3><%= review.content %></h3>

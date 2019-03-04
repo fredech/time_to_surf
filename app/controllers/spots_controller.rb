@@ -46,8 +46,8 @@ class SpotsController < ApplicationController
           image_url: helpers.asset_url('map_pin.png')
     }]
 
-    # @weather = weather_condition(@spot, "12h")
-    @weather = weather_condition_fixed
+    @weather = weather_condition(@spot, Date.parse("2019-03-5"), "15h")
+    #@weather = weather_condition_fixed
 
     # d = DateTime.now
     # @date = d.next_day.strftime("%d/%m/%Y")
