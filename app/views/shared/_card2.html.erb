@@ -26,7 +26,7 @@
     <div class="card-content">
       <h2><%= rank %></h2>
       <p>match rate: <%= @global_rating[3-rank][1] %></p>
-      <h3><%= link_to "#{spot.name}", spot_path(spot, start_time: :start_time, travel_time: :travel_time, address: :address), class: 'navbar-wagon-link'%></h3>
+      <h3><%= link_to "#{spot.name}", spot_path(spot, start_time: start_time, travel_time: travel_time, address: address, rating_tide: rating_tide, rating_wave_msw: rating_wave_msw, rating_spot_difficulty: rating_spot_difficulty, rating_swell: rating_swell, global_rating: global_rating, hour: hour, date: date), class: 'navbar-wagon-link'%></h3>
       <p><%= spot.address %></p>
     </div>
   </div>

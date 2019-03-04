@@ -42,11 +42,7 @@ def swell(weather, user)
 end
 
 def overall_rating(spot, searched_hour, weather, user)
-  p rating_tide = tide(spot, searched_hour, weather) * 10
-  p rating_wave_msw = wave_msw(weather) * 10
-  p rating_spot_difficulty = spot_difficulty(spot, user) * 10
-  p rating_swell = swell(weather, user) * 10
-  p global_rating = rating_tide + rating_wave_msw + rating_spot_difficulty + rating_swell
+  return (tide(spot, searched_hour, weather) * 10) + (wave_msw(weather) * 10) + (spot_difficulty(spot, user) * 10) + (swell(weather, user) * 10)
 end
 
 private
