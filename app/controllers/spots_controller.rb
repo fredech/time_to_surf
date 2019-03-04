@@ -20,8 +20,16 @@ class SpotsController < ApplicationController
       render 'pages/home', alert: 'The form have to be fully commpleted!'
     else
       @spots.each do |spot|
-        weather = weather_condition(spot, date, hour)
         #weather = weather_condition_fixed
+        weather = weather_condition(spot, date, hour)
+        @rating_tide = tide(spot, hour, weather)
+        @rating_wave_msw = wave_msw(weather)
+        @rating_spot_difficulty = spot_difficulty(spot, current_user)
+        @rating_swell = swell(weather_user)
+        @global_rating = rating_tide + rating_wave_msw + rating_spot_difficulty + rating_swell
+
+
+
         @conditions_rates["#{spot.id}"] = conditions_rate(spot, hour, weather)
         @matching_rates["#{spot.id}"] = matching_rate(spot, current_user, weather)
       end
