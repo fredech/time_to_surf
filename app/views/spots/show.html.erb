@@ -1,8 +1,3 @@
-<!-- <div class="banner-spot" style="background-image: url(<%#= image_path 'bckgd4.jpg' %>);">
-  <div class="banner-spot-name">
-    <h2><%#= @spot.name %></h2>
-  </div> -->
-<!-- </div> -->
 
 <div class="banner-spot" style="background-image: url(<%= cl_image_path @spot.photo %>);">
   <div class="banner-spot-name">
@@ -11,27 +6,34 @@
 </div>
 
 <div class="container">
+
   <div class="spot_container">
+
     <div class="content_container">
+
       <div class="spot_info">
-        <h3><%= @spot.name.upcase %> - <%= @weather[:date] %> <%= image_tag @weather[:weather_icon], class: "avatar-medium" %></p> </h3>
+        <h3>
+          <%= @spot.name.upcase %> - <%= @weather[:date] %> <%= image_tag @weather[:weather_icon], class: "avatar-medium" %>
+        </h3>
       </div>
+
       <div class="spot_details">
         <h3>DESCRIPTION</h3>
         <p><%= @spot.description %></p>
         <p><strong>Seabed: </strong><%= @spot.seabed %></p>
         <p><strong>Best tide for the spot: </strong><%= @spot.best_tide %></p>
       </div>
+
       <div class="spot_weather">
         <h3>TEMPERATURE - SUNRISE - SUNSET </h3>
         <div class="weather_box">
           <div class="weather_box_item">
-            <p><%= image_tag 'temperature.png', width: 25, height: 25 %><%= image_tag 'water.png', width: 25, height: 25 %>  <%= @weather[:water_temperature] %> °C</p>
-            <p><%= image_tag 'sunrise.png', width: 25, height: 25 %> <%= @weather[:sunrise] %></p>
+            <p><%= image_tag 'temperature.png', width: 30, height: 30 %><%= image_tag 'water.png', width: 30, height: 30 %>   <%= @weather[:water_temperature] %> °C</p>
+            <p><%= image_tag 'sunrise.png', width: 25, height: 25 %>  <%= @weather[:sunrise] %></p>
           </div>
           <div class="weather_box_item">
-            <p><%= image_tag 'temperature.png', width: 25, height: 25 %><%= image_tag 'air.png', width: 25, height: 25 %>  <%= @weather[:air_temperature] %> °C</p>
-            <p><%= image_tag 'sunset.png', width: 25, height: 25 %> <%= @weather[:sunset] %></p>
+            <p><%= image_tag 'temperature.png', width: 30, height: 30 %><%= image_tag 'air.png', width: 30, height: 30 %>   <%= @weather[:air_temperature] %> °C</p>
+            <p><%= image_tag 'sunset.png', width: 30, height: 30 %>  <%= @weather[:sunset] %></p>
           </div>
         </div>
       </div>
@@ -40,12 +42,12 @@
         <h3>WAVE - WIND</h3>
         <div class="weather_box">
           <div class="weather_box_item">
-            <p><%= image_tag 'air.png', width: 25, height: 25 %><%= image_tag 'speed.png', width: 25, height: 25 %>  <%= @weather[:wind_speed] %> km/h </p>
-            <p><%= image_tag 'air.png', width: 25, height: 25 %><%= image_tag 'compass.png', width: 25, height: 25 %>  <%= @weather[:wind_direction_string] %> </p>
+            <p><%= image_tag 'air.png', width: 30, height: 30 %><%= image_tag 'speed.png', width: 30, height: 30 %>   <%= @weather[:wind_speed] %> km/h </p>
+            <p><%= image_tag 'air.png', width: 30, height: 30 %><%= image_tag 'compass.png', width: 30, height: 30 %>   <%= @weather[:wind_direction_string] %> </p>
           </div>
           <div class="weather_box_item">
-            <p><%= image_tag 'wave.png', width: 25, height: 25 %> <%= image_tag 'height.png', width: 25, height: 25 %> <%= @weather[:swell_height] %> meters </p>
-            <p><%= image_tag 'wave.png', width: 25, height: 25 %> <%= image_tag 'frequency.png', width: 25, height: 25 %> <%= @weather[:swell_period] %> seconds</p>
+            <p><%= image_tag 'wave.png', width: 30, height: 30 %> <%= image_tag 'height.png', width: 30, height: 30 %>   <%= @weather[:swell_height] %> meters </p>
+            <p><%= image_tag 'wave.png', width: 30, height: 30 %> <%= image_tag 'frequency.png', width: 30, height: 30 %>   <%= @weather[:swell_period] %> seconds</p>
           </div>
         </div>
       </div>
@@ -54,23 +56,14 @@
         <h3>TIDE</h3>
         <div class="weather_box">
           <div class="weather_box_item">
-            <p><%= image_tag 'tide.png', width: 25, height: 25 %> <%= @weather[:tide_1_time] %>: <%= @weather[:tide_1_low_or_high].capitalize %> </p>
+            <p><%= image_tag 'tide.png', width: 30, height: 30 %><%= @weather[:tide_1_time] %>: <%= @weather[:tide_1_low_or_high].capitalize %> </p>
           </div>
           <div class="weather_box_item">
-            <p><%= image_tag 'tide.png', width: 25, height: 25 %> <%= @weather[:tide_2_time] %>: <%= @weather[:tide_2_low_or_high].capitalize %> </p>
+            <p><%= image_tag 'tide.png', width: 30, height: 30 %><%= @weather[:tide_2_time] %>: <%= @weather[:tide_2_low_or_high].capitalize %> </p>
           </div>
         </div>
       </div>
 
-
-      <div class="spot_review" >
-        <h3>REVIEWS</h3>
-        <% @spot.reviews.each do |review| %>
-          <div class="review_photo" style="background-image: url(<%= cl_image_path review.photo %>);">
-           <h3><%= review.content %></h3>
-          </div>
-        <% end %>
-      </div>
     </div>
 
     <div class="fun_container">
@@ -85,5 +78,25 @@
         <p>General view</p>
       </div>
     </div>
+
   </div>
+
+  <div class="review_container">
+    <div>
+      <h3>EXPERIENCES</h3>
+      <% @spot.reviews.each do |review| %>
+        <div class="review_number">
+          <div class="review_photo" style="background-image: url(<%= cl_image_path review.photo %>);">
+            <div class="review_content">
+              <h5><%= review.content %></h5>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+
+
+
 </div>
