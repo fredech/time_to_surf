@@ -1,29 +1,6 @@
 require_relative './weather.rb'
 require 'time'
 
-def conditions_rate(spot, searched_hour, weather)
-  weather_tide = weather_tide(weather, searched_hour)
-  spot_tide = spot.best_tide
-  rate_tide = rate_tide(weather_tide, spot_tide)
-
-  rate_msw = weather[:solid_rating] * 3 / 5
-
-  return rate_tide + rate_msw
-end
-
-def matching_rate(spot, user, weather)
-  swell_height = weather[:swell_height].to_i
-  level_user = set_level
-  rate_swell = rate_swell(swell_height, level_user)
-
-  difficulty = spot.difficulty_level
-  rate_difficulty = rate_difficulty(difficulty, level_user)
-
-  return rate_swell + rate_difficulty
-end
-
-private
-
 def weather_tide(weather, searched_hour)
   if weather[:tide_1_low_or_high] == "LOW"
     h0 = Time.parse(weather[:tide_1_time])
@@ -42,15 +19,33 @@ def weather_tide(weather, searched_hour)
   end
 end
 
-def rate_tide(weather_tide, spot_tide)
-  if spot_tide == "All"
-    return 2
-  elsif spot_tide == weather_tide
-    return 2
-  else
-    return 0
-  end
+def tide(spot, searched_hour, weather)
+  weather_tide = weather_tide(weather, searched_hour)
+  spot_tide = spot.best_tide
+  rate_tide(weather_tide, spot_tide)
 end
+
+def wave_msw(weather)
+  rate_msw = weather[:solid_rating] * 3 / 5
+end
+
+def spot_difficulty(spot, user)
+  difficulty = spot.difficulty_level
+  level_user = set_level
+  rate_difficulty = rate_difficulty(difficulty, level_user)
+end
+
+def swell(weather, user)
+  swell_height = weather[:swell_height].to_i
+  level_user = set_level
+  rate_swell = rate_swell(swell_height, level_user)
+end
+
+def overall_rating(spot, searched_hour, weather, user)
+  return (tide(spot, searched_hour, weather) * 10) + (wave_msw(weather) * 10) + (spot_difficulty(spot, user) * 10) + (swell(weather, user) * 10)
+end
+
+private
 
 def rate_swell(swell, level)
   if level == "Beginner"
@@ -135,6 +130,37 @@ def rate_difficulty(difficulty, level)
     end
   end
 end
+
+def rate_tide(weather_tide, spot_tide)
+  if spot_tide == "All"
+    return 2
+  elsif spot_tide == weather_tide
+    return 2
+  else
+    return 0
+  end
+end
+
+# def conditions_rate(spot, searched_hour, weather)
+#   weather_tide = weather_tide(weather, searched_hour)
+#   spot_tide = spot.best_tide
+#   rate_tide = rate_tide(weather_tide, spot_tide)
+
+#   rate_msw = weather[:solid_rating] * 3 / 5
+
+#   return rate_tide + rate_msw
+# end
+
+# def matching_rate(spot, user, weather)
+#   swell_height = weather[:swell_height].to_i
+#   level_user = set_level
+#   rate_swell = rate_swell(swell_height, level_user)
+
+#   difficulty = spot.difficulty_level
+#   rate_difficulty = rate_difficulty(difficulty, level_user)
+
+#   return rate_swell + rate_difficulty
+# end
 
 def set_level
   if user_signed_in?
