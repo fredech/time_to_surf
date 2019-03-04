@@ -1,53 +1,72 @@
 require 'json'
 require 'open-uri'
+require 'date'
+require 'pry-byebug'
 
-def weather_condition(spot, hour_searched)
-  api_key = ENV['WEATHER_API_KEY']
-  api_key_msw = ENV['MAGICSEAWEED_API_KEY']
-  lat = spot.latitude
-  long = spot.longitude
-  msw_id = spot.msw_id
+def define_searched_date(searched_date)
+  (searched_date - Date.today).to_i
+end
 
-  url = "http://api.worldweatheronline.com/premium/v1/marine.ashx?key=#{api_key}&format=json&q=#{lat},#{long}&tide=yes"
-  url_serialized = open(url).read
-  spot_weather = JSON.parse(url_serialized)
+def define_hour(hour_searched)
+  elements = {
+    "0h" => 0, "01h" => 0, "02h" => 0,
+    "03h" => 1, "04h" => 1, "05h" => 1,
+    "06h" => 2, "07h" => 2, "08h" => 2,
+    "09h" => 3, "10h" => 3, "11h" => 3,
+    "12h" => 4, "13h" => 4, "14h" => 4,
+    "15h" => 5, "16h" => 5, "17h" => 5,
+    "18h" => 6, "19h" => 6, "20h" => 6,
+    "21h" => 7, "22h" => 7, "23h" => 7
+  }
+  return elements[hour_searched]
+end
 
-  url_msw = "http://magicseaweed.com/api/#{api_key_msw}/forecast/?spot_id=#{msw_id}&units=eu&fields=timestamp,solidRating,fadedRating"
-  url_msw_serialized = open(url_msw).read
-  spot_wave_conditions = JSON.parse(url_msw_serialized)
+def define_hour_msw(searched_date, hour_searched)
+  add_hour = define_searched_date(searched_date) * 8
+  elements = {
+    "0h" => 0, "01h" => 0, "02h" => 0,
+    "03h" => 1, "04h" => 1, "05h" => 1,
+    "06h" => 2, "07h" => 2, "08h" => 2,
+    "09h" => 3, "10h" => 3, "11h" => 3,
+    "12h" => 4, "13h" => 4, "14h" => 4,
+    "15h" => 5, "16h" => 5, "17h" => 5,
+    "18h" => 6, "19h" => 6, "20h" => 6,
+    "21h" => 7, "22h" => 7, "23h" => 7
+  }
+  return (elements[hour_searched] + add_hour)
+end
 
+def weather_condition(spot, date_s, hour_searched)
   result = {}
 
   hour = define_hour(hour_searched)
+  searched_date = define_searched_date(date_s)
+  hour_msw = define_hour_msw(date_s, hour_searched)
 
-  result[:date] = spot_weather["data"]["weather"][0]["date"]
-  result[:sunrise] = spot_weather["data"]["weather"][0]["astronomy"][0]["sunrise"]
-  result[:sunset] = spot_weather["data"]["weather"][0]["astronomy"][0]["sunset"]
-  result[:air_temperature] = spot_weather["data"]["weather"][0]["hourly"][hour]["tempC"]
-  result[:water_temperature] = spot_weather["data"]["weather"][0]["hourly"][hour]["waterTemp_C"]
-  result[:wind_speed] = spot_weather["data"]["weather"][0]["hourly"][hour]["windspeedKmph"]
-  result[:wind_direction] = spot_weather["data"]["weather"][0]["hourly"][hour]["winddirDegree"]
-  result[:wind_direction_string] = spot_weather["data"]["weather"][0]["hourly"][hour]["winddir16Point"]
-  result[:weather_icon] = spot_weather["data"]["weather"][0]["hourly"][hour]["weatherIconUrl"][0]["value"]
-  result[:weather_description] = spot_weather["data"]["weather"][0]["hourly"][hour]["weatherDesc"][0]["value"]
-  result[:swell_height] = spot_weather["data"]["weather"][0]["hourly"][hour]["swellHeight_m"]
-  result[:swell_direction] = spot_weather["data"]["weather"][0]["hourly"][hour]["swellDir"]
-  result[:swell_direction_string] = spot_weather["data"]["weather"][0]["hourly"][hour]["swellDir16Point"]
-  result[:swell_period] = spot_weather["data"]["weather"][0]["hourly"][hour]["swellPeriod_secs"]
-  result[:tide_1_time] = spot_weather["data"]["weather"][0]["tides"][0]["tide_data"][1]["tideTime"]
-  result[:tide_1_low_or_high] = spot_weather["data"]["weather"][0]["tides"][0]["tide_data"][1]["tide_type"]
-  result[:tide_2_time] = spot_weather["data"]["weather"][0]["tides"][0]["tide_data"][2]["tideTime"]
-  result[:tide_2_low_or_high] = spot_weather["data"]["weather"][0]["tides"][0]["tide_data"][2]["tide_type"]
-  result[:faded_rating] = spot_wave_conditions[hour]["fadedRating"]
-  result[:solid_rating] = spot_wave_conditions[hour]["solidRating"]
+  result[:date] = spot.data_weather_online["data"]["weather"][searched_date]["date"]
+  result[:sunrise] = spot.data_weather_online["data"]["weather"][searched_date]["astronomy"][0]["sunrise"]
+  result[:sunset] = spot.data_weather_online["data"]["weather"][searched_date]["astronomy"][0]["sunset"]
+  result[:air_temperature] = spot.data_weather_online["data"]["weather"][searched_date]["hourly"][hour]["tempC"]
+  result[:water_temperature] = spot.data_weather_online["data"]["weather"][searched_date]["hourly"][hour]["waterTemp_C"]
+  result[:wind_speed] = spot.data_weather_online["data"]["weather"][searched_date]["hourly"][hour]["windspeedKmph"]
+  result[:wind_direction] = spot.data_weather_online["data"]["weather"][searched_date]["hourly"][hour]["winddirDegree"]
+  result[:wind_direction_string] = spot.data_weather_online["data"]["weather"][searched_date]["hourly"][hour]["winddir16Point"]
+  result[:weather_icon] = spot.data_weather_online["data"]["weather"][searched_date]["hourly"][hour]["weatherIconUrl"][0]["value"]
+  result[:weather_description] = spot.data_weather_online["data"]["weather"][searched_date]["hourly"][hour]["weatherDesc"][0]["value"]
+  result[:swell_height] = spot.data_weather_online["data"]["weather"][searched_date]["hourly"][hour]["swellHeight_m"]
+  result[:swell_direction] = spot.data_weather_online["data"]["weather"][searched_date]["hourly"][hour]["swellDir"]
+  result[:swell_direction_string] = spot.data_weather_online["data"]["weather"][searched_date]["hourly"][hour]["swellDir16Point"]
+  result[:swell_period] = spot.data_weather_online["data"]["weather"][searched_date]["hourly"][hour]["swellPeriod_secs"]
+  result[:tide_1_time] = spot.data_weather_online["data"]["weather"][searched_date]["tides"][0]["tide_data"][1]["tideTime"]
+  result[:tide_1_low_or_high] = spot.data_weather_online["data"]["weather"][searched_date]["tides"][0]["tide_data"][1]["tide_type"]
+  result[:tide_2_time] = spot.data_weather_online["data"]["weather"][searched_date]["tides"][0]["tide_data"][2]["tideTime"]
+  result[:tide_2_low_or_high] = spot.data_weather_online["data"]["weather"][searched_date]["tides"][0]["tide_data"][2]["tide_type"]
+  result[:faded_rating] = spot.data_msw[hour_msw]["fadedRating"]
+  result[:solid_rating] = spot.data_msw[hour_msw]["solidRating"]
 
   return result
 end
 
-def define_hour(hour_searched)
-   elements = { "0h" => 0, "3h" => 1, "6h" => 2, "9h" => 3, "12h" => 4, "15h" => 5, "18h" => 6, "21h" => 7 }
-   return elements[hour_searched]
-end
 
 def spots_condition(spots)
   spots_weather = {}
@@ -83,3 +102,5 @@ def weather_condition_fixed
                :solid_rating=>2
   }
 end
+
+# puts weather_condition(Date.parse("2019-03-4"), "12h")

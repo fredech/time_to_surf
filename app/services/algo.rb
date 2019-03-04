@@ -11,7 +11,7 @@ def conditions_rate(spot, searched_hour, weather)
   return rate_tide + rate_msw
 end
 
-def matching_rate(spot, user, searched_hour, weather)
+def matching_rate(spot, user, weather)
   swell_height = weather[:swell_height].to_i
   level_user = set_level
   rate_swell = rate_swell(swell_height, level_user)

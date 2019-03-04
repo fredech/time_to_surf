@@ -8,6 +8,11 @@ class SpotsController < ApplicationController
   # skip_after_action :verify_authorized, only:[:update, :search, :index]
 
   def index
+    date_str, hour = params[:search][:start_time].split(' ')
+
+    date = Date.parse(date_str)
+    hour = hour.gsub(/:\d+/, "h")
+
     search
     @conditions_rates = {}
     @matching_rates = {}
@@ -15,10 +20,10 @@ class SpotsController < ApplicationController
       render 'pages/home', alert: 'The form have to be fully commpleted!'
     else
       @spots.each do |spot|
-        # weather = weather_condition(spot, searched_hour)
-        weather = weather_condition_fixed
-        @conditions_rates["#{spot.id}"] = conditions_rate(spot, "12h", weather)
-        @matching_rates["#{spot.id}"] = matching_rate(spot, current_user, "12h", weather)
+        weather = weather_condition(spot, date, hour)
+        #weather = weather_condition_fixed
+        @conditions_rates["#{spot.id}"] = conditions_rate(spot, hour, weather)
+        @matching_rates["#{spot.id}"] = matching_rate(spot, current_user, weather)
       end
       @matching_rates = @matching_rates.sort_by { |spot, rate| rate }.last(3)
       @selected_spots = []
@@ -46,8 +51,8 @@ class SpotsController < ApplicationController
           image_url: helpers.asset_url('map_pin.png')
     }]
 
-    # @weather = weather_condition(@spot, "12h")
-    @weather = weather_condition_fixed
+    @weather = weather_condition(@spot, Date.parse("2019-03-5"), "15h")
+    #@weather = weather_condition_fixed
 
     # d = DateTime.now
     # @date = d.next_day.strftime("%d/%m/%Y")

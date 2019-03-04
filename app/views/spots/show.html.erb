@@ -64,6 +64,14 @@
         </div>
       </div>
 
+      <div class="spot_review" >
+        <h3>REVIEWS</h3>
+        <% @spot.reviews.each do |review| %>
+          <div class="review_photo" style="background-image: url(<%= cl_image_path review.photo %>);">
+           <h3><%= review.content %></h3>
+          </div>
+        <% end %>
+      </div>
     </div>
 
     <div class="fun_container">
