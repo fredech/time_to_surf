@@ -1,0 +1,61 @@
+#search-flat-container {
+  padding-bottom: 15px;
+  .btn-flat-style {
+    background-color: $green;
+    height: 60px;
+    width: 100%;
+    font-size: 24px;
+    border-radius: 8px;
+    font-family: "Lato", sans-serif;
+    border-color: $green;
+    &:hover {
+      background-color: $white;
+      font-weight: bold;
+      color: $green;
+      border: solid 3px $green;
+    }
+  }
+  .form-flat-search {
+    position: relative;
+    height: 60px;
+    padding: 0px 12px;
+    font-size: 24px;
+    font-weight: bold;
+    color: $dark-gray;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: "Lato", sans-serif;
+  }
+  .form-control.select.required {
+    height: 60px;
+    font-size: 24px;
+    color: $dark-gray;
+    font-weight: bold;
+  }
+  .form-flat-search.datepicker {
+    position: relative;
+  }
+  .datepicker-icon {
+    position: absolute;
+    z-index: 1;
+    right: 32px;
+    top: 16px;
+    opacity: 1;
+    color: $green;
+    font-size: 30px;
+  }
+  .placeholder-form {
+    position: absolute;
+    z-index: 1;
+    right: 24px;
+    top: 15px;
+    font-size: 24px;
+    color: $dark-gray;
+    font-weight: bold;
+  }
+  .ap-input-icon svg {
+    width: 30px;
+    height: 30px;
+    fill: #26DE81;
+  }
+}

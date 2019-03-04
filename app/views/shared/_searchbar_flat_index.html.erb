@@ -1,0 +1,25 @@
+<div id="search-flat-container">
+  <div class="container">
+    <div class="row">
+      <%= simple_form_for :search, url: spots_path, method: 'GET' do |f| %>
+<!--       <div class="col-xs-12 col-sm-6 col-md-5 col-lg-5">
+        <#%= f.input :address, as: :string, placeholder: "Address", input_html: { id: 'spot_location', value: address,class: 'form-flat-search'}, label: false, required: true %>
+      </div> -->
+      <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+        <i class="far fa-calendar-alt datepicker-icon"></i>
+        <%= f.input :start_time, as: :string, placeholder: "When", input_html: {value: start_time, class: 'form-flat-search datepicker'}, label: false, required: true %>
+      </div>
+      <div class="col-xs-12 col-sm-2 col-lg-2">
+        <div class="placeholder-form">min. away</div>
+        <%= f.input :travel_time, required: true, as: :integer, input_html: { value: travel_time, class: 'form-flat-search'}, label: false %>
+      </div>
+<!--       <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+        <#%= f.input :level, selected: level, collection: Profile::LEVELS, label: false %>
+      </div> -->
+      <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2">
+        <%= f.button :submit, "Surf's up!", class: "btn btn-primary btn-flat-style" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
