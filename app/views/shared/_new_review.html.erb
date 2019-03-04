@@ -1,17 +1,11 @@
-<div class="container" id="search-container">
-  <div class="row">
-    <div class="col-sm-offset-4 col-sm-6">
-      <div class="form">
-        <%= simple_form_for [ @surf_session, @review ] do |f| %>
-        <%= f.input :content, label: "What did you think of this spot?", placeholder: 'Great waves!' %>
-        <%= f.input :rating, label: "Rating", placeholder: '5' %>
-        <%= f.input :photo, input_html: { class: 'hidden', id: 'photo-input'}, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
-        <%= f.input :photo_cache, as: :hidden %>
-        <%= cl_image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
-        <%= f.submit "Create", class: "btn-medium" %>
-        <% end %>
-      </div>
-    </div>
-  </div>
+<div class="form">
+  <%= simple_form_for [ surf_session, @review ] do |f| %>
+  <%= f.input :content, label: "What did you think of this spot?", placeholder: 'Great waves!' %>
+  <%= f.input :rating, input_html: { min: '0', max: '5', step: 'any' }, label: "How would you rate your experience out of 5?", placeholder: '5' %>
+  <%= f.input :rating, input_html: { min: '0', max: '5', step: 'any' }, label: "How would you rate your experience out of 5?", placeholder: '5' %>
+  <%= f.input :photo, input_html: { class: 'hidden', id: 'photo-input'}, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
+  <%= f.input :photo_cache, as: :hidden %>
+  <!-- <#%= cl_image_tag "", width: 300, class: "hidden", id: "photo-preview" %> -->
+  <!-- <#%= f.submit "Create", class: "btn btn-success" %> -->
+  <% end %>
 </div>
-
