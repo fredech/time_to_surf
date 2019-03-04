@@ -1,20 +1,23 @@
 class ReviewsController < ApplicationController
-  # before_action :set_review, only: [:create, :new]
+  # before_action :set_review, only: [:new]
 
   def index
     @reviews = Review.all
   end
 
   def new
+    @surf_session = SurfSession.find(params[:surf_session_id])
     @review = Review.new
+    @reviews = Review.all
   end
 
   def create
+    @surf_session = SurfSession.find(params[:surf_session_id])
     @review = Review.new(review_params)
-    @review.surf_session = SurfSession.find(params[:id])
-    @review.surf_session.spot = Spot.find(params[:id])
+    @review.surf_session = @surf_session
+    @review.surf_session.spot = @surf_session.spot
     if @review.save
-      redirect_to spot_path(@spot), notice: 'Your review was successfully created!'
+      redirect_to dashboard_path, notice: 'Your review was successfully created!'
     else
       render :new
     end
@@ -42,7 +45,7 @@ class ReviewsController < ApplicationController
   #   @review = Review.find(params[:id])
   # end
 
-  # def review_params
-  #   params.require(:review).permit(:content, :rating, :photo)
-  # end
+  def review_params
+    params.require(:review).permit(:content, :rating, :photo)
+  end
 end
