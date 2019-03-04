@@ -25,12 +25,8 @@
     <% end %>
     <div class="card-content">
       <h2><%= rank %></h2>
-      <p>match rate: <%= @matching_rates[3-rank][1] %></p>
-      <% if params[search].nil? %>
-        <h3><%= link_to "#{spot.name}", spot_path(spot, start_time: params[:start_time], travel_time: params[:travel_time], address: params[:address]), class: 'navbar-wagon-link'%></h3>
-      <% else %>
-        <h3><%= link_to "#{spot.name}", spot_path(spot, start_time: params[:search][:start_time], travel_time: params[:search][:travel_time], address: params[:search][:address]), class: 'navbar-wagon-link'%></h3>
-      <% end %>
+      <p>match rate: <%= @global_rating[3-rank][1] %></p>
+      <h3><%= link_to "#{spot.name}", spot_path(spot, start_time: start_time, travel_time: travel_time, address: address), class: 'navbar-wagon-link'%></h3>
       <p><%= spot.address %></p>
     </div>
   </div>

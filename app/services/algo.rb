@@ -36,19 +36,18 @@ def spot_difficulty(spot, user)
 end
 
 def swell(weather, user)
-  well_height = weather[:swell_height].to_i
+  swell_height = weather[:swell_height].to_i
   level_user = set_level
   rate_swell = rate_swell(swell_height, level_user)
 end
 
-def overall_rating(rating_spot, searched_hour, weather, user)
+def overall_rating(spot, searched_hour, weather, user)
   p rating_tide = tide(spot, searched_hour, weather) * 10
   p rating_wave_msw = wave_msw(weather) * 10
   p rating_spot_difficulty = spot_difficulty(spot, user) * 10
   p rating_swell = swell(weather, user) * 10
   p global_rating = rating_tide + rating_wave_msw + rating_spot_difficulty + rating_swell
 end
-
 
 private
 
