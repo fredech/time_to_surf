@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background:rgba(255,255,255,0.4);
+  // background:rgba(255,255,255,0.4);
   transition: 0.5s background-color ease;
 }
 
@@ -55,9 +55,10 @@
 .navbar-wagon-link {
   color: $gray;
   font-size: 16px;
+  font-weight: bold;
 }
 .navbar-wagon-link:hover {
-  color: $red;
+  color: $green;
   text-decoration: none;
 }
 

@@ -2,12 +2,18 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500");
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,900|Montserrat|Roboto');
 @import url('https://fonts.googleapis.com/css?family=Hind:500,700');
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+
+@font-face {
+  font-family: "Tahu";
+  src: font-url('tahu.ttf') format('truetype');
+}
 
 // Define fonts for body and headers
 // $body-font: "Open Sans", "Helvetica", "sans-serif";
-$body-font: 'Roboto', sans-serif;
+$body-font: 'Lato', sans-serif;
 // $headers-font: "Raleway", "Helvetica", "sans-serif";
-$headers-font: 'Hind', sans-serif;
+$headers-font: 'Tahu', sans-serif;
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
