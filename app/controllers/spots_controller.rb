@@ -38,8 +38,10 @@ class SpotsController < ApplicationController
       end
 
       @global_rating = @overall_rating.sort_by { |spot, rate| rate }.last(3)
+
       @selected_spots = []
-      @selected_spots << Spot.find(@global_rating[0][0]) << Spot.find(@global_rating[1][0]) << Spot.find(@global_rating[2][0])
+      @selected_spots << Spot.find(@global_rating[2][0]) << Spot.find(@global_rating[1][0]) << Spot.find(@global_rating[0][0])
+
       @markers = @selected_spots.map do |spot|
         {
           lng: spot.longitude,
@@ -60,28 +62,32 @@ class SpotsController < ApplicationController
 
     @address = set_params(:address)
     @start_time = set_params(:start_time)
-    # @rating_tide = set_params(:rating_tide)
-    # @rating_wave_msw = set_params(:rating_wave_msw)
-    # @rating_spot_difficulty = set_params(:rating_spot_difficulty)
-    # @rating_swell = set_params(:rating_swell)
-    # @overall_rating = set_params(:overall_rating)
-    date = set_params(:date)
-    @date = Date.parse(date)
-    @hour = set_params(:hour)
+
+    date_str, hour = set_params(:start_time).split(' ')
+
+    @date = Date.parse(date_str)
+    @hour = hour.gsub(/:\d+/, "h")
+
+    @rating_tide = {}
+    @rating_wave_msw = {}
+    @rating_spot_difficulty = {}
+    @rating_swell = {}
+    @overall_rating = {}
+
+
+    @weather = weather_condition(@spot, @date, @hour)
+
+    @rating_tide["#{@spot.id}"] = tide(@spot, @hour, @weather)
+    @rating_wave_msw["#{@spot.id}"] = wave_msw(@weather)
+    @rating_spot_difficulty["#{@spot.id}"] = spot_difficulty(@spot, current_user)
+    @rating_swell["#{@spot.id}"] = swell(@weather, current_user)
+    @overall_rating["#{@spot.id}"] = overall_rating(@spot, @hour, @weather, current_user)
 
     @markers = [{
           lng: @spot.longitude,
           lat: @spot.latitude,
           image_url: helpers.asset_url('map_pin.png')
     }]
-
-    @weather = weather_condition(@spot, @date, @hour)
-
-    @rating_tide["#{spot.id}"] = tide(spot, @hour, weather)
-    @rating_wave_msw["#{spot.id}"] = wave_msw(weather)
-    @rating_spot_difficulty["#{spot.id}"] = spot_difficulty(spot, current_user)
-    @rating_swell["#{spot.id}"] = swell(weather, current_user)
-    @overall_rating["#{spot.id}"] = overall_rating(spot, @hour, weather, current_user)
 
   end
 
