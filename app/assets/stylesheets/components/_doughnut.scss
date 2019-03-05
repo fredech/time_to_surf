@@ -1,0 +1,45 @@
+@keyframes donut-chart-fill {
+  to { stroke-dasharray: 0 100; }
+}
+body {
+  font-size: 16px;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #333;
+}
+
+.svg-item {
+  width: 100px;
+  height: 100px;
+  font-size: 16px;
+}
+.donut-ring {
+  stroke: #616668;
+}
+
+.donut-segment {
+  animation: donut-chart-fill 1s reverse ease-in;
+  transform-origin: center;
+  stroke: #26DE81;
+}
+
+.donut-text {
+  font-family: 'Lato', sans-serif;
+  fill: #26DE81;
+}
+
+.donut-label {
+  font-size: 0.28em;
+  font-weight: 700;
+  line-height: 1;
+  fill: #000;
+  transform: translateY(0.25em);
+}
+
+.donut-percent {
+  font-size: 0.6em;
+  fill: #26DE81;
+  line-height: 1;
+  transform: translateY(0.6em);
+}

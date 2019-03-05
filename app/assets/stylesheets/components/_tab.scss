@@ -9,6 +9,15 @@ $body_tab: 'Roboto', sans-serif;
   position: relative;
   margin-top: 5%;
   box-shadow: 2px 5px 20px rgba($gray, .5);
+  .navbar-wagon-link {
+    color: $gray;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .navbar-wagon-link:hover {
+    color: $green;
+    text-decoration: none;
+  }
 }
 
 .CTA {
@@ -43,7 +52,7 @@ $body_tab: 'Roboto', sans-serif;
   position: absolute;
   width: 90px;
   height: 110%;
-  background-color: $red;
+  background-color: $green;
   box-shadow: 3px 3px 10px rgba($gray, .5);
 }
 
@@ -129,7 +138,7 @@ nav a:hover .text2 {
   font-family: $body_tab;
   font-size: 0.9em;
   padding: 7px 0;
-  color: $black;
+  color: $dark-gray;
 }
 .tab_container span {
   font-size: 16px;

@@ -1,0 +1,81 @@
+.new_card-container {
+  height: 200px;
+  width: 600px;
+  border-radius: 10px;
+  box-shadow: 15px 15px 20px -10px $light-gray;
+  margin: 20px;
+  position: relative;
+  overflow: hidden;
+  background-color: $light-gray;
+  .new_card-content {
+    height: 200px;
+    width: 300px;
+    padding: 10px;
+    margin: 0px;
+    h2 {
+      color: $gray;
+      font-family: 'Lato', sans-serif;
+      padding-top: 0px;
+      text-transform: capitalize;
+      font-size: 24px;
+      margin: 0px;
+    }
+    h3 {
+      color: $green;
+      font-family: 'Lato', sans-serif;
+      padding-top: 5px;
+      font-size: 16px;
+      margin-top: 0px;
+      margin-bottom: 40px;
+    }
+    .rate {
+
+      overflow: hidden;
+      .rate-content {
+        height: 100px;
+        width: 140px;
+        padding: 0px;
+        margin: 0px;
+        p{
+          color: $gray;
+          font-family: 'Lato', sans-serif;
+          padding-bottom: 5px;
+          margin: 0px;
+          font-size: 16px;
+        }
+      }
+      .rate-doughnut {
+        float: left;
+        padding: 0px;
+        height: 100px;
+        width: 100px;
+        margin: 0px;
+        padding-left: 0px;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 90px;
+        left: 190px;
+      }
+    }
+    .card-link {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 50%;
+      z-index: 2;
+      opacity: 0;
+    }
+  }
+  .new_card-image {
+    height: 100%;
+    width: 300px;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+  }
+}
+
