@@ -30,7 +30,7 @@
         <p><%= "#{current_user.profile.address}" %><button class="tab_btn">update</button></p>
       <% end %>
       <h2>Surfing level</h2>
-      <p><%= "#{level}" %><button class="tab_btn">update</button></p>
+      <p><%= "#{@level}" %><button class="tab_btn">update</button></p>
       <p>Your surf level is a <u>very important factor</u> in determining which spots are best for you.</p>
       <ol>
         <li>Beginner:     wave height less than 1 meter</li>
@@ -72,6 +72,65 @@
     <div class="privacy noshow">
       <div class="sub-tab">
         <h1><%= "Surf sessions" %></h1>
+        <ul>
+          <ul class="list-inline bookings">
+            <li style= "width: 15%;"><h2><%= "Name" %></h2></li>
+            <li style= "width: 15%;"><h2><%= "Date" %></h2></li>
+            <li style= "width: 15%;"><h2><%= "Best Tide" %></h2></li>
+            <li style= "width: 15%;"><h2><%= "Difficulty" %></h2></li>
+            <li style= "width: 40%;"><h2><%= "Image" %></h2></li>
+          </ul><hr style="margin-top: 0; margin-bottom: 0">
+          <div class="sub-tab-content">
+            <% @surf_sessions.each do |session|%>
+            <ul class="list-inline bookings" id="session-<%= session.id %>">
+              <li style= "width: 15%;"><h2><%= session.spot.name %></h2></li>
+              <li style= "width: 15%;"><h2><%= session.spot.address %></h2></li>
+              <li style= "width: 15%;"><h2><%= session.spot.best_tide %></h2></li>
+              <li style= "width: 15%;"><h2><%= session.spot.difficulty_level %></h2></li>
+              <li style= "width: 40%;">
+                <h2>
+                  <img class="avatar-large" src="<%= session.spot.photo %>"><%= link_to ' Details ', spot_path(session.spot), class: "navbar-wagon-link" %><%= link_to ' | Delete ', surf_session_path(session), method: :delete, remote: true, data: { confirm: "Are you sure you want to delete this session?" }, class: "navbar-wagon-link" %>
+                  <class="navbar-wagon-link" data-toggle="modal" data-target="#session-review-<%= session.id %>">
+                    | Add a review
+                  </button>
+                </h2>
+              </li>
+              <div class="modal fade" id="session-review-<%= session.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <%= simple_form_for [ session, @review ] do |f| %>
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Add a review for <%= session.spot.name %> </h4>
+                      </div>
+                      <div class="modal-body">
+                        <div class="form">
+                          <%= f.input :content, label: "What did you think of this spot?", placeholder: 'Great waves!' %>
+                          <%= f.input :condition, input_html: { min: '0', max: '5', step: 'any' }, label: "How would you rate the surfing conditions of this beach? (/5)" %>
+                          <%= f.input :access, input_html: { min: '0', max: '5', step: 'any' }, label: "How would you rate the access to this beach? (/5)" %>
+                          <%= f.input :facilities, input_html: { min: '0', max: '5', step: 'any' }, label: "How would you rate the facilities at this beach? (/5)" %>
+                          <%= f.input :photo, input_html: { class: 'hidden', id: 'photo-input'}, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
+                          <%= f.input :photo_cache, as: :hidden %>
+                          <%= cl_image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <%= f.submit "Create a review", class:"btn-flat-style-index" %>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </ul>
+            <% end %>
+          </div>
+        </ul>
+      </div>
+    </div>
+
+
+<!-- <#%= link_to ' | Add a review', new_surf_session_review_path(session), method: :get%> -->
+
         <!-- <ul>
           <ul class="list-inline bookings">
             <li style= "width: 15%;"><h2><%#= "BOOKING N°" %></h2></li>

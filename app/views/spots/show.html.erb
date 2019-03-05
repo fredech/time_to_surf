@@ -2,6 +2,7 @@
   <div class="new_map-container-show" >
     <%= render 'shared/map', markers: @markers%>
   </div>
+  <div class="spot_image" style="background-image: url(<%= cl_image_path @spot.photo %>);">
 
   <div class="content_container">
       <div class="spot_search_date">
@@ -101,6 +102,14 @@
 
     </div>
 
-</div>
-
+      <div class="review_container">
+        <div class="review_text">
+          <h3>EXPERIENCES</h3>
+            <% @spot.reviews.each do |review| %>
+          <h3><%= review.content %></h3>
+          <% end %>
+        </div>
+      </div>
+  
+    </div>
 

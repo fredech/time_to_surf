@@ -10,6 +10,7 @@ class PagesController < ApplicationController
     @surf_sessions = SurfSession.where(user: current_user)
     @preferred_spots = PreferredSpot.where(user: current_user)
     @level = set_level
+    @review = Review.new
   end
 
   private
