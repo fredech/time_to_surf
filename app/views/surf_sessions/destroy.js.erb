@@ -1,0 +1,9 @@
+console.log('coucou')
+
+function deleteSurfSession() {
+  const surf_session = document.getElementById('session-<%= @surf_session_id %>');
+  surf_session.remove();
+}
+
+
+deleteSurfSession();

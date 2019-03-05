@@ -63,3 +63,65 @@
     fill: #26DE81;
   }
 }
+
+#search-flat-container-show {
+  padding-bottom: 0px;
+  .btn-flat-style {
+    background-color: $green;
+    height: 60px;
+    width: 100%;
+    font-size: 24px;
+    border-radius: 8px;
+    font-family: "Lato", sans-serif;
+    border-color: $green;
+    &:hover {
+      background-color: $white;
+      font-weight: bold;
+      color: $green;
+      border: solid 3px $green;
+    }
+  }
+    .btn-flat-style-index {
+    background-color: $green;
+    height: 50px;
+    width: 100%;
+    font-size: 16px;
+    border-radius: 8px;
+    font-family: "Lato", sans-serif;
+    border-color: $green;
+    &:hover {
+      background-color: $white;
+      font-weight: bold;
+      color: $green;
+      border: solid 3px $green;
+    }
+  }
+  .form-flat-index {
+    border-color: $green;
+    height: 50px;
+    padding: 0px 8px;
+    font-size: 16px;
+    font-weight: bold;
+    color: $green;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: "Lato", sans-serif;
+  }
+  .form-flat-search.datepicker {
+    position: relative;
+  }
+  .datepicker-icon {
+    position: absolute;
+    z-index: 1;
+    right: 32px;
+    top: 14px;
+    opacity: 1;
+    color: $green;
+    font-size: 16px;
+  }
+
+}
+
+
+
+
