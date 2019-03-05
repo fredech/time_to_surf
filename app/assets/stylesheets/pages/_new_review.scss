@@ -5,3 +5,17 @@
 #review-title {
   color: $black;
 }
+
+#btn-style{
+  background-color: white;
+  position: absolute;
+  bottom: 341px;
+  left: 250px;
+  width: 300px;
+  height: 59px;
+  color: $gray;
+}
+
+.review_photo {
+  height: 50px !important;
+}

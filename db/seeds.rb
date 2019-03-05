@@ -348,8 +348,65 @@ puts "#{SurfSession.count} Surf sessions created"
 puts "create reviews..."
 
 url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1551442126/la_torche_2.jpg"
-review_1 = Review.new( content: "Very good session with perfect conditions. Waves awesome !!",
-                       surf_session: surf_session_1 )
+review_1 = Review.new(  content: "Good access to beach but it was very dirty",
+                        facilities: '3',
+                        access: '4',
+                        condition: '1',
+                        surf_session: surf_session_1 )
+review_1.remote_photo_url = url
+review_1.save!
+
+url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1551442126/la_torche_2.jpg"
+review_1 = Review.new(  content: "Amazing little coffee shop on beach, but it could have been a lot cleaner plus it was a long climb downhill to get there",
+                        facilities: '5',
+                        access: '2',
+                        condition: '1',
+                        surf_session: surf_session_2 )
+review_1.remote_photo_url = url
+review_1.save!
+
+url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1551442126/la_torche_2.jpg"
+review_1 = Review.new(  content: "Hard on the knees going downhill to the beach, but lovely sandy beach",
+                        facilities: '5',
+                        access: '3',
+                        condition: '5',
+                        surf_session: surf_session_3 )
+review_1.remote_photo_url = url
+review_1.save!
+
+url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1551442126/la_torche_2.jpg"
+review_1 = Review.new(  content: "Great sandwich bar and very clean beach",
+                        facilities: '4',
+                        access: '2',
+                        condition: '4',
+                        surf_session: surf_session_4 )
+review_1.remote_photo_url = url
+review_1.save!
+
+url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1551442126/la_torche_2.jpg"
+review_1 = Review.new(  content: "Very good session with perfect conditions. Waves awesome !!",
+                        facilities: '2',
+                        access: '1',
+                        condition: '5',
+                        surf_session: surf_session_5 )
+review_1.remote_photo_url = url
+review_1.save!
+
+url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1551442126/la_torche_2.jpg"
+review_1 = Review.new(  content: "One of the best beaches I've ever surfed on!",
+                        facilities: '5',
+                        access: '5',
+                        condition: '5',
+                        surf_session: surf_session_4 )
+review_1.remote_photo_url = url
+review_1.save!
+
+url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1551442126/la_torche_2.jpg"
+review_1 = Review.new(  content: "Great session. Thanks TTS",
+                        facilities: '4',
+                        access: '4',
+                        condition: '5',
+                        surf_session: surf_session_3 )
 review_1.remote_photo_url = url
 review_1.save!
 

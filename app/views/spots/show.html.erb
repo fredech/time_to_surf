@@ -66,10 +66,12 @@
       <div class="spot_review" >
         <h3>REVIEWS</h3>
         <% @spot.reviews.each do |review| %>
-          <div class="review_photo" style="background-image: url(<%= cl_image_path review.photo %>);">
-           <h3><%= review.content %></h3>
-           <h3><%= review.rating %></h3>
-          </div>
+          <h3><%= review.content %> | <% review.weighted_average.times do %></h3>
+          <i class="fas fa-star"></i>
+          <% end %>
+          <% (5 - review.weighted_average).times do %>
+          <i class="far fa-star"></i>
+          <% end %>
         <% end %>
       </div>
     </div>
