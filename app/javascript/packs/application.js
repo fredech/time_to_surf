@@ -19,9 +19,9 @@ if ( document.querySelector(".select2") ) {
 if ( document.querySelector(".navbar-wagon") ) {
   initUpdateNavbarOnScroll();
 }
-if ( document.querySelector("#photo-preview") ) {
-  previewImageOnFileSelect();
-}
+
+previewImageOnFileSelect();
+
 if ( document.querySelector(".tab_container") ) {
   tabEffect();
 }

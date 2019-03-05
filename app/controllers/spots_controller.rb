@@ -41,7 +41,7 @@ class SpotsController < ApplicationController
 
       @selected_spots = []
       @selected_spots << Spot.find(@global_rating[2][0]) << Spot.find(@global_rating[1][0]) << Spot.find(@global_rating[0][0])
-      
+
       @markers = @selected_spots.map do |spot|
         {
           lng: spot.longitude,
@@ -66,7 +66,9 @@ class SpotsController < ApplicationController
     date_str, hour = set_params(:start_time).split(' ')
 
     @date = Date.parse(date_str)
+    hour = hour.first(5)
     @hour = hour.gsub(/:\d+/, "h")
+
 
     @rating_tide = {}
     @rating_wave_msw = {}
