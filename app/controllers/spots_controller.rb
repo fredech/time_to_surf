@@ -35,8 +35,6 @@ class SpotsController < ApplicationController
         @rating_swell["#{spot.id}"] = swell(weather, current_user)
         @overall_rating["#{spot.id}"] = overall_rating(spot, @hour, weather, current_user)
 
-        # @conditions_rates["#{spot.id}"] = conditions_rate(spot, hour, weather)
-        # @matching_rates["#{spot.id}"] = matching_rate(spot, current_user, weather)
       end
 
       @global_rating = @overall_rating.sort_by { |spot, rate| rate }.last(3)
