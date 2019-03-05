@@ -3,7 +3,7 @@
     <div class="row">
       <%= simple_form_for :search, url: spots_path, method: 'GET' do |f| %>
       <div class="col-xs-12 col-sm-4 col-lg-4">
-        <%= f.input :address, as: :string, placeholder: "Hossegor", input_html: { id: 'spot_location', value: address, class: 'form-search' }, label_html: { class: 'navbar-wagon-link' } %>
+        <%= f.input :address, as: :string, placeholder: "Hossegor", input_html: { value: address, class: 'spot_location form-search' }, label_html: { class: 'navbar-wagon-link' } %>
       </div>
       <div class="col-xs-12 col-sm-2 col-lg-2">
         <%= f.input :start_time, as: :string, placeholder: "YYYY-MM-DD HH:HH", input_html: { value: start_time, class: "datepicker form-search" }, label_html: { class: 'navbar-wagon-link' } %>

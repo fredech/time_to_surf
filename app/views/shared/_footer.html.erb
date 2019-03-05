@@ -5,7 +5,9 @@
     <a href="#"><i class="fab fa-facebook"></i></a>
     <a href="#"><i class="fab fa-twitter"></i></a>
     <a href="#"><i class="fab fa-linkedin"></i></a>
-    <%= link_to image_tag "msw_powered_by_hop.png", style:"height: 30px;", "http://magicseaweed.com", target: :_blank, rel: "nofollow", class: "navbar-wagon-brand flip-vertical-left" do %>
+    <div><%= link_to "http://magicseaweed.com", target: :_blank, rel: "nofollow" do %>
+    <%= image_tag "msw_powered_by_hop.png", style:"height: 30px;", class: "navbar-wagon-brand flip-vertical-left" %>
+    <% end %></div>
   </div>
 
   <div class="footer-copyright">
