@@ -2,7 +2,6 @@
   background-color: $white;
 }
 
-
 .new_main-container-show {
   margin-top: 0px;
   display: flex;
@@ -11,15 +10,33 @@
   flex-wrap: wrap;
   background-color: $white;
   width: 100vw;
+  position: relative;
 }
 
 .new_map-container-show {
   flex: 0 1 auto;
+  position: sticky !important;
+  top: 0px !important;
+  z-index: 0;
   #map {
     width: 50vw;
-    height: 100vh !important;
-    position: sticky !important;
-    top: 0px !important;
+    height: 50vh !important;
+    position: relative;
+    // top: 0px !important;
+    .btn-create-show {
+      width: 200px;
+      position: absolute;
+      bottom: 20px;
+      right: 5px;
+      z-index: 1;
+    }
+  }
+  .spot_image {
+    height: 50vh !important;
+    width: 50vw !important;
+    background-size: cover;
+    background-position: center;
+    border-bottom: white 2px solid;
   }
 }
 
@@ -29,7 +46,8 @@
   justify-content: center;
   padding-left: 24px;
   padding-right: 24px;
-  padding-top: 45px;
+  padding-top: 30px;
+  overflow: scroll;
 }
 
 .spot_search_date {
@@ -38,18 +56,26 @@
 
 .spot_rating {
   display: flex;
-  border-top: solid 3px $green;
-  border-bottom: solid 3px $green;
+  border-top: solid 2px $green;
+  border-bottom: solid 2px $green;
   padding-left: 20px;
+  padding-bottom: 15px;
+  padding-top: 15px;
 }
 
 .spot_rating_donought {
-  width: 35%;
-  padding-right: 10px;
+  width: 40%;
+  padding-right: 20px;
+  .donought_size {
+    width: 65%;
+    height: 65%;
+  }
 }
 
 .spot_rating_details {
   width: 70%;
+  padding-left: 25px;
+  border-left: $light-gray solid 1px;
 }
 
 .spot_details {
@@ -94,8 +120,6 @@
   height: 400px;
   margin-top: 40px;
   margin-bottom: 40px;
-  // box-shadow: 6px 6px 6px rgba(30, 30, 30, 0.4);
-  // overflow: hidden;
   position: relative;
   background-size: cover;
   background-position: center;
@@ -114,75 +138,9 @@
 @media only screen
 and (max-width : 800px) {
   .new_map-container-show {
-      display: none;
+    display: none;
+  }
+  .content_container {
+    width: 100vw;
   }
 }
-
-// .spot_container {
-//   display: flex;
-//   align-items: flex-start;
-//   justify-content: center;
-//   flex-wrap: wrap;
-//   padding: 20px;
-//   position: absolute;
-//   top: 42vh;
-// }
-
-// .fun_container {
-//   width: 448px;
-//   top: -120px;
-//   justify-content: center;
-//   align-items: center;
-//   padding-left: 24px;
-//   padding-right: 24px;
-//   padding-top: 70px;
-//   z-index: 1;
-// }
-// .spot_map {
-//   width: 300px;
-//   height: 300px;
-//   border-radius: 50%;
-//   background-position: center;
-//   overflow: hidden;
-//   background-size: cover;
-//   margin: auto;
-//   z-index: -10;
-//   #map {
-//     width: 300px;
-//     height: 300px;
-//   }
-// }
-// .spot_image {
-//   width: 400px;
-//   height: 300px;
-//   margin-top: 40px;
-//   margin-bottom: 40px;
-//   box-shadow: 6px 6px 6px rgba(30, 30, 30, 0.4);
-//   overflow: hidden;
-//   position: relative;
-//   background-size: cover;
-//   background-position: center;
-//   p {
-//     position: absolute;
-//     color: $white;
-//     top: 5px;
-//     left: 20px;
-//   }
-// }
-// .spot_video {
-//   width: 400px;
-//   height: 300px;
-//   margin-top: 40px;
-//   margin-bottom: 40px;
-//   box-shadow: 6px 6px 6px rgba(30, 30, 30, 0.4);
-//   overflow: hidden;
-//   position: relative;
-//   p {
-//     position: absolute;
-//     color: $white;
-//     top: -10px;
-//     left: 20px;
-//   }
-// }
-
-

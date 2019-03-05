@@ -6,10 +6,18 @@
         <i class="far fa-calendar-alt datepicker-icon"></i>
         <%= f.input :start_time, as: :string, placeholder: "When", input_html: {value: start_time, class: 'form-flat-index datepicker'}, label: false, required: true %>
       </div>
-      <div class="col-xs-4 col-sm-4 col-md-3 col-lg-3">
-        <%= f.button :submit, "Surf's up!", class: "btn btn-primary btn-flat-style-index" %>
+      <div class="col-xs-4 col-sm-6 col-md-4 col-lg-3">
+        <%= f.button :submit, "Try Again !", class: "btn btn-primary btn-flat-style-index" %>
       </div>
       <% end %>
+      <div class="col-xs-4 col-sm-6 col-md-4 col-lg-3">
+        <div class="button-create">
+          <%= link_to "Let's Go !", surf_sessions_path(start_time: start_time, spot_id: spot), method: 'POST', class: "btn btn-primary btn-create-show" %>
+        </div>
+      </div>
+
     </div>
 
 </div>
+
+

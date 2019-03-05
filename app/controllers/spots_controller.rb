@@ -76,7 +76,6 @@ class SpotsController < ApplicationController
     @rating_swell = {}
     @overall_rating = {}
 
-
     @weather = weather_condition(@spot, @date, @hour)
 
     @rating_tide["#{@spot.id}"] = tide(@spot, @hour, @weather)
