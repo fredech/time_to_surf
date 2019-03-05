@@ -69,6 +69,7 @@ class SpotsController < ApplicationController
     hour = hour.first(5)
     @hour = hour.gsub(/:\d+/, "h")
 
+
     @rating_tide = {}
     @rating_wave_msw = {}
     @rating_spot_difficulty = {}
