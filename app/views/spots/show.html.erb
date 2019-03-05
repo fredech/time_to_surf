@@ -7,6 +7,8 @@
 
 
   <div class="content_container">
+    <h1> <%= @spot.name %></h1>
+    <h3> <%= current_user.pseudo %>, are you ready to surf here ?</h3>
     <div class="spot_search_date">
       <h3><%= render 'shared/searchbar_flat_show', spot: @spot, start_time: @start_time %></h3>
     </div>
@@ -56,14 +58,13 @@
     </div>
 
     <div class="spot_details">
-      <h3>DESCRIPTION  <%= image_tag @weather[:weather_icon], class: "avatar-medium" %></h3>
       <p><%= @spot.description %></p>
       <p><strong>Seabed: </strong><%= @spot.seabed %></p>
       <p><strong>Best tide for the spot: </strong><%= @spot.best_tide %></p>
     </div>
 
     <div class="spot_weather">
-      <h3>TEMPERATURE - SUNRISE - SUNSET </h3>
+      <h5>WEATHER <%= image_tag @weather[:weather_icon], class: "avatar-medium" %></h5>
       <div class="weather_box">
         <div class="weather_box_item">
           <p><%= image_tag 'temperature.png', width: 30, height: 30 %><%= image_tag 'water.png', width: 30, height: 30 %>   <%= @weather[:water_temperature] %> °C</p>
@@ -77,7 +78,7 @@
     </div>
 
     <div class="spot_weather">
-      <h3>WAVE - WIND</h3>
+      <h5>WAVE - WIND</h5>
       <div class="weather_box">
         <div class="weather_box_item">
           <p><%= image_tag 'air.png', width: 30, height: 30 %><%= image_tag 'speed.png', width: 30, height: 30 %>   <%= @weather[:wind_speed] %> km/h </p>
@@ -91,7 +92,7 @@
     </div>
 
     <div class="spot_weather">
-      <h3>TIDE</h3>
+      <h5>TIDE</h5>
       <div class="weather_box">
         <div class="weather_box_item">
           <p><%= image_tag 'tide.png', width: 30, height: 30 %><%= @weather[:tide_1_time] %>: <%= @weather[:tide_1_low_or_high].capitalize %> </p>
