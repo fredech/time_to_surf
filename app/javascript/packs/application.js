@@ -12,6 +12,7 @@ import { initMapbox } from '../plugins/init_mapbox';
 // import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { cardEffect } from '../components/card';
+import { initHome } from '../components/init_home';
 
 if ( document.querySelector(".select2") ) {
   initSelect2();
@@ -33,4 +34,7 @@ if ( document.querySelector("#spot_location") ) {
 }
 if ( document.querySelector(".snip1360") ) {
   cardEffect();
+}
+if ( document.querySelector("#home-splash") ) {
+  initHome();
 }
