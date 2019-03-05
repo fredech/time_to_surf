@@ -103,13 +103,11 @@
 
 .review_container {
   justify-content: center;
-  padding: 44px;
   border-bottom: solid 1px $light-gray;
   padding-bottom: 24px;
-  bottom: 5px;
+  left: 40px;
   z-index: 3;
   position: absolute;
-  top: 170vh;
 }
 
 .review_number {
@@ -131,7 +129,7 @@
   background-size: cover;
   background-position: center;
   h5 {
-    opcacity: 0;
+    opacity: 0;
     color: white;
   }
   &:hover {
@@ -140,5 +138,9 @@
     transition: all ease 0.5s;
     z-index: 2;
   }
+}
+
+.review_text{
+  color: $blue;
 }
 

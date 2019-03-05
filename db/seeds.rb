@@ -6,6 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "Destroy datas..."
+Profile.destroy_all
+PreferredSpot.destroy_all
+Review.destroy_all
+SurfSession.destroy_all
 User.destroy_all
 Spot.destroy_all
 puts "Datas destroyed!"
@@ -320,7 +324,7 @@ puts "create Surf sessions..."
 
 surf_session_1 = SurfSession.new( start_time: "2019-03-01 12:00",
                                   user: georgette,
-                                  spot: spot_3 )
+                                  spot: spot_1 )
 surf_session_1.save!
 
 surf_session_2 = SurfSession.new( start_time: "2019-03-01 12:00",
