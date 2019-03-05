@@ -13,7 +13,7 @@
 
       <div class="spot_info">
         <h3>
-          <%= @date %>: <%= @hour %> <%= image_tag @weather[:weather_icon], class: "avatar-medium" %>
+          <%= @date %>: <%= @hour %> <%= image_tag @weather[:weather_icon], class: "avatar-medium" %><%= render 'shared/searchbar_flat_show', spot: @spot, start_time: @start_time %>
         </h3>
       </div>
 
