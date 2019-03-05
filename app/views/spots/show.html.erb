@@ -13,7 +13,7 @@
 
       <div class="spot_info">
         <h3>
-          <%= @date %>: <%= @hour %> <%= image_tag @weather[:weather_icon], class: "avatar-medium" %><%= render 'shared/searchbar_flat_show', spot: @spot, start_time: @start_time %>
+           <%= render 'shared/searchbar_flat_show', spot: @spot, start_time: @start_time %>
         </h3>
       </div>
 
@@ -62,7 +62,7 @@
       </div>
 
       <div class="spot_details">
-        <h3>DESCRIPTION</h3>
+        <h3>DESCRIPTION  <%= image_tag @weather[:weather_icon], class: "avatar-medium" %></h3>
         <p><%= @spot.description %></p>
         <p><strong>Seabed: </strong><%= @spot.seabed %></p>
         <p><strong>Best tide for the spot: </strong><%= @spot.best_tide %></p>
@@ -105,29 +105,7 @@
           </div>
           <div class="weather_box_item">
             <p><%= image_tag 'tide.png', width: 30, height: 30 %><%= @weather[:tide_2_time] %>: <%= @weather[:tide_2_low_or_high].capitalize %> </p>
-
-            <p><%= @rating_tide["#{@spot.id}"] %></p>
-            <p><%#= @rating_wave_msw["#{@spot.id}"] %></p>
-            <p><%#= @rating_spot_difficulty["#{@spot.id}"] %></p>
-            <p><%#= @rating_swell["#{@spot.id}"] %></p>
-            <%= @spot.id %>
-
           </div>
-        </div>
-      </div>
-
-      <div class="review_container">
-        <div>
-          <h3>EXPERIENCES</h3>
-          <% @spot.reviews.each do |review| %>
-            <div class="review_number">
-              <div class="review_photo" style="background-image: url(<%= cl_image_path review.photo %>);">
-                <div class="review_content">
-                  <h5><%= review.content %></h5>
-                </div>
-              </div>
-            </div>
-          <% end %>
         </div>
       </div>
 
