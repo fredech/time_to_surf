@@ -1,15 +1,23 @@
-<div class="search_bar">
-  <%= render 'shared/searchbar_flat_index', address: @address, start_time: @start_time, travel_time: @travel_time, level: @level %>
-</div>
-<div class="container">
-  <div class="main-container">
-    <div class="map-container" >
-      <%= render 'shared/map', markers: @markers%>
+<div class="new_main-container">
+  <div class="new_map-container" >
+    <%= render 'shared/map', markers: @markers%>
+  </div>
+  <div class="new_cards-container">
+    <div class="intro">
+      <h2><%= "Hey #{current_user.pseudo} !" %></h2>
+      <p>These are the top 3 spots we selected for you according to your level and needs.</p>
     </div>
-    <div class="cards-container">
-      <%= render 'shared/card1', spot: @selected_spots[2], rank: 1, start_time: params[:search][:start_time], travel_time: params[:search][:travel_time], address: params[:search][:address] %>
-      <%= render 'shared/card2', spot: @selected_spots[1], rank: 2, start_time: params[:search][:start_time], travel_time: params[:search][:travel_time], address: params[:search][:address] %>
-      <%= render 'shared/card3', spot: @selected_spots[0], rank: 3, start_time: params[:search][:start_time], travel_time: params[:search][:travel_time], address: params[:search][:address] %>
+    <div class="new_search_bar">
+      <%= render 'shared/searchbar_flat_index', address: @address, start_time: @start_time, travel_time: @travel_time, level: @level %>
     </div>
+    <% rank = 1 %>
+    <% index = 0 %>
+    <% @selected_spots.each do |spot| %>
+      <%= render 'shared/card_new', spot: spot, rank: rank, start_time: @start_time, travel_time: @travel_time, address: @address, preferred_spots: @preferred_spots, rate: @matching_rates[index][1] %>
+      <% rank = rank + 1 %>
+      <% index = index + 1 %>
+    <% end %>
+<!--     <#%= render 'shared/card2', spot: @selected_spots[1], rank: 2, start_time: params[:search][:start_time], travel_time: params[:search][:travel_time], address: params[:search][:address] %>
+    <#%= render 'shared/card3', spot: @selected_spots[0], rank: 3, start_time: params[:search][:start_time], travel_time: params[:search][:travel_time], address: params[:search][:address] %> -->
   </div>
 </div>
