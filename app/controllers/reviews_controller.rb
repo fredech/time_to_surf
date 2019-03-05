@@ -17,11 +17,9 @@ class ReviewsController < ApplicationController
     @review.surf_session = @surf_session
     @review.surf_session.spot = @surf_session.spot
     if @review.save
-      redirect_to dashboard_path
-      # notice: 'Your review was successfully created!'
+      redirect_to dashboard_path, notice: 'Your review was successfully created!'
     else
-      redirect_to dashboard_path
-      # notice: 'Sorry, we couldn\'t create this review'
+      redirect_to dashboard_path, notice: 'Sorry, we couldn\'t create this review'
     end
   end
 
