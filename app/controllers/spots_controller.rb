@@ -41,7 +41,7 @@ class SpotsController < ApplicationController
 
       @global_rating = @overall_rating.sort_by { |spot, rate| rate }.last(3)
       @selected_spots = []
-      @selected_spots << Spot.find(@global_rating[0][0]) << Spot.find(@global_rating[1][0]) << Spot.find(@global_rating[2][0])
+      @selected_spots << Spot.find(@global_rating[2][0]) << Spot.find(@global_rating[1][0]) << Spot.find(@global_rating[0][0])
       @markers = @selected_spots.map do |spot|
         {
           lng: spot.longitude,

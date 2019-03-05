@@ -10,8 +10,8 @@ body {
 }
 
 .svg-item {
-  width: 100px;
-  height: 100px;
+  width: 100%;
+  height: 100%;
   font-size: 16px;
 }
 .donut-ring {
@@ -26,6 +26,7 @@ body {
 
 .donut-text {
   font-family: 'Lato', sans-serif;
+  font-weight: bold;
   fill: #26DE81;
 }
 
