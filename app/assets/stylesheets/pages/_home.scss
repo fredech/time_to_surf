@@ -18,7 +18,7 @@
 }
 
 .home-map {
-  background-color: $blue;
+  // background-color: $blue;
   height: 100vh;
   width: 50vw;
   position: absolute;
@@ -29,6 +29,21 @@
   &.map-display {
     left: 0px;
   }
+}
+.carotte {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.close-map {
+  position: absolute;
+  top: 120px;
+  right: -80px;
+  font-size: 60px;
+  color: $dark-gray;
+  z-index: 4;
+  transition: left 0.6s ease-out;
 }
 
 .home-brand {

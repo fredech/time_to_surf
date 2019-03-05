@@ -29,7 +29,7 @@ if ( document.querySelector(".tab_container") ) {
 if ( document.querySelector("#map") ) {
   initMapbox();
 }
-if ( document.querySelector("#spot_location") ) {
+if ( document.querySelector(".spot_location") ) {
   initAutocomplete();
 }
 if ( document.querySelector(".snip1360") ) {

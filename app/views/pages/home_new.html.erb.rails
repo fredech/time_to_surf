@@ -1,0 +1,27 @@
+<div class="home" id="home-splash">
+  <div class="where-search">
+    <div style="display: flex; align-items: center;"><h3 id="big-step">1 </h3><h3>/2 Tell me where is your surfcamp !</h3></div>
+    <%= simple_form_for :search, url: spots_path, method: 'GET' do |f| %>
+      <%= f.input :address, as: :string, placeholder: "Where", input_html: { class: 'spot_location form-flat-search where-trigger'}, label: false, required: true %>
+     <!--  <i class="far fa-calendar-alt date-index datepicker-icon"></i> -->
+      <%= f.input :start_time, as: :string, as: :hidden, placeholder: "When", input_html: { class: 'form-flat-index datepicker'}, label: false, required: true %>
+<!--       <div class="placeholder-index-form">minutes away</div> -->
+      <%= f.input :travel_time, required: true, as: :integer, as: :hidden, input_html: { class: 'form-flat-index'}, label: false %>
+      <%= f.input :level, as: :hidden, input_html: { value: @level } %>
+<!--       <#%= f.button :submit, "Surf's up!", class: "btn btn-primary btn-flat-style-index" %> -->
+    <% end %>
+  </div>
+  <div class="home-video">
+      <%= cl_video_tag("4k_Aerial_Beach_Footage", :loop => true, :autoplay => true, class: "video", :fallback_content => "Your browser does not support HTML5 video tags") %>
+    <div class="home-brand">
+      <h1>Time to surf !</h1>
+      <h2>Find an adapted spot to your level and needs</h2>
+    </div>
+  </div>
+  <div class="home-map">
+    <div class="carotte">
+      <%= render 'shared/map', markers: @markers%>
+      <i class="fas fa-caret-left close-map"></i>
+    </div>
+  </div>
+</div>
