@@ -51,3 +51,26 @@
   }
 }
 
+.btn-create-show {
+    background-color: $dark-green;
+    height: 50px;
+    width: 100%;
+    font-size: 16px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    border-radius: 8px;
+    font-family: "Lato", sans-serif;
+    border-color: $green;
+    top: 60vh;
+    right: 70vh;
+    z-index: 20;
+    &:hover {
+      background-color: $white;
+      font-weight: bold;
+      color: $green;
+      border: solid 3px $green;
+    }
+  }
+
+

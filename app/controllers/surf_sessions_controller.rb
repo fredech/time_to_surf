@@ -7,7 +7,15 @@ class SurfSessionsController < ApplicationController
     @surf_sessions = SurfSession.all
   end
 
+
   def create
+    @surf_session = SurfSession.new(surf_session_params)
+    @surf_session.user_id = current_user
+    if @surf_session.save
+      redirect_to dashboard_path, notice: 'Your surf session was successfully created!'
+    else
+      redirect_to :back, notice: 'Sorry, we couldn\'t create this surf session'
+    end
   end
 
   def destroy
@@ -33,7 +41,7 @@ class SurfSessionsController < ApplicationController
   #   @surf_session = SurfSession.find(params[:id])
   # end
 
-  # def surf_session_params
-  #   params.require(:painting).permit(:name, :location, :price, :author, :style, :availabilities, :photo)
-  # end
+  def surf_session_params
+    params.require(:surf_session).permit(:start_time, :spot_id)
+  end
 end
