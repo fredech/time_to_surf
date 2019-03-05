@@ -1,11 +1,22 @@
-<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-  <div class="card-category">EXPERIENCES</div>
+<div class="review-card-container">
   <% @spot.reviews.each do |review| %>
-  <div class="card-description">
-    <h2><%= review.content %></h2>
-    <p><%= review.surf_session.user.pseudo  %></p>
+  <div class="card">
+    <%= image_tag(review.photo_url, width: '100%') %>
+    <div class="card-category"></div>
+    <div class="card-description review-text">
+      <h2> <%= review.content %></h2>
+      <div class="review-rating">
+        <p><% review.weighted_average.times do  %></p>
+        <div class="rating">
+          <i class="fas fa-star"></i>
+          <% end %>
+          <%  (5 - review.weighted_average).times do %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+    <%= cl_image_tag current_user.photo, class: "avatar-large-review" %>
+    <a class="card-link" href="#" ></a>
   </div>
-  <% end %>
-  <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-  <a class="card-link" href="#" ></a>
 </div>

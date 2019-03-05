@@ -1,0 +1,97 @@
+.rating {
+    display: flex;
+    height: 100px;
+}
+
+.card-description h2 {
+  color: $white;
+  font-size: 15px;
+}
+
+.review-rating {
+  display: flex;
+  font-size: 32px;
+  top: -11px;
+  position: absolute;
+}
+
+.review-rating p {
+  color: $white ;
+  font-size: 28px;
+  opacity: 0;
+
+}
+
+.avatar-large-review {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  top: -79px;
+  left: 468px;
+  position: absolute;
+}
+
+.card {
+  margin-top: 30px;
+  margin-bottom: 50px;
+  height: 227px;
+  width: 545px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  background-position: center;
+  color: white;
+  position: relative;
+}
+
+.review-card-container:hover .card {
+ opacity: 0.5;
+}
+
+
+.review-rating p {
+  color: $white ;
+  font-size: 28px;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.card-user {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 40px;
+  border-radius: 50%;
+}
+.card-category {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+.card-description {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+.card-description h2 {
+  font-size: 24px;
+}
+.card-description p {
+  font-size: 14px;
+  opacity: 0.7;
+  font-weight: lighter;
+}
+.card-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+.card-link:hover {
+  opacity: 0.1;
+}
