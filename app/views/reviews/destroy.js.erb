@@ -1,0 +1,9 @@
+console.log('coucou')
+
+function deleteReview() {
+  const review = document.getElementById('<%= @review_id %>');
+  review.remove();
+}
+
+
+deleteReview();
