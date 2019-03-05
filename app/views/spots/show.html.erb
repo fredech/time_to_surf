@@ -13,8 +13,52 @@
 
       <div class="spot_info">
         <h3>
-          <%= @spot.name.upcase %> - <%= @weather[:date] %> <%= image_tag @weather[:weather_icon], class: "avatar-medium" %>
+          <%= @date %>: <%= @hour %> <%= image_tag @weather[:weather_icon], class: "avatar-medium" %>
         </h3>
+      </div>
+
+       <div class="spot_rating">
+        <div class="spot_rating_donought">
+          <p>Your matching result:</p>
+          <%= render 'shared/doughnut', rate: @overall_rating["#{@spot.id}"] %>
+        </div>
+        <div class="spot_rating_details">
+          <p><%= image_tag 'tide.png', width: 30, height: 30 %>
+          <% if @rating_tide["#{@spot.id}"] <= 1 %>
+              tide doesn't give you best conditions
+          <% else @rating_tide["#{@spot.id}"] <= 2 %>
+              tide perfect for the spot
+          <% end %><%= @rating_tide["#{@spot.id}"] %>
+          </p>
+          <p><%= image_tag 'wave.png', width: 30, height: 30 %>
+          <% if @rating_wave_msw["#{@spot.id}"] <= 1 %>
+              poor quality
+          <% elsif @rating_wave_msw["#{@spot.id}"] <= 2 %>
+              pretty good wave quality
+          <% else @rating_wave_msw["#{@spot.id}"] <= 2 %>
+              perfect wave quality
+          <% end %><%= @rating_wave_msw["#{@spot.id}"] %>
+          </p>
+          <p><%= image_tag 'wave.png', width: 30, height: 30 %> <%= image_tag 'height.png', width: 30, height: 30 %>
+          <% if @rating_swell["#{@spot.id}"] <= 1 %>
+            not adapted to you
+          <% elsif @rating_swell["#{@spot.id}"] <= 2 %>
+            pretty good to you
+          <% else @rating_swell["#{@spot.id}"] <= 3 %>
+            perfect for to
+          <% end %><%= @rating_swell["#{@spot.id}"] %>
+          </p>
+          <p><%= image_tag 'tide.png', width: 30, height: 30 %>
+          <% if @rating_spot_difficulty["#{@spot.id}"] < 1 %>
+            spot environment not adapted for you
+          <% elsif @rating_spot_difficulty["#{@spot.id}"] = 1 %>
+            spot environment ok for you
+          <% else @rating_spot_difficulty["#{@spot.id}"] = 1 %>
+            spot environment perfect for you
+          <% end %><%= @rating_spot_difficulty["#{@spot.id}"] %>
+          </p>
+        </div>
+
       </div>
 
       <div class="spot_details">
@@ -63,9 +107,9 @@
             <p><%= image_tag 'tide.png', width: 30, height: 30 %><%= @weather[:tide_2_time] %>: <%= @weather[:tide_2_low_or_high].capitalize %> </p>
 
             <p><%= @rating_tide["#{@spot.id}"] %></p>
-            <p><%= @rating_wave_msw["#{@spot.id}"] %></p>
-            <p><%= @rating_spot_difficulty["#{@spot.id}"] %></p>
-            <p><%= @rating_swell["#{@spot.id}"] %></p>
+            <p><%#= @rating_wave_msw["#{@spot.id}"] %></p>
+            <p><%#= @rating_spot_difficulty["#{@spot.id}"] %></p>
+            <p><%#= @rating_swell["#{@spot.id}"] %></p>
             <%= @spot.id %>
 
           </div>

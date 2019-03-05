@@ -78,7 +78,21 @@
 .spot_info {
   margin-top: 8px;
   padding-bottom: 10px;
-  border-bottom: solid 1px $light-gray;
+}
+
+.spot_rating {
+  display: flex;
+  border-top: solid 3px $green;
+  border-bottom: solid 3px $green;
+}
+
+.spot_rating_donought {
+  width: 30%;
+  align-items: center;
+}
+
+.spot_rating_details {
+  width: 70%;
 }
 
 .spot_details {
