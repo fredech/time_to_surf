@@ -2,8 +2,8 @@
   <div class="mapboxgl-popup-content">
     <% rank = 3 - @selected_spots.index(spot) %>
     <h2><%= rank %></h2>
-    <p>match rate: <%= @matching_rates[3-rank][1] %></p>
-    <h3><%= link_to "#{spot.name}", spot_path(spot, start_time: params[:search][:start_time], travel_time: params[:search][:travel_time], address: params[:search][:address]), class: 'navbar-wagon-link'%></h3>
+    <p>match rate: <%= @global_rating[3-rank][1] %></p>
+    <h3><%= link_to "#{spot.name}", spot_path(spot, start_time: @start_time, travel_time: @travel_time, address: @address), class: 'navbar-wagon-link'%></h3>
     <p><%= spot.address %></p>
   </div>
 </div>

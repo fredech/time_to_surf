@@ -5,7 +5,7 @@
   <div class="new_cards-container">
     <div class="intro">
       <h2><%= "Hey #{current_user.pseudo} !" %></h2>
-      <p>These are the top 3 spots we selected for you according to your level and needs.</p>
+      <p>These are the top spots we selected for you according to your level and needs.</p>
     </div>
     <div class="new_search_bar">
       <%= render 'shared/searchbar_flat_index', address: @address, start_time: @start_time, travel_time: @travel_time, level: @level %>
@@ -21,3 +21,6 @@
     <#%= render 'shared/card3', spot: @selected_spots[0], rank: 3, start_time: params[:search][:start_time], travel_time: params[:search][:travel_time], address: params[:search][:address] %> -->
   </div>
 </div>
+
+
+
