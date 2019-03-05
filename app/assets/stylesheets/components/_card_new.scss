@@ -6,17 +6,16 @@
   margin: 20px;
   position: relative;
   overflow: hidden;
-  background-color: $light-gray;
+  background-color: $lighter-gray;
   .new_card-content {
     height: 200px;
     width: 300px;
     padding: 10px;
     margin: 0px;
     h2 {
-      color: $gray;
+      color: $dark-gray;
       font-family: 'Lato', sans-serif;
       padding-top: 0px;
-      text-transform: capitalize;
       font-size: 24px;
       margin: 0px;
     }
@@ -39,6 +38,7 @@
         p{
           color: $gray;
           font-family: 'Lato', sans-serif;
+          font-weight:: lighter;
           padding-bottom: 5px;
           margin: 0px;
           font-size: 16px;
@@ -47,15 +47,15 @@
       .rate-doughnut {
         float: left;
         padding: 0px;
-        height: 100px;
-        width: 100px;
+        height: 80px;
+        width: 80px;
         margin: 0px;
         padding-left: 0px;
         align-items: center;
         justify-content: center;
         position: absolute;
-        top: 90px;
-        left: 190px;
+        top: 100px;
+        left: 195px;
       }
     }
     .card-link {
@@ -79,3 +79,9 @@
   }
 }
 
+.rounded-sep {
+  position: absolute;
+  left: -1px;
+  top: 0px;
+  height: 100%;
+}

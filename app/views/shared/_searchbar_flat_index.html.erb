@@ -1,14 +1,14 @@
-<div id="search-flat-container">
+<div id="search-flat-index-container">
   <div class="container">
     <div class="row">
       <%= simple_form_for :search, url: spots_path, method: 'GET' do |f| %>
       <%= f.input :address, as: :hidden, input_html: { value: address } %>
       <div class="col-xs-4 col-sm-4 col-md-3 col-lg-3">
-        <i class="far fa-calendar-alt datepicker-icon"></i>
+        <i class="far fa-calendar-alt date-index datepicker-icon"></i>
         <%= f.input :start_time, as: :string, placeholder: "When", input_html: {value: start_time, class: 'form-flat-index datepicker'}, label: false, required: true %>
       </div>
       <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
-        <div class="placeholder-form">min. away</div>
+        <div class="placeholder-index-form">minutes away</div>
         <%= f.input :travel_time, required: true, as: :integer, input_html: { value: travel_time, class: 'form-flat-index'}, label: false %>
       </div>
       <%= f.input :level, as: :hidden, input_html: { value: level } %>
