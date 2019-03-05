@@ -58,6 +58,15 @@
         left: 190px;
       }
     }
+    .card-link {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 50%;
+      z-index: 2;
+      opacity: 0;
+    }
   }
   .new_card-image {
     height: 100%;

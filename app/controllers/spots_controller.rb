@@ -20,6 +20,7 @@ class SpotsController < ApplicationController
     @rating_wave_msw = {}
     @rating_spot_difficulty = {}
     @rating_swell = {}
+    @overall_rating = {}
     @global_rating = {}
 
     if @spots.empty?
@@ -32,13 +33,13 @@ class SpotsController < ApplicationController
         @rating_wave_msw["#{spot.id}"] = wave_msw(weather)
         @rating_spot_difficulty["#{spot.id}"] = spot_difficulty(spot, current_user)
         @rating_swell["#{spot.id}"] = swell(weather, current_user)
-        @global_rating["#{spot.id}"] = overall_rating(spot, @hour, weather, current_user)
+        @overall_rating["#{spot.id}"] = overall_rating(spot, @hour, weather, current_user)
 
         # @conditions_rates["#{spot.id}"] = conditions_rate(spot, hour, weather)
         # @matching_rates["#{spot.id}"] = matching_rate(spot, current_user, weather)
       end
 
-      @global_rating = @global_rating.sort_by { |spot, rate| rate }.last(3)
+      @global_rating = @overall_rating.sort_by { |spot, rate| rate }.last(3)
       @selected_spots = []
       @selected_spots << Spot.find(@global_rating[0][0]) << Spot.find(@global_rating[1][0]) << Spot.find(@global_rating[2][0])
       @markers = @selected_spots.map do |spot|
