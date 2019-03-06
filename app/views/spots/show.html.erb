@@ -9,8 +9,21 @@
 
 
   <div class="content_container">
+    <div class="name-spot-preferred">
+      <div>
+        <h1> <%= @spot.name %></h1>
+      </div>
+      <div>
+        <% if @preferred_spots.include?(@spot) %>
+          <%= link_to '<i class="fas fa-heart card-heart-show"></i>'.html_safe, preferred_spot_path(@spot),
+            method: :delete %>
+        <% else %>
+          <%= link_to '<i class="far fa-heart card-heart-show"></i>'.html_safe, spot_preferred_spots_path(@spot),
+            method: :post %>
+        <% end %>
+      </div>
+    </div>
 
-    <h1> <%= @spot.name %></h1>
     <h3> <%= current_user.pseudo %>, are you ready to surf here ?</h3>
     <div class="spot_search_date">
       <h3><%= render 'shared/searchbar_flat_show', spot: @spot, start_time: @start_time %></h3>
@@ -105,20 +118,16 @@
       </div>
     </div>
 
-     <div class="spot_reviews">
-       <div class="reviews-container">
-        <h5>EXPERIENCES</h5>
-        <div class="row">
-          <% @spot.reviews.each do |review| %>
-            <%= render 'shared/review_card', review: review  %>
-          <% end %>
-        </div>
-       </div>
-     </div>
-   </div>
+    <div>
+      <h5>EXPERIENCES</h5>
+      <div class="row">
+        <% @spot.reviews.each do |review| %>
+          <%= render 'shared/review_card', review: review  %>
+        <% end %>
+      </div>
+    </div>
 
   </div>
-
 
 </div>
 

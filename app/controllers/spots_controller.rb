@@ -71,13 +71,19 @@ class SpotsController < ApplicationController
 
   def show
     @address = set_params(:address)
+
     @start_time = set_params(:start_time)
+    if @start_time.nil?
+      @date = Date.today
+      @hour = "12h"
+    else
+      date_str, hour = @start_time.split(' ')
+      hour = hour.first(5)
+      @date = Date.parse(date_str)
+      @hour = hour.gsub(/:\d+/, "h")
+    end
 
-    date_str, hour = set_params(:start_time).split(' ')
-
-    @date = Date.parse(date_str)
-    hour = hour.first(5)
-    @hour = hour.gsub(/:\d+/, "h")
+    @preferred_spots = set_preferred_spots
 
     @rating_tide = {}
     @rating_wave_msw = {}
