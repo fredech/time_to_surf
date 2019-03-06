@@ -10,10 +10,8 @@
       <%  (5 - review.weighted_average).times do %>
         <i class="far fa-star"></i>
       <% end %>
-    <div class="avatar-large">
-      <%= cl_image_tag review.surf_session.user.photo  %>
     </div>
-    </div>
+      <%= cl_image_tag review.surf_session.user.photo, class: "avatar-large" %>
   </div>
 </div>
 
