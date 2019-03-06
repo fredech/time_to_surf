@@ -23,12 +23,27 @@
     height: 50vh !important;
     position: relative;
     // top: 0px !important;
-    .btn-create-show {
+    .btn-create-show-tt {
       width: 200px;
+      background-color: $dark-green;
+      height: 50px;
+      font-size: 16px;
       position: absolute;
       bottom: 20px;
+      border-color: $green;
       right: 5px;
+      align-items: center;
+      display: flex;
+      justify-content: center;
       z-index: 1;
+      border-radius: 8px;
+      font-family: "Lato", sans-serif;
+      &:hover {
+        background-color: $white;
+        font-weight: bold;
+        color: $green;
+        border: solid 3px $green;
+      }
     }
   }
   .spot_image {
@@ -39,6 +54,18 @@
     border-bottom: white 2px solid;
   }
 }
+
+.btn-create-show {
+
+
+    &:hover {
+      background-color: $white;
+      font-weight: bold;
+      color: $green;
+      border: solid 3px $green;
+    }
+  }
+
 
 .content_container {
   background-color: $white;
@@ -141,6 +168,28 @@
     z-index: 2;
   }
 }
+
+.btn-create-show {
+    background-color: $dark-green;
+    height: 50px;
+    width: 100%;
+    font-size: 16px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    border-radius: 8px;
+    font-family: "Lato", sans-serif;
+    border-color: $green;
+    top: 40vh;
+    right: 70vh;
+    z-index: 20;
+    &:hover {
+      background-color: $white;
+      font-weight: bold;
+      color: $green;
+      border: solid 3px $green;
+    }
+  }
 
 @media only screen
 and (max-width : 800px) {
