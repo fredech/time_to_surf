@@ -1,13 +1,15 @@
 const refreshPage = () => {
-  const input = document.querySelector(".automatic-refresh");
+  const form = document.querySelector("#automatic-refresh");
 
-  input.addEventListener('???', (event)=>{
-
-    const map = document.querySelector(".home-map");
-    map.classList.remove("map-display");
+  // if (form.classList.contains('open')) {
+  // } else {
+  //   form.submit();
+  // };
+  form.addEventListener('change', (event)=>{
+      form.submit();
   })
 
-}
+};
 
 export { refreshPage };
 
