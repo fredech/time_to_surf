@@ -1,13 +1,29 @@
+
 <div class="new_main-container-show">
+
   <div class="new_map-container-show" >
     <div class="spot_image" style="background-image: url(<%= cl_image_path @spot.photo %>);">
     </div>
-    <%= render 'shared/map_show', markers: @markers%>
+    <%= render 'shared/map_show', markers: @markers, spot: @spot, start_time: @start_time %>
   </div>
 
 
   <div class="content_container">
-    <h1> <%= @spot.name %></h1>
+    <div class="name-spot-preferred">
+      <div>
+        <h1> <%= @spot.name %></h1>
+      </div>
+      <div>
+        <% if @preferred_spots.include?(@spot) %>
+          <%= link_to '<i class="fas fa-heart card-heart-show"></i>'.html_safe, preferred_spot_path(@spot),
+            method: :delete %>
+        <% else %>
+          <%= link_to '<i class="far fa-heart card-heart-show"></i>'.html_safe, spot_preferred_spots_path(@spot),
+            method: :post %>
+        <% end %>
+      </div>
+    </div>
+
     <h3> <%= current_user.pseudo %>, are you ready to surf here ?</h3>
     <div class="spot_search_date">
       <h3><%= render 'shared/searchbar_flat_show', spot: @spot, start_time: @start_time %></h3>
@@ -54,7 +70,6 @@
         <% end %><%#= @rating_spot_difficulty["#{@spot.id}"] %>
         </p>
       </div>
-
     </div>
 
     <div class="spot_details">
@@ -68,10 +83,10 @@
       <div class="weather_box">
         <div class="weather_box_item">
           <p><%= image_tag 'temperature.png', width: 30, height: 30 %><%= image_tag 'water.png', width: 30, height: 30 %>   <%= @weather[:water_temperature] %> °C</p>
-          <p><%= image_tag 'sunrise.png', width: 25, height: 25 %>  <%= @weather[:sunrise] %></p>
+          <p><%= image_tag 'temperature.png', width: 30, height: 30 %><%= image_tag 'air.png', width: 30, height: 30 %>   <%= @weather[:air_temperature] %> °C</p>
         </div>
         <div class="weather_box_item">
-          <p><%= image_tag 'temperature.png', width: 30, height: 30 %><%= image_tag 'air.png', width: 30, height: 30 %>   <%= @weather[:air_temperature] %> °C</p>
+          <p><%= image_tag 'sunrise.png', width: 25, height: 25 %>  <%= @weather[:sunrise] %></p>
           <p><%= image_tag 'sunset.png', width: 30, height: 30 %>  <%= @weather[:sunset] %></p>
         </div>
       </div>
@@ -81,12 +96,12 @@
       <h5>WAVE - WIND</h5>
       <div class="weather_box">
         <div class="weather_box_item">
-          <p><%= image_tag 'air.png', width: 30, height: 30 %><%= image_tag 'speed.png', width: 30, height: 30 %>   <%= @weather[:wind_speed] %> km/h </p>
-          <p><%= image_tag 'air.png', width: 30, height: 30 %><%= image_tag 'compass.png', width: 30, height: 30 %>   <%= @weather[:wind_direction_string] %> </p>
-        </div>
-        <div class="weather_box_item">
           <p><%= image_tag 'wave.png', width: 30, height: 30 %> <%= image_tag 'height.png', width: 30, height: 30 %>   <%= @weather[:swell_height] %> meters </p>
           <p><%= image_tag 'wave.png', width: 30, height: 30 %> <%= image_tag 'frequency.png', width: 30, height: 30 %>   <%= @weather[:swell_period] %> seconds</p>
+        </div>
+        <div class="weather_box_item">
+          <p><%= image_tag 'air.png', width: 30, height: 30 %><%= image_tag 'speed.png', width: 30, height: 30 %>   <%= @weather[:wind_speed] %> km/h </p>
+          <p><%= image_tag 'air.png', width: 30, height: 30 %><%= image_tag 'compass.png', width: 30, height: 30 %>   <%= @weather[:wind_direction_string] %> </p>
         </div>
       </div>
     </div>
@@ -103,21 +118,17 @@
       </div>
     </div>
 
-     <div class="spot_reviews">
-       <div class="container">
-         <div class="row">
-           <div class="col-xs-12 col-sm-4">
-            <h3>EXPERIENCES</h3>
-            <%= render 'shared/review_card'  %>
-           </div>
-         </div>
-       </div>
-     </div>
-
-  </div>
-
+    <div>
+      <h5>EXPERIENCES</h5>
+      <div class="row">
+        <% @spot.reviews.each do |review| %>
+          <%= render 'shared/review_card', review: review  %>
+        <% end %>
+      </div>
+    </div>
 
   </div>
 
 </div>
+
 
