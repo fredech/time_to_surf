@@ -1,4 +1,4 @@
-<div class="new_card-container">
+<div class="new_card-container" data-spot="<%= spot.id %>" id='result-<%= spot.id %>'>
   <div class="new_card-content">
     <%= link_to "", spot_path(spot, start_time: start_time, travel_time: travel_time, address: address), class: 'card-link'%>
     <h2><%= spot.name.capitalize %></h2>

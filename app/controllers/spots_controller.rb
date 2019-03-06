@@ -63,7 +63,10 @@ class SpotsController < ApplicationController
         {
           lng: spot.longitude,
           lat: spot.latitude,
-          image_url: helpers.asset_url('map_pin.png')
+          infoWindow: render_to_string(partial: "infowindow", locals: { spot: spot }),
+          image_url: helpers.asset_url('surfing_silhouette.png'),
+          spot: spot.id
+
         }
       end
     end
@@ -102,7 +105,7 @@ class SpotsController < ApplicationController
     @markers = [{
           lng: @spot.longitude,
           lat: @spot.latitude,
-          image_url: helpers.asset_url('map_pin.png')
+          image_url: helpers.asset_url('surfing_silhouette.png')
     }]
   end
 
