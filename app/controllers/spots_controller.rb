@@ -8,10 +8,11 @@ class SpotsController < ApplicationController
 
   def index
     @start_time = set_params(:start_time)
-    date_str, hour = @start_time.split(' ')
 
+    date_str, hour = @start_time.split(' ')
     @date = date_str ? Date.parse(date_str) : Date.today
     @hour = hour ? hour.gsub(/:\d+/, "h") : "12h"
+
     @address = set_params(:address)
 
     set_travel_time
@@ -21,18 +22,27 @@ class SpotsController < ApplicationController
     set_preferred_spots
     set_spots
     set_ratings_n_markers
+
   end
 
   def show
     @address = set_params(:address)
+    @address = current_user.profile.address if @address.nil?
+
     @start_time = set_params(:start_time)
+    if @start_time.nil?
+      @date = Date.today
+      @hour = "12h"
+    else
+      date_str, hour = @start_time.split(' ')
+      hour = hour.first(5)
+      @date = Date.parse(date_str)
+      @hour = hour.gsub(/:\d+/, "h")
+    end
+
     @address_coordinates = Geocoder.search(@address).first.coordinates
 
-    date_str, hour = set_params(:start_time).split(' ')
-
-    @date = Date.parse(date_str)
-    hour = hour.first(5)
-    @hour = hour.gsub(/:\d+/, "h")
+    @preferred_spots = set_preferred_spots
 
     @rating_tide = {}
     @rating_wave_msw = {}
@@ -137,13 +147,15 @@ class SpotsController < ApplicationController
 
       @global_rating = @overall_rating.sort_by { |spot, rate| rate }.last(3)
 
-      @selected_spots = set_selected_spots
+      set_selected_spots
 
       @markers = @selected_spots.map do |spot|
         {
           lng: spot.longitude,
           lat: spot.latitude,
-          image_url: helpers.asset_url('map_pin.png')
+          infoWindow: render_to_string(partial: "infowindow", locals: { spot: spot }),
+          image_url: helpers.asset_url('surfing_silhouette.png'),
+          spot: spot.id
         }
       end
     end

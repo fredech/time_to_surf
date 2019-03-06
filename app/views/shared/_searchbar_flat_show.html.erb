@@ -1,7 +1,7 @@
 <div id="search-flat-container-show">
 
     <div class="row">
-      <%= simple_form_for :search, url: spot_path(spot), method: 'GET' do |f| %>
+      <%= simple_form_for :search, url: spot_path(spot), html: { id: 'automatic-refresh' }, method: 'GET' do |f| %>
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
         <i class="far fa-calendar-alt datepicker-icon"></i>
         <%= f.input :start_time, as: :string, placeholder: "When", input_html: {value: start_time, class: 'form-flat-index datepicker'}, label: false, required: true %>

@@ -9,4 +9,5 @@ flatpickr(".datepicker", {
   maxDate: new Date().fp_incr(3),
   defaultHour: 12,
   defaultMinute: 0,
+  // validateOnBlur: true
 })

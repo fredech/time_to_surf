@@ -42,7 +42,7 @@ class PagesController < ApplicationController
         lng: spot.longitude,
         lat: spot.latitude,
         # infoWindow: render_to_string(partial: "infowindow", locals: { spot: spot }),
-        image_url: helpers.asset_url('map_pin.png')
+        image_url: helpers.asset_url('surfing_silhouette.png')
       }
     end
   end

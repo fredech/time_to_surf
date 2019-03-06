@@ -14,6 +14,7 @@ import { initAutocomplete } from '../plugins/init_autocomplete';
 import { cardEffect } from '../components/card';
 import { initHome } from '../components/init_home';
 import { initMapboxShow } from '../plugins/init_mapbox_show';
+import { refreshPage } from '../components/refresh_page_with_date';
 
 if ( document.querySelector(".select2") ) {
   initSelect2();
@@ -42,3 +43,7 @@ if ( document.querySelector(".snip1360") ) {
 if ( document.querySelector("#map_show") ) {
   initMapboxShow();
 }
+if ( document.querySelector("#automatic-refresh") ) {
+  refreshPage();
+}
+

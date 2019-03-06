@@ -26,16 +26,26 @@ const initMapbox = () => {
       const element = document.createElement('div');
       element.className = 'marker';
       element.style.backgroundImage = `url('${marker.image_url}')`;
-      element.style.backgroundSize = 'contain';
+      element.style.backgroundSize = '30px 30px';
       element.style.width = '40px';
       element.style.height = '40px';
+      element.dataset.spot = marker.spot;
+      element.style.backgroundRepeat = 'no-repeat';
+      element.style.backgroundPosition = 'center';
 
 
-      const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
+
+
+
+
+    //   const popup = new mapboxgl.Popup({
+    // closeButton: false,
+    // closeOnClick: false
+    // }).setHTML(marker.infoWindow);
 
       new mapboxgl.Marker(element)
         .setLngLat([marker.lng, marker.lat])
-        .setPopup(popup)
+        // .setPopup(popup)
         .addTo(map);
 
     });
@@ -43,8 +53,57 @@ const initMapbox = () => {
     fitMapToMarkers(map, markers);
 
     // map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken }));
-  }
 
+
+  }
+  const markers = document.querySelectorAll(".mapboxgl-marker");
+  markers.forEach((marker)=>{
+    marker.addEventListener('mouseover', (event)=>{
+      const spot = event.currentTarget.dataset.spot;
+      const card = document.querySelector(`#result-${spot}`);
+      card.classList.add("selected");
+    });
+  });
+
+  markers.forEach((marker)=>{
+    marker.addEventListener('mouseout', (event)=>{
+      const spot = event.currentTarget.dataset.spot;
+      const cardOld = document.querySelector(`.new_card-container.selected`);
+      if(cardOld) {
+        cardOld.classList.remove("selected");
+    }
+    });
+  });
+  markers.forEach((marker)=>{
+      marker.addEventListener('click', (event)=>{
+        const spot = event.currentTarget.dataset.spot;
+        const card = document.querySelector(`#result-${spot}`);
+
+
+        card.querySelector('a').click();
+      });
+    });
+
+
+ const selectedCards = document.querySelectorAll(".new_card-container");
+  selectedCards.forEach((selectedCard)=>{
+    selectedCard.addEventListener('mouseover', (event)=>{
+      const spot = event.currentTarget.dataset.spot;
+      const marker = document.querySelector(`[data-spot='${spot}']`);
+
+      marker.classList.add("selected");
+    });
+  });
+
+    selectedCards.forEach((selectedCard)=>{
+      selectedCard.addEventListener('mouseout', (event)=>{
+        const spot = event.currentTarget.dataset.spot;
+        const markerOld = document.querySelector(`.mapboxgl-marker.selected`);
+        if(markerOld) {
+          markerOld.classList.remove("selected");
+      }
+      });
+    });
 };
 
 export { initMapbox };

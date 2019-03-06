@@ -7,6 +7,7 @@
   position: relative;
   overflow: hidden;
   background-color: $lighter-gray;
+
   .new_card-content {
     height: 200px;
     width: 300px;
@@ -85,3 +86,45 @@
   top: 0px;
   height: 100%;
 }
+
+.new_card-container.selected {
+  background-color: $green;
+
+     h3{
+ color: $white;
+
+  }
+  path {
+      fill: $green;
+    }
+    .donut-hole{
+    fill: $green;
+    }
+    .donut-percent{
+    fill: $white;
+    }
+    .donut-segment{
+      stroke:: $white;
+    }
+}
+
+.new_card-container:hover {
+    background-color: $green;
+    h3 {
+      color: $white;
+    }
+    .new_card-image path {
+      fill: $green;
+
+    }
+
+    .donut-hole{
+    fill: $green;
+    }
+    .donut-percent{
+    fill: $white;
+    }
+    .donut-segment{
+      stroke:: $white;
+    }
+   }
