@@ -26,10 +26,14 @@ const initMapbox = () => {
       const element = document.createElement('div');
       element.className = 'marker';
       element.style.backgroundImage = `url('${marker.image_url}')`;
-      element.style.backgroundSize = 'contain';
-      element.style.width = '30px';
-      element.style.height = '30px';
+      element.style.backgroundSize = '30px 30px';
+      element.style.width = '40px';
+      element.style.height = '40px';
       element.dataset.spot = marker.spot;
+      element.style.backgroundRepeat = 'no-repeat';
+      element.style.backgroundPosition = 'center';
+
+
 
 
 
