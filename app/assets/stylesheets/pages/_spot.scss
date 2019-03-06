@@ -46,8 +46,15 @@
   justify-content: center;
   padding-left: 24px;
   padding-right: 24px;
-  padding-top: 30px;
+  padding-top: 60px;
   overflow: scroll;
+  h1 {
+    color: gray;
+  }
+  h5 {
+    font-family: 'Lato', sans-serif;
+    color: gray;
+  }
 }
 
 .spot_search_date {
