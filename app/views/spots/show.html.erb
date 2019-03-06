@@ -3,7 +3,7 @@
   <div class="new_map-container-show" >
     <div class="spot_image" style="background-image: url(<%= cl_image_path @spot.photo %>);">
     </div>
-    <%= render 'shared/map_show', markers: @markers%>
+    <%= render 'shared/map_show', markers: @markers, spot: @spot, start_time: @start_time %>
   </div>
 
 
