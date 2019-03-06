@@ -9,12 +9,13 @@ class SurfSessionsController < ApplicationController
 
 
   def create
-    @surf_session = SurfSession.new(surf_session_params)
-    @surf_session.user_id = current_user
+    @surf_session = SurfSession.new(start_time: surf_session_params[:start_time], spot_id: surf_session_params[:spot_id])
+    @surf_session.user = current_user
+
     if @surf_session.save
-      redirect_to dashboard_path, notice: 'Your surf session was successfully created!'
+      redirect_to spot_url(surf_session_params[:spot_id], start_time: surf_session_params[:start_time]), notice: 'Your surf session was successfully created!'
     else
-      redirect_to :back, notice: 'Sorry, we couldn\'t create this surf session'
+      redirect_to spot_url(surf_session_params[:spot_id], start_time: surf_session_params[:start_time]), notice: 'Sorry, we couldn\'t create this surf session'
     end
   end
 

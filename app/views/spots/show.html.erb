@@ -1,13 +1,15 @@
 
 <div class="new_main-container-show">
+
   <div class="new_map-container-show" >
     <div class="spot_image" style="background-image: url(<%= cl_image_path @spot.photo %>);">
     </div>
-    <%= render 'shared/map_show', markers: @markers%>
+    <%= render 'shared/map_show', markers: @markers, spot: @spot, start_time: @start_time %>
   </div>
 
 
   <div class="content_container">
+
     <h1> <%= @spot.name %></h1>
     <h3> <%= current_user.pseudo %>, are you ready to surf here ?</h3>
     <div class="spot_search_date">
@@ -55,7 +57,6 @@
         <% end %><%#= @rating_spot_difficulty["#{@spot.id}"] %>
         </p>
       </div>
-
     </div>
 
     <div class="spot_details">
@@ -69,10 +70,10 @@
       <div class="weather_box">
         <div class="weather_box_item">
           <p><%= image_tag 'temperature.png', width: 30, height: 30 %><%= image_tag 'water.png', width: 30, height: 30 %>   <%= @weather[:water_temperature] %> °C</p>
-          <p><%= image_tag 'sunrise.png', width: 25, height: 25 %>  <%= @weather[:sunrise] %></p>
+          <p><%= image_tag 'temperature.png', width: 30, height: 30 %><%= image_tag 'air.png', width: 30, height: 30 %>   <%= @weather[:air_temperature] %> °C</p>
         </div>
         <div class="weather_box_item">
-          <p><%= image_tag 'temperature.png', width: 30, height: 30 %><%= image_tag 'air.png', width: 30, height: 30 %>   <%= @weather[:air_temperature] %> °C</p>
+          <p><%= image_tag 'sunrise.png', width: 25, height: 25 %>  <%= @weather[:sunrise] %></p>
           <p><%= image_tag 'sunset.png', width: 30, height: 30 %>  <%= @weather[:sunset] %></p>
         </div>
       </div>
@@ -82,12 +83,12 @@
       <h5>WAVE - WIND</h5>
       <div class="weather_box">
         <div class="weather_box_item">
-          <p><%= image_tag 'air.png', width: 30, height: 30 %><%= image_tag 'speed.png', width: 30, height: 30 %>   <%= @weather[:wind_speed] %> km/h </p>
-          <p><%= image_tag 'air.png', width: 30, height: 30 %><%= image_tag 'compass.png', width: 30, height: 30 %>   <%= @weather[:wind_direction_string] %> </p>
-        </div>
-        <div class="weather_box_item">
           <p><%= image_tag 'wave.png', width: 30, height: 30 %> <%= image_tag 'height.png', width: 30, height: 30 %>   <%= @weather[:swell_height] %> meters </p>
           <p><%= image_tag 'wave.png', width: 30, height: 30 %> <%= image_tag 'frequency.png', width: 30, height: 30 %>   <%= @weather[:swell_period] %> seconds</p>
+        </div>
+        <div class="weather_box_item">
+          <p><%= image_tag 'air.png', width: 30, height: 30 %><%= image_tag 'speed.png', width: 30, height: 30 %>   <%= @weather[:wind_speed] %> km/h </p>
+          <p><%= image_tag 'air.png', width: 30, height: 30 %><%= image_tag 'compass.png', width: 30, height: 30 %>   <%= @weather[:wind_direction_string] %> </p>
         </div>
       </div>
     </div>
@@ -118,5 +119,7 @@
 
   </div>
 
+
+</div>
 
 

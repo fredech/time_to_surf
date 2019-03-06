@@ -2,17 +2,17 @@
 
     <div class="row">
       <%= simple_form_for :search, url: spot_path(spot), method: 'GET' do |f| %>
-      <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
         <i class="far fa-calendar-alt datepicker-icon"></i>
         <%= f.input :start_time, as: :string, placeholder: "When", input_html: {value: start_time, class: 'form-flat-index datepicker'}, label: false, required: true %>
       </div>
       <div class="col-xs-4 col-sm-6 col-md-4 col-lg-3">
-        <%= f.button :submit, "Try Again !", class: "btn btn-primary btn-flat-style-index" %>
+        <%= f.button :submit, "Try Again !", class: "btn btn-primary btn-flat-style-index hidden" %>
       </div>
       <% end %>
       <div class="col-xs-4 col-sm-6 col-md-4 col-lg-3">
         <div class="button-create">
-          <%= link_to "Let's Go !", surf_sessions_path(start_time: start_time, spot_id: spot), method: 'POST', class: "btn btn-primary btn-create-show" %>
+          <%= link_to "Let's Go !", surf_sessions_path(surf_session: {start_time: start_time, spot_id: spot}), method: 'POST', class: "btn btn-primary btn-create-show" %>
         </div>
       </div>
 

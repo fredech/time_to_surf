@@ -23,12 +23,27 @@
     height: 50vh !important;
     position: relative;
     // top: 0px !important;
-    .btn-create-show {
-      width: 200px;
-      position: absolute;
-      bottom: 20px;
-      right: 5px;
-      z-index: 1;
+    .btn-create-show-map {
+      width: 150px;
+      background-color: $blue-google;
+      height: 50px;
+      font-size: 16px;
+      position: fixed;
+      bottom: 40vh;
+      left: 2vw;
+      border-color: $blue;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      z-index: 2;
+      border-radius: 8px;
+      font-family: "Lato", sans-serif;
+      &:hover {
+        background-color: $white;
+        font-weight: bold;
+        color: $green;
+        border: solid 3px $blue;
+      }
     }
   }
   .spot_image {
@@ -37,6 +52,7 @@
     background-size: cover;
     background-position: center;
     border-bottom: white 2px solid;
+
   }
 }
 
@@ -142,6 +158,25 @@
   }
 }
 
+.btn-create-show {
+    background-color: $green;
+    height: 50px;
+    font-size: 16px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    border-radius: 8px;
+    font-family: "Lato", sans-serif;
+    border-color: $green;
+    z-index: 20;
+    &:hover {
+      background-color: $white;
+      font-weight: bold;
+      color: $green;
+      border: solid 3px $green;
+    }
+  }
+
 @media only screen
 and (max-width : 800px) {
   .new_map-container-show {
@@ -149,5 +184,12 @@ and (max-width : 800px) {
   }
   .content_container {
     width: 100vw;
+  }
+}
+@media only screen
+and (min-width : 800px) {
+
+  .btn-create-show {
+    display: none;
   }
 }
