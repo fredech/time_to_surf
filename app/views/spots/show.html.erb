@@ -69,10 +69,10 @@
       <div class="weather_box">
         <div class="weather_box_item">
           <p><%= image_tag 'temperature.png', width: 30, height: 30 %><%= image_tag 'water.png', width: 30, height: 30 %>   <%= @weather[:water_temperature] %> °C</p>
-          <p><%= image_tag 'sunrise.png', width: 25, height: 25 %>  <%= @weather[:sunrise] %></p>
+          <p><%= image_tag 'temperature.png', width: 30, height: 30 %><%= image_tag 'air.png', width: 30, height: 30 %>   <%= @weather[:air_temperature] %> °C</p>
         </div>
         <div class="weather_box_item">
-          <p><%= image_tag 'temperature.png', width: 30, height: 30 %><%= image_tag 'air.png', width: 30, height: 30 %>   <%= @weather[:air_temperature] %> °C</p>
+          <p><%= image_tag 'sunrise.png', width: 25, height: 25 %>  <%= @weather[:sunrise] %></p>
           <p><%= image_tag 'sunset.png', width: 30, height: 30 %>  <%= @weather[:sunset] %></p>
         </div>
       </div>
@@ -82,12 +82,12 @@
       <h5>WAVE - WIND</h5>
       <div class="weather_box">
         <div class="weather_box_item">
-          <p><%= image_tag 'air.png', width: 30, height: 30 %><%= image_tag 'speed.png', width: 30, height: 30 %>   <%= @weather[:wind_speed] %> km/h </p>
-          <p><%= image_tag 'air.png', width: 30, height: 30 %><%= image_tag 'compass.png', width: 30, height: 30 %>   <%= @weather[:wind_direction_string] %> </p>
-        </div>
-        <div class="weather_box_item">
           <p><%= image_tag 'wave.png', width: 30, height: 30 %> <%= image_tag 'height.png', width: 30, height: 30 %>   <%= @weather[:swell_height] %> meters </p>
           <p><%= image_tag 'wave.png', width: 30, height: 30 %> <%= image_tag 'frequency.png', width: 30, height: 30 %>   <%= @weather[:swell_period] %> seconds</p>
+        </div>
+        <div class="weather_box_item">
+          <p><%= image_tag 'air.png', width: 30, height: 30 %><%= image_tag 'speed.png', width: 30, height: 30 %>   <%= @weather[:wind_speed] %> km/h </p>
+          <p><%= image_tag 'air.png', width: 30, height: 30 %><%= image_tag 'compass.png', width: 30, height: 30 %>   <%= @weather[:wind_direction_string] %> </p>
         </div>
       </div>
     </div>

@@ -24,25 +24,25 @@
     position: relative;
     // top: 0px !important;
     .btn-create-show-tt {
-      width: 200px;
-      background-color: $dark-green;
+      width: 150px;
+      background-color: $blue-google;
       height: 50px;
       font-size: 16px;
-      position: absolute;
-      bottom: 20px;
-      border-color: $green;
-      right: 5px;
+      position: fixed;
+      bottom: 40vh;
+      left: 2vw;
+      border-color: $blue;
       align-items: center;
       display: flex;
       justify-content: center;
-      z-index: 1;
+      z-index: 2;
       border-radius: 8px;
       font-family: "Lato", sans-serif;
       &:hover {
         background-color: $white;
         font-weight: bold;
         color: $green;
-        border: solid 3px $green;
+        border: solid 3px $blue;
       }
     }
   }
@@ -52,20 +52,9 @@
     background-size: cover;
     background-position: center;
     border-bottom: white 2px solid;
+
   }
 }
-
-.btn-create-show {
-
-
-    &:hover {
-      background-color: $white;
-      font-weight: bold;
-      color: $green;
-      border: solid 3px $green;
-    }
-  }
-
 
 .content_container {
   background-color: $white;
@@ -170,9 +159,8 @@
 }
 
 .btn-create-show {
-    background-color: $dark-green;
+    background-color: $green;
     height: 50px;
-    width: 100%;
     font-size: 16px;
     align-items: center;
     display: flex;
@@ -180,8 +168,6 @@
     border-radius: 8px;
     font-family: "Lato", sans-serif;
     border-color: $green;
-    top: 40vh;
-    right: 70vh;
     z-index: 20;
     &:hover {
       background-color: $white;
@@ -198,5 +184,12 @@ and (max-width : 800px) {
   }
   .content_container {
     width: 100vw;
+  }
+}
+@media only screen
+and (min-width : 800px) {
+
+  .btn-create-show {
+    display: none;
   }
 }

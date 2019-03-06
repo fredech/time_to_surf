@@ -3,5 +3,6 @@
   data-markers="<%= markers.to_json %>"
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
 ><%= link_to "Let's Go !", surf_sessions_path(start_time: @start_time, spot_id: @spot), method: 'POST', class: "btn btn-primary btn-create-show-tt" %>
+
 </div>
 
