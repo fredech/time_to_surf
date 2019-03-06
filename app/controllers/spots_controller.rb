@@ -1,6 +1,5 @@
 require_relative '../services/weather.rb'
 require_relative '../services/algo.rb'
-require_relative '../services/search.rb'
 
 class SpotsController < ApplicationController
   before_action :set_spot, only: [:show]
@@ -9,12 +8,19 @@ class SpotsController < ApplicationController
 
   def index
 
-    date_str, hour = params[:search][:start_time].split(' ')
+    @start_time = set_params(:start_time)
+    date_str, hour = @start_time.split(' ')
 
     @date = date_str ? Date.parse(date_str) : Date.today
     @hour = hour ? hour.gsub(/:\d+/, "h") : "12h"
 
-    search
+    @address = set_params(:address)
+    params[:search][:travel_time].nil? ? @travel_time = 30 : @travel_time = set_params(:travel_time).to_i
+    params[:search][:travel_time].empty? ? @travel_time = 101 : @travel_time = @travel_time
+    @level = set_params(:level)
+    @preferred_spots = set_preferred_spots
+
+    @spots = Spot.near(@address, @travel_time).where.not(latitude: nil, longitude: nil)
 
     @rating_tide = {}
     @rating_wave_msw = {}
@@ -24,7 +30,7 @@ class SpotsController < ApplicationController
     @global_rating = {}
 
     if @spots.empty?
-      render 'pages/home', alert: 'The form have to be fully commpleted!'
+      redirect_to root_path, notice: 'No surfing spot around this place'
     else
       @spots.each do |spot|
         weather = weather_condition(spot, @date, @hour)
@@ -40,26 +46,24 @@ class SpotsController < ApplicationController
       @global_rating = @overall_rating.sort_by { |spot, rate| rate }.last(3)
 
       @selected_spots = []
-      @selected_spots << Spot.find(@global_rating[2][0]) << Spot.find(@global_rating[1][0]) << Spot.find(@global_rating[0][0])
+
+      if @start_time.empty?
+        @selected_spots = @spots
+      else
+        @selected_spots << Spot.find(@global_rating[2][0]) << Spot.find(@global_rating[1][0]) << Spot.find(@global_rating[0][0])
+      end
 
       @markers = @selected_spots.map do |spot|
         {
           lng: spot.longitude,
           lat: spot.latitude,
-          infoWindow: render_to_string(partial: "infowindow", locals: { spot: spot }),
           image_url: helpers.asset_url('map_pin.png')
         }
       end
     end
-    @address = set_params(:address)
-    @start_time = set_params(:start_time)
-    params[:search][:travel_time].nil? ? @travel_time = 30 : @travel_time = set_params(:travel_time).to_i
-    @level = set_params(:level)
-    @preferred_spots = set_preferred_spots
   end
 
   def show
-
     @address = set_params(:address)
     @start_time = set_params(:start_time)
 
@@ -68,7 +72,6 @@ class SpotsController < ApplicationController
     @date = Date.parse(date_str)
     hour = hour.first(5)
     @hour = hour.gsub(/:\d+/, "h")
-
 
     @rating_tide = {}
     @rating_wave_msw = {}
@@ -89,7 +92,6 @@ class SpotsController < ApplicationController
           lat: @spot.latitude,
           image_url: helpers.asset_url('map_pin.png')
     }]
-
   end
 
   private

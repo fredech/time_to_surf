@@ -42,7 +42,7 @@
   width: 100vw;
   .new_map-container {
     flex: 0 1 auto;
-    z-index: 0;
+    z-index: 2;
     #map {
       width: 50vw;
       height: 100vh !important;
