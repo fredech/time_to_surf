@@ -1,17 +1,41 @@
 <div class="col-xs-12 col-sm-12 col-md-6">
-  <div class="card background-picture" style="background-image: url(<%= asset_path "#{review.photo}" %>);">
-    <div class="card-description">
-      <h2> <%= review.content %></h2>
+  <div class="review-container">
+    <div class="card background-picture" style="background-image: url(<%= asset_path "#{review.photo}" %>);">
+      <div class="card-description">
+        <h5> <%= review.content %></h5>
+      </div>
+      <div class="review-weighted-average">
+        <% review.weighted_average.times do  %>
+          <i class="fas fa-star"></i>
+        <% end %>
+        <%  (5 - review.weighted_average).times do %>
+          <i class="far fa-star"></i>
+        <% end %>
+      </div>
+        <%= cl_image_tag review.surf_session.user.photo, class: "avatar-large-review" %>
     </div>
-    <div class="review-weighted-average">
-      <% review.weighted_average.times do  %>
-        <i class="fas fa-star"></i>
-      <% end %>
-      <%  (5 - review.weighted_average).times do %>
-        <i class="far fa-star"></i>
-      <% end %>
-    </div>
-      <%= cl_image_tag review.surf_session.user.photo, class: "avatar-large" %>
   </div>
 </div>
 
+<!-- <div class="col-xs-12 col-sm-12 col-md-6">
+  <div class="card-review">
+    <div class="card background-picture" style="background-image: url(<%= asset_path "#{review.photo}" %>);">
+    </div>
+    <div class="card-content">
+      <div class="card-comment">
+         <h5> <%= review.content %></h5>
+      </div>
+      <div class="review-weighted-average">
+      <#% review.weighted_average.times do  %>
+        <i class="fas fa-star"></i>
+      <#% end %>
+      <#%  (5 - review.weighted_average).times do %>
+        <i class="far fa-star"></i>
+      <#% end %>
+      </div>
+      <div class="photo-user">
+        <#%= cl_image_tag review.surf_session.user.photo, class: "avatar-large-review" %>
+      </div>
+    </div>
+  </div>
+</div> -->

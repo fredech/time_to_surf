@@ -3,6 +3,16 @@
   background-position: center;
 }
 
+.background-picture:hover {
+  background-size: cover;
+  background-position: center;
+  // opacity: 0.3;
+}
+
+.reviews-container:hover h5 {
+  color: $white
+}
+
 .card-description {
   position: absolute;
   left: 13px;
@@ -19,7 +29,7 @@
 }
 
 .card-description:hover {
-  opacity: 1
+  opacity: 1;
 }
 
 .review-weighted-average {
@@ -32,7 +42,7 @@
 }
 
 
-.avatar-large {
+.avatar-large-review {
   width: 50px;
   height: 50px;
   border-radius: 50%;
