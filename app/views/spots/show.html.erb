@@ -1,3 +1,4 @@
+
 <div class="new_main-container-show">
   <div class="new_map-container-show" >
     <div class="spot_image" style="background-image: url(<%= cl_image_path @spot.photo %>);">
@@ -104,20 +105,18 @@
     </div>
 
      <div class="spot_reviews">
-       <div class="container">
-         <div class="row">
-           <div class="col-xs-12 col-sm-4">
-            <h3>EXPERIENCES</h3>
-            <%= render 'shared/review_card'  %>
-           </div>
-         </div>
+       <div class="reviews-container">
+        <h5>EXPERIENCES</h5>
+        <div class="row">
+          <% @spot.reviews.each do |review| %>
+            <%= render 'shared/review_card', review: review  %>
+          <% end %>
+        </div>
        </div>
      </div>
+   </div>
 
   </div>
 
 
-  </div>
-
-</div>
 
