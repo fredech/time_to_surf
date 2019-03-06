@@ -1,6 +1,9 @@
 <div class="navbar-wagon navbar-fixed-top">
   <!-- Logo -->
   <div class="navbar-wagon-brand">
+    <%= link_to root_path, class: "flip-vertical-left #{request.path == '/' ? 'navbar-wagon-brand-hide' : 'navbar-wagon-brand'}" do %>
+      <%= image_tag "logo_tts-rev.png" %>
+    <% end %>
   </div>
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
@@ -8,8 +11,8 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "Back", :back, class: "navbar-wagon-item #{request.path == '/' ? 'navbar-wagon-link--white' : 'navbar-wagon-link'}" %>
-      <%= link_to 'Dashboard', dashboard_path, class: "navbar-wagon-item #{request.path == '/' ? 'navbar-wagon-link--white' : 'navbar-wagon-link'}" %>
+      <%= link_to "Back", :back, class: "navbar-wagon-item #{(request.path == '/' || @start_time && @start_time.blank?) ? 'navbar-wagon-link-hide' : 'navbar-wagon-link'}" %>
+      <%= link_to 'Dashboard', dashboard_path, class: "navbar-wagon-item #{(request.path == '/' || @start_time && @start_time.blank?) ? 'navbar-wagon-link--white' : 'navbar-wagon-link'}" %>
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">

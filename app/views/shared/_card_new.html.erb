@@ -20,11 +20,9 @@
   </div>
   <% if preferred_spots.include?(spot) %>
     <%= link_to '<i class="fas fa-heart card-heart"></i>'.html_safe, preferred_spot_path(spot, start_time: start_time, travel_time: travel_time, address: address),
-      method: :delete,
-      data: { confirm: "Do you want to exclude it from your preferred spots list ?" } %>
+      method: :delete %>
   <% else %>
     <%= link_to '<i class="far fa-heart card-heart"></i>'.html_safe, spot_preferred_spots_path(spot, start_time: start_time, travel_time: travel_time, address: address),
-      method: :post,
-      data: { confirm: "Do you want to add it to your preferred spots list ?" } %>
+      method: :post %>
   <% end %>
 </div>

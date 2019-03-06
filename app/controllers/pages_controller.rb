@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @level = set_level
+    @markers = set_markers([Spot.first])
   end
 
   def dashboard
