@@ -13,6 +13,7 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { cardEffect } from '../components/card';
 import { initHome } from '../components/init_home';
+import { refreshPage } from '../components/refresh_page_with_date';
 
 if ( document.querySelector(".select2") ) {
   initSelect2();
@@ -38,3 +39,5 @@ if ( document.querySelector(".snip1360") ) {
 // if ( document.querySelector("#home-splash") ) {
 //   initHome();
 // }
+
+refreshPage();
