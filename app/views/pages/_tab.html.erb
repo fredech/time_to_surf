@@ -74,24 +74,36 @@
         <h1><%= "Surf sessions" %></h1>
         <ul>
           <ul class="list-inline bookings">
-            <li style= "width: 15%;"><h2><%= "Name" %></h2></li>
-            <li style= "width: 15%;"><h2><%= "Date" %></h2></li>
-            <li style= "width: 15%;"><h2><%= "Best Tide" %></h2></li>
-            <li style= "width: 15%;"><h2><%= "Difficulty" %></h2></li>
-            <li style= "width: 40%;"><h2><%= "Image" %></h2></li>
+            <li style= "width: 13%;"></li>
+            <li style= "width: 13%;"><h2><%= "Name" %></h2></li>
+            <li style= "width: 13%;"><h2><%= "Date" %></h2></li>
+            <li style= "width: 13%;"><h2><%= "Best Tide" %></h2></li>
+            <li style= "width: 13%;"><h2><%= "Difficulty" %></h2></li>
+            <li style= "width: 35%;"><h2><%= "Image" %></h2></li>
           </ul><hr style="margin-top: 0; margin-bottom: 0">
           <div class="sub-tab-content">
             <% @surf_sessions.each do |session|%>
             <ul class="list-inline bookings" id="session-<%= session.id %>">
-              <li style= "width: 15%;"><h2><%= session.spot.name %></h2></li>
-              <li style= "width: 15%;"><h2><%= session.spot.address %></h2></li>
-              <li style= "width: 15%;"><h2><%= session.spot.best_tide %></h2></li>
-              <li style= "width: 15%;"><h2><%= session.spot.difficulty_level %></h2></li>
-              <li style= "width: 40%;">
+              <li style= "width: 13%;">
+                <% if @user_preferred_real_spots.include?(session.spot) %>
+                  <%= link_to preferred_spot_path(session.spot), method: :delete do %>
+                    <i class="fas fa-heart dashboard-spot"></i>
+                  <% end %>
+                <% else %>
+                  <%= link_to spot_preferred_spots_path(session.spot), method: :post  do %>
+                    <i class="far fa-heart dashboard-spot"></i>
+                  <% end %>
+                <% end %>
+              </li>
+              <li style= "width: 13%;"><h2><%= session.spot.name %></h2></li>
+              <li style= "width: 13%;"><h2><%= session.spot.address %></h2></li>
+              <li style= "width: 13%;"><h2><%= session.spot.best_tide %></h2></li>
+              <li style= "width: 13%;"><h2><%= session.spot.difficulty_level %></h2></li>
+              <li style= "width: 35%;">
                 <h2>
                   <img class="avatar-large" src="<%= session.spot.photo %>"><%= link_to ' Details ', spot_path(session.spot, start_time: session.start_time), class: "navbar-wagon-link" %><%= link_to ' | Delete ', surf_session_path(session), method: :delete, remote: true, data: { confirm: "Are you sure you want to delete this session?" }, class: "navbar-wagon-link" %>
                   <class="navbar-wagon-link" data-toggle="modal" data-target="#session-review-<%= session.id %>">
-                    | Add a review
+                    | Review
                   </button>
                 </h2>
               </li>

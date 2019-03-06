@@ -12,6 +12,7 @@ class PagesController < ApplicationController
     @preferred_spots = PreferredSpot.where(user: current_user)
     @level = set_level
     @review = Review.new
+    @user_preferred_real_spots = Spot.where(id: current_user.preferred_spots.pluck(:spot_id))
   end
 
   def brocoli
