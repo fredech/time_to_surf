@@ -3,7 +3,7 @@
     <%= render 'shared/map', markers: @markers%>
   </div>
   <div class="new_cards-container">
-    <% if @travel_time == 101 %>
+    <% if @start_time.blank? %>
       <%= render 'pages/when', address: @address %>
       <div class="home-video">
           <%= cl_video_tag("4k_Aerial_Beach_Footage", :loop => true, :autoplay => true, class: "video", :fallback_content => "Your browser does not support HTML5 video tags") %>

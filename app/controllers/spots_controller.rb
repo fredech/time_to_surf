@@ -13,10 +13,16 @@ class SpotsController < ApplicationController
 
     @date = date_str ? Date.parse(date_str) : Date.today
     @hour = hour ? hour.gsub(/:\d+/, "h") : "12h"
-
     @address = set_params(:address)
-    params[:search][:travel_time].nil? ? @travel_time = 30 : @travel_time = set_params(:travel_time).to_i
-    params[:search][:travel_time].empty? ? @travel_time = 101 : @travel_time = @travel_time
+
+    if params[:search][:travel_time].blank?
+      @travel_time = 30
+    elsif params[:search][:start_time].empty?
+      @travel_time = 101
+    else
+      @travel_time = set_params(:travel_time).to_i
+    end
+
     @level = set_params(:level)
     @preferred_spots = set_preferred_spots
 

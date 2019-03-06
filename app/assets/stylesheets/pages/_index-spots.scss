@@ -82,7 +82,69 @@
   }
 }
 
-
+.when-search {
+  // background-color: $light-gray;
+  height: 200px;
+  width: 450px;
+  padding: 10px;
+  border-radius: 20px;
+  position: absolute;
+  top: 300px;
+  right: 100px;
+  z-index: 2;
+  h3 {
+    font-size: 24px;
+    color: $white;
+    opacity: .9;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  }
+  h3#big-step {
+    font-size: 32px;
+    font-weight: bold;
+    color: $green;
+  }
+  .form-control {
+    height: 60px;
+    width: 300px;
+    font-size: 24px;
+    border: none;
+    box-shadow: none;
+    color: $dark-gray;
+    font-weight: bold;
+  }
+  .form-flat-search.datepicker {
+    position: relative;
+  }
+  .datepicker-icon {
+    position: absolute;
+    z-index: 1;
+    right: 155px;
+    top: 102px;
+    opacity: 1;
+    color: $green;
+    font-size: 30px;
+  }
+  .btn-flat-style-index {
+    background-color: $green;
+    height: 50px;
+    width: 200px;
+    font-size: 24px;
+    border-radius: 8px;
+    font-family: "Lato", sans-serif;
+    border-color: $green;
+    &:hover {
+      background-color: $white;
+      font-weight: bold;
+      color: $green;
+      border: solid 3px $green;
+    }
+  }
+  .ap-input-icon svg {
+    width: 30px;
+    height: 30px;
+    fill: #26DE81;
+  }
+}
 
 
 @media only screen
