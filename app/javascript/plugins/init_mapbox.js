@@ -104,27 +104,6 @@ const initMapbox = () => {
       }
       });
     });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 };
 
 export { initMapbox };
