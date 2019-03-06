@@ -12,6 +12,10 @@
 
     <h1> <%= @spot.name %></h1>
     <h3> <%= current_user.pseudo %>, are you ready to surf here ?</h3>
+
+    <strong><span id="itinerary-duration">-</span> min</strong>
+    <strong><span id="itinerary-distance">-</span> km</strong>
+
     <div class="spot_search_date">
       <h3><%= render 'shared/searchbar_flat_show', spot: @spot, start_time: @start_time %></h3>
     </div>
