@@ -1,6 +1,9 @@
 <div class="navbar-wagon navbar-fixed-top">
   <!-- Logo -->
   <div class="navbar-wagon-brand">
+    <%= link_to root_path, class: "flip-vertical-left #{request.path == '/' ? 'navbar-wagon-brand-hide' : 'navbar-wagon-brand'}" do %>
+      <%= image_tag "logo_tts-rev.png" %>
+    <% end %>
   </div>
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">

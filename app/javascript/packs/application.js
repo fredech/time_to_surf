@@ -35,6 +35,6 @@ if ( document.querySelector(".spot_location") ) {
 if ( document.querySelector(".snip1360") ) {
   cardEffect();
 }
-if ( document.querySelector("#home-splash") ) {
-  initHome();
-}
+// if ( document.querySelector("#home-splash") ) {
+//   initHome();
+// }

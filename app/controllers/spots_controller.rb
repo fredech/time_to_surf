@@ -11,8 +11,8 @@ class SpotsController < ApplicationController
 
     date_str, hour = params[:search][:start_time].split(' ')
 
-    @date = Date.parse(date_str)
-    @hour = hour.gsub(/:\d+/, "h")
+    @date = date_str ? Date.parse(date_str) : Date.today
+    @hour = hour ? hour.gsub(/:\d+/, "h") : "12h"
 
     search
 
