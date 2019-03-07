@@ -34,9 +34,11 @@ class SpotsController < ApplicationController
       @date = Date.today
       @hour = "12h"
     else
+      @start_time = Time.parse(@start_time).strftime("%Y-%m-%d %H:%M")
       date_str, hour = @start_time.split(' ')
       hour = hour.first(5)
       @date = Date.parse(date_str)
+      @date = Date.today if @date < Date.today
       @hour = hour.gsub(/:\d+/, "h")
     end
 

@@ -448,9 +448,11 @@ review_1.save!
 
 puts "#{Review.count} reviews created"
 
+puts "Updating spots weather conditions..."
+Spot.find_in_batches(batch_size: 500).each do |spots|
+  spots.each do |spot|
+    FetchWeatherConditionsService.new(spot).call
+  end
+end
+
 puts 'Finished!'
-
-
-
-
-
