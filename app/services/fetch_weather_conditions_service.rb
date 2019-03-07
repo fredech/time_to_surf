@@ -1,9 +1,4 @@
-# require_relative 'app/services/weather2'
-# weather_condition(Spot.first, "12h")
-#load 'app/services/fetch_weather_conditions_service.rb'
-
-# FetchWeatherConditionsService.new(Spot.last).call
-
+# eg. FetchWeatherConditionsService.new(Spot.last).call
 class FetchWeatherConditionsService
   def initialize(spot)
     @spot = spot

@@ -1,7 +1,6 @@
+require 'date'
 require 'json'
 require 'open-uri'
-require 'date'
-require 'pry-byebug'
 
 def define_searched_date(searched_date)
   (searched_date - Date.today).to_i
