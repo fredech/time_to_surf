@@ -16,4 +16,6 @@ Rails.application.routes.draw do
   resources :profiles, only: [ :new, :create, :edit, :update]
 
   get "/dashboard", to: "pages#dashboard", as: :dashboard
+  get "/404", to: "pages#error_404", as: :error_404
+  get "/500", to: "pages#error_500", as: :error_500
 end
