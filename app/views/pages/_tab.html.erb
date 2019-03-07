@@ -1,33 +1,33 @@
 <div class="tab_container">
   <div class="leftbox">
     <nav>
-      <a id="profile" class="active"><i class="fa fa-user"><p class="text2">Infos</p></i></a>
+      <a id="profile"><i class="fa fa-user"><p class="text2">Infos</p></i></a>
       <a id="payment"><i class="fa fa-user-cog"><p class="text2">Profile</p></i></a>
       <a id="subscription"><i class="fa fa-heart"><p class="text2">Preferred spots</p></i></a>
-      <a id="privacy"><i class="fas fa-water"><p class="text2">Surf sessions</p></i></a>
+      <a id="privacy" class="active"><i class="fas fa-water"><p class="text2">Surf sessions</p></i></a>
       <a id="settings"><i class="fa fa-cog"><p class="text2">Settings</p></i></a>
     </nav>
   </div>
   <div class="rightbox">
-    <div class="profile">
-      <h1>Personal Infos<%= link_to ' | Update', edit_user_registration_path, class: "navbar-wagon-link" %></h1>
+    <div class="profile noshow">
+      <h1>Personal Infos</h1>
       <h2>Avatar</h2>
       <%= cl_image_tag current_user.photo, class: "avatar-large" %>
       <h2>Username</h2>
-      <p><%= "#{current_user.pseudo}" %><button class="tab_btn">update</button></p>
+      <p><%= "#{current_user.pseudo}" %><button class="tab_btn"><%= link_to 'Update', edit_user_registration_path, class: "tab_btn" %></button></p>
       <h2>Email</h2>
-      <p><%= "#{current_user.email} " %><button class="tab_btn">update</button></p>
+      <p><%= "#{current_user.email} " %><button class="tab_btn"><%= link_to 'Update', edit_user_registration_path, class: "tab_btn" %></button></p>
       <h2>Password </h2>
-      <p>••••••• <button class="tab_btn">Change</button></p>
+      <p>••••••• <button class="tab_btn"><%= link_to 'Change', edit_user_registration_path, class: "tab_btn" %></button></p>
     </div>
 
     <div class="payment noshow">
-      <h1>Profile<%= link_to ' | Update', edit_profile_path(current_user), class: "navbar-wagon-link" %></h1>
+      <h1>Profile</h1>
       <h2>Address</h2>
       <% if current_user.profile.nil? %>
-        <p><%= "To de defined" %><button class="tab_btn">update</button></p>
+        <p><%= "To de defined" %><button class="tab_btn"><%= link_to 'Update', edit_profile_path(current_user), class: "tab_btn" %></button></p>
       <% else %>
-        <p><%= "#{current_user.profile.address}" %><button class="tab_btn">update</button></p>
+        <p><%= "#{current_user.profile.address}" %><button class="tab_btn"><%= link_to 'Update', edit_profile_path(current_user), class: "tab_btn" %></button></p>
       <% end %>
       <h2>Surfing level</h2>
       <p><%= "#{@level}" %><button class="tab_btn">update</button></p>
@@ -69,29 +69,29 @@
       </div>
     </div>
 
-    <div class="privacy noshow">
+    <div class="privacy">
       <div class="sub-tab">
         <h1><%= "Surf sessions" %></h1>
         <ul>
           <ul class="list-inline bookings">
-            <li style= "width: 13%;"></li>
-            <li style= "width: 13%;"><h2><%= "Name" %></h2></li>
-            <li style= "width: 13%;"><h2><%= "Date" %></h2></li>
-            <li style= "width: 13%;"><h2><%= "Best Tide" %></h2></li>
-            <li style= "width: 13%;"><h2><%= "Difficulty" %></h2></li>
-            <li style= "width: 35%;"><h2><%= "Image" %></h2></li>
+            <li style= "width: 5%;"></li>
+            <li style= "width: 15%;"><h2><%= "Name" %></h2></li>
+            <li style= "width: 15%;"><h2><%= "Date" %></h2></li>
+            <li style= "width: 10%;"><h2><%= "Best Tide" %></h2></li>
+            <li style= "width: 10%;"><h2><%= "Difficulty" %></h2></li>
+            <li style= "width: 45%;"><h2><%= "Image" %></h2></li>
           </ul><hr style="margin-top: 0; margin-bottom: 0">
           <div class="sub-tab-content">
             <% @surf_sessions.each do |session|%>
             <ul class="list-inline bookings" id="session-<%= session.id %>">
-              <li style= "width: 13%;" id="preferred-spot-for-<%= session.id %>">
+              <li style= "width: 5%;" id="preferred-spot-for-<%= session.id %>">
                 <%= render 'shared/preferred_spot', spot: session.spot %>
               </li>
-              <li style= "width: 13%;"><h2><%= session.spot.name %></h2></li>
-              <li style= "width: 13%;"><h2><%= session.spot.address %></h2></li>
-              <li style= "width: 13%;"><h2><%= session.spot.best_tide %></h2></li>
-              <li style= "width: 13%;"><h2><%= session.spot.difficulty_level %></h2></li>
-              <li style= "width: 35%;">
+              <li style= "width: 15%;"><h2><%= session.spot.name %></h2></li>
+              <li style= "width: 15%;"><h2><%= session.spot.address %></h2></li>
+              <li style= "width: 10%;"><h2><%= session.spot.best_tide %></h2></li>
+              <li style= "width: 10%;"><h2><%= session.spot.difficulty_level %></h2></li>
+              <li style= "width: 45%;">
                 <h2>
                   <img class="avatar-large" src="<%= session.spot.photo %>"><%= link_to ' Details ', spot_path(session.spot, start_time: session.start_time), class: "navbar-wagon-link" %><%= link_to ' | Delete ', surf_session_path(session), method: :delete, remote: true, data: { confirm: "Are you sure you want to delete this session?" }, class: "navbar-wagon-link" %>
                   <span class="review-modal navbar-wagon-link" data-toggle="modal" data-target="#session-review-<%= session.id %>">
