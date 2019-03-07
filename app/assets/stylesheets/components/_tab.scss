@@ -20,6 +20,10 @@ $body_tab: 'Roboto', sans-serif;
   }
 }
 
+.review-modal {
+  cursor: pointer;
+}
+
 .CTA {
   width: 80px;
   height: 40px;
@@ -247,6 +251,10 @@ nav a:hover .text2 {
 
 .btn-flat-style-index{
   color: $white;
+}
+
+.dashboard-spot {
+  color: $green;
 }
 
 // .modal-body {
