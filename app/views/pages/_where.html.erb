@@ -1,5 +1,5 @@
 <div class="where-search">
-  <h3><strong>1</strong>/ 2</h3>
+  <h3><strong>1</strong>/ 2</h3><br>
   <%= simple_form_for :search, url: spots_path, method: 'GET' do |f| %>
     <%= f.input :address, as: :string, placeholder: "Where", input_html: { class: 'spot_location form-flat-search where-trigger'}, label: false, required: true %>
    <!--  <i class="far fa-calendar-alt date-index datepicker-icon"></i> -->
