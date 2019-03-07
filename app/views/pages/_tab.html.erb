@@ -88,7 +88,7 @@
                 <%= render 'shared/preferred_spot', spot: session.spot %>
               </li>
               <li style= "width: 13%;"><h2><%= session.spot.name %></h2></li>
-              <li style= "width: 13%;"><h2><%= session.spot.address %></h2></li>
+              <li style= "width: 13%;"><h2><%= session.start_time.strftime('%A, %b %d') %></h2></li>
               <li style= "width: 13%;"><h2><%= session.spot.best_tide %></h2></li>
               <li style= "width: 13%;"><h2><%= session.spot.difficulty_level %></h2></li>
               <li style= "width: 35%;">
