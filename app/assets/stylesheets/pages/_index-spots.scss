@@ -83,34 +83,40 @@
 }
 
 .when-search {
-  // background-color: $light-gray;
-  height: 200px;
-  width: 450px;
-  padding: 10px;
+  background-color: $green;
+  height: 250px;
+  width: 500px;
+  padding: 2px 30px 10px 45px;
   border-radius: 20px;
   position: absolute;
   top: 300px;
   right: 100px;
   z-index: 2;
   h3 {
+    // vertical-align: middle;
+    // text-align: center;
     font-size: 24px;
     color: $white;
     opacity: .9;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   }
-  h3#big-step {
+  h3 strong {
     font-size: 32px;
     font-weight: bold;
-    color: $green;
+    padding-left: 15px;
+    padding-right: 5px;
   }
   .form-control {
     height: 60px;
-    width: 300px;
+    padding: 0px 15px;
     font-size: 24px;
+    font-weight: bold;
+    width: 300px;
+    color: $dark-gray;
+    border-radius: 8px;
     border: none;
     box-shadow: none;
-    color: $dark-gray;
-    font-weight: bold;
+    cursor: pointer;
+    font-family: "Lato", sans-serif;
   }
   .form-flat-search.datepicker {
     position: relative;
@@ -118,25 +124,27 @@
   .datepicker-icon {
     position: absolute;
     z-index: 1;
-    right: 155px;
-    top: 102px;
+    right: 165px;
+    top: 95px;
     opacity: 1;
     color: $green;
     font-size: 30px;
   }
   .btn-flat-style-index {
-    background-color: $green;
+    background-color: $white;
+    color: $dark-gray;
     height: 50px;
     width: 200px;
+    margin-left: 100px;
     font-size: 24px;
     border-radius: 8px;
     font-family: "Lato", sans-serif;
-    border-color: $green;
+    font-weight: bold;
+    border: solid 1px $lighter-gray;
     &:hover {
-      background-color: $white;
-      font-weight: bold;
       color: $green;
-      border: solid 3px $green;
+      opacity: 0.93;
+      font-weight: bold;
     }
   }
   .ap-input-icon svg {
