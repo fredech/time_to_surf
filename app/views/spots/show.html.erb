@@ -4,7 +4,7 @@
   <div class="new_map-container-show" >
     <div class="spot_image" style="background-image: url(<%= cl_image_path @spot.photo %>);">
     </div>
-    <%= render 'shared/map_show', markers: @markers, spot: @spot, start_time: @start_time %>
+    <%= render 'shared/map_show', markers: @markers, spot: @spot, start_time: @start_time, address: @address %>
   </div>
 
 
@@ -30,7 +30,7 @@
     <strong>  -  Distance: <span id="itinerary-distance">-</span>  km</strong>
 
     <div class="spot_search_date">
-      <h3><%= render 'shared/searchbar_flat_show', spot: @spot, start_time: @start_time %></h3>
+      <h3><%= render 'shared/searchbar_flat_show', spot: @spot, start_time: @start_time, address: @address %></h3>
     </div>
 
     <div class="spot_rating">
@@ -110,7 +110,7 @@
       </div>
     </div>
 
-    <div class="spot_weather">
+    <div class="spot_weather tide">
       <h5>TIDE</h5>
       <div class="weather_box">
         <div class="weather_box_item">
@@ -122,8 +122,11 @@
       </div>
     </div>
 
-    <div>
-      <h5>EXPERIENCES</h5>
+    <div class="experiences">
+          <h5>EXPERIENCES</h5>
+          <p> <%= @spot.reviews.count  %> surf experience(s) </p>
+      </div>
+
       <div class="row">
         <% @spot.reviews.each do |review| %>
           <%= render 'shared/review_card', review: review  %>
