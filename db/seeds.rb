@@ -35,7 +35,7 @@ profile.save!
 url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1551945578/antoine.jpg"
 antoine = User.new(pseudo: "Antoine", email: "antoine@gmail.com", password:"topsecret", password_confirmation:"topsecret")
 antoine.remote_photo_url = url
-profile = Profile.new(level: "Expert", address: "1, rue de l'Yser, Treffiagat")
+profile = Profile.new(level: "Intermediate", address: "1, rue de l'Yser, Treffiagat")
 profile.user = antoine
 antoine.save!
 profile.save!
@@ -43,7 +43,7 @@ profile.save!
 url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1551945577/fred.jpg"
 fred = User.new(pseudo: "Frederic", email: "frederic@gmail.com", password:"topsecret", password_confirmation:"topsecret")
 fred.remote_photo_url = url
-profile = Profile.new(level: "Expert", address: "544 avenue du golf, Hossegor")
+profile = Profile.new(level: "Intermediate", address: "544 avenue du golf, Hossegor")
 profile.user = fred
 fred.save!
 profile.save!
