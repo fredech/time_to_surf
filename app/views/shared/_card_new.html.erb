@@ -2,11 +2,11 @@
   <div class="new_card-content">
     <%= link_to "", spot_path(spot, start_time: start_time, travel_time: travel_time, address: address), class: 'card-link'%>
     <h2><%= spot.name.capitalize %></h2>
-    <h3><i class="fas fa-map-marker-alt"></i><%= " #{travel_time} minutes away" %></h3>
+    <h3><i class="fas fa-map-marker-alt"></i><%= " less than #{travel_time} km away" %></h3>
     <div class="rate">
       <div class="rate-content">
         <p><strong>Time to surf ?</strong></p>
-        <p><%= "This spot is perfect for you ! #{overall_rating}" %></p>
+        <p><%= "This is the matching rate according to your level!" %></p>
       </div>
       <div class="rate-doughnut">
         <%= render 'shared/doughnut', rate: overall_rating %>

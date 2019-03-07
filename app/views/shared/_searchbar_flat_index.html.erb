@@ -8,7 +8,7 @@
         <%= f.input :start_time, as: :string, placeholder: "When", input_html: { value: start_time, class: 'form-flat-index datepicker'}, label: false, required: true %>
       </div>
       <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
-        <div class="placeholder-index-form">minutes away</div>
+        <div class="placeholder-index-form">km away</div>
         <%= f.input :travel_time, required: true, as: :integer, input_html: { value: travel_time, class: 'form-flat-index'}, label: false %>
       </div>
       <%= f.input :level, as: :hidden, input_html: { value: level } %>

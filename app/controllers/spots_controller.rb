@@ -64,12 +64,12 @@ class SpotsController < ApplicationController
       {
         lat: @address_coordinates[0],
         lng: @address_coordinates[1],
-        image_url: helpers.asset_url('start_pin_white.png')
+        image_url: helpers.asset_url('start_pin_gray.png')
       },
       {
         lng: @spot.longitude,
         lat: @spot.latitude,
-        image_url: helpers.asset_url('surfing_silhouette_white.png')
+        image_url: helpers.asset_url('surfing_silhouette_gray.png')
       }
     ]
   end
@@ -156,7 +156,7 @@ class SpotsController < ApplicationController
           lng: spot.longitude,
           lat: spot.latitude,
           infoWindow: render_to_string(partial: "infowindow", locals: { spot: spot }),
-          image_url: helpers.asset_url('surfing_silhouette_white.png'),
+          image_url: helpers.asset_url('surfing_silhouette_gray.png'),
           spot: spot.id
         }
       end
