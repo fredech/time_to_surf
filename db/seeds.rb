@@ -19,39 +19,39 @@ puts "create Users..."
 url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1551203149/Georgette.png"
 georgette = User.new(pseudo: "Georgette", email: "georgette@gmail.com", password:"topsecret", password_confirmation:"topsecret")
 georgette.remote_photo_url = url
-profile = Profile.new(level: "Intermediate", address: "16 villa gaudelet, Paris", level: "Intermediate")
+profile = Profile.new(level: "Intermediate", address: "16 villa gaudelet, Paris")
 profile.user = georgette
 georgette.save!
 profile.save!
 
-url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1550829723/alice.png"
+url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1551945578/alice.png"
 alice = User.new(pseudo: "Alice", email: "alice@gmail.com", password:"topsecret", password_confirmation:"topsecret")
 alice.remote_photo_url = url
-profile = Profile.new(level: "Advanced", address: "10 villa gaudelet, Paris", level: "Intermediate")
+profile = Profile.new(level: "Advanced", address: "10 villa gaudelet, Paris")
 profile.user = alice
 alice.save!
 profile.save!
 
-url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1550829740/antoine.jpg"
+url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1551945578/antoine.jpg"
 antoine = User.new(pseudo: "Antoine", email: "antoine@gmail.com", password:"topsecret", password_confirmation:"topsecret")
 antoine.remote_photo_url = url
-profile = Profile.new(level: "Expert", address: "8 villa gaudelet, Paris", level: "Intermediate")
+profile = Profile.new(level: "Expert", address: "8 villa gaudelet, Paris")
 profile.user = antoine
 antoine.save!
 profile.save!
 
-url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1550829741/fred.jpg"
+url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1551945577/fred.jpg"
 fred = User.new(pseudo: "Frederic", email: "frederic@gmail.com", password:"topsecret", password_confirmation:"topsecret")
 fred.remote_photo_url = url
-profile = Profile.new(level: "Expert", address: "14 villa gaudelet, Paris", level: "Intermediate")
+profile = Profile.new(level: "Expert", address: "14 villa gaudelet, Paris")
 profile.user = fred
 fred.save!
 profile.save!
 
-url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1550829741/damien.jpg"
+url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1551945577/damien.jpg"
 damien = User.new(pseudo: "Damien", email: "damien@gmail.com", password:"topsecret", password_confirmation:"topsecret")
 damien.remote_photo_url = url
-profile = Profile.new(level: "Expert", address: "12 villa gaudelet, Paris", level: "Intermediate")
+profile = Profile.new(level: "Beginner", address: "12 villa gaudelet, Paris")
 profile.user = damien
 damien.save!
 profile.save!
