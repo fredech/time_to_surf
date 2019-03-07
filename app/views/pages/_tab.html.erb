@@ -84,16 +84,8 @@
           <div class="sub-tab-content">
             <% @surf_sessions.each do |session|%>
             <ul class="list-inline bookings" id="session-<%= session.id %>">
-              <li style= "width: 13%;">
-                <% if @user_preferred_real_spots.include?(session.spot) %>
-                  <%= link_to preferred_spot_path(session.spot), method: :delete do %>
-                    <i class="fas fa-heart dashboard-spot"></i>
-                  <% end %>
-                <% else %>
-                  <%= link_to spot_preferred_spots_path(session.spot), method: :post  do %>
-                    <i class="far fa-heart dashboard-spot"></i>
-                  <% end %>
-                <% end %>
+              <li style= "width: 13%;" data-target="#preferred-spot-<%= @preferred_spot %>">
+                <%= render 'shared/preferred_spot', spot: session.spot %>
               </li>
               <li style= "width: 13%;"><h2><%= session.spot.name %></h2></li>
               <li style= "width: 13%;"><h2><%= session.spot.address %></h2></li>

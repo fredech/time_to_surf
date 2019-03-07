@@ -1,0 +1,10 @@
+<% if @user_preferred_real_spots.include?(spot) %>
+  <%= link_to preferred_spot_path(spot), method: :delete do %>
+    <i class="fas fa-heart dashboard-spot"></i>
+  <% end %>
+<% else %>
+  <%= link_to spot_preferred_spots_path(spot), method: :post  do %>
+    <i class="far fa-heart dashboard-spot"></i>
+  <% end %>
+<% end %>
+
