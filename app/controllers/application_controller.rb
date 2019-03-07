@@ -10,4 +10,9 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :sign_up, keys: update_attrs
     devise_parameter_sanitizer.permit :account_update, keys: update_attrs
   end
+
+  def default_url_options
+  { host: ENV["HOST"] || "localhost:3000" }
+  end
+
 end
