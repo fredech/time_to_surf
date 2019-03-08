@@ -11,7 +11,7 @@
     <% else %>
       <div class="intro">
         <h2><%= "Hey #{current_user.pseudo} !" %></h2>
-        <p><%= "These are the top spots we selected for you according to your #{current_user.profile.level} level and the weather forecasts." %></p>
+        <p>These are the top spots we selected for you according to your<strong> <%= "#{current_user.profile.level} level" %></strong> and the weather forecasts.</p>
       </div>
       <div class="new_search_bar">
         <%= render 'shared/searchbar_flat_index', address: @address, start_time: @start_time, travel_time: @travel_time, level: @level %>
