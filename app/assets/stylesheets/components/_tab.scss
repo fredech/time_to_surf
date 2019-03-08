@@ -58,6 +58,7 @@ $body_tab: 'Roboto', sans-serif;
   height: 110%;
   background-color: $green;
   box-shadow: 3px 3px 10px rgba($gray, .5);
+  z-index: 5;
 }
 
 .tab_container nav a {
@@ -110,7 +111,7 @@ nav a.active {
 .profile, .payment, .subscription, .privacy, .settings {
   transition: opacity .5s ease-in;
   position: absolute;
-  width: 100%;
+  width: 80%;
   height: 100%;
 }
 
@@ -262,6 +263,10 @@ nav a.active {
   color: $green;
 }
 
-// .modal-body {
-//   height: 500px;
-// }
+.form-control.select.required {
+  width: 300px;
+}
+
+.form-group.string.optional.profile_address.form-group-valid {
+  width:: 300px;
+}

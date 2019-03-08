@@ -21,6 +21,8 @@
     justify-content: center;
     width: 50vw;
     height: 100vh;
+    padding-left: 40px;
+    padding-right: 80px;
     overflow: scroll;
     margin: 0px;
     position: relative;
@@ -61,13 +63,17 @@
   h3 {
     font-size: 24px;
     color: $white;
-    opacity: .9;
   }
   h3 strong {
     font-size: 32px;
     font-weight: bold;
     padding-left: 15px;
     padding-right: 5px;
+  }
+  h3 span {
+    font-size: 24px;
+    font-weight: bold;
+    padding-left: 50px;
   }
   .form-control {
     height: 60px;
@@ -96,7 +102,7 @@
   }
   .btn-flat-style-index {
     background-color: $white;
-    color: $dark-gray;
+    color: $gray;
     height: 50px;
     width: 200px;
     margin-left: 100px;

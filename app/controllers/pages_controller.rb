@@ -13,14 +13,8 @@ class PagesController < ApplicationController
     @level = set_level
     @review = Review.new
     @user_preferred_real_spots = Spot.where(id: current_user.preferred_spots.pluck(:spot_id))
-  end
-
-  def brocoli
     @address = set_params(:address)
-    if @address.nil? == false
-      @spots = Spot.near(@address, 60).where.not(latitude: nil, longitude: nil)
-      @markers = set_markers(@spots)
-    end
+    @start_time = set_params(:start_time)
   end
 
   private
