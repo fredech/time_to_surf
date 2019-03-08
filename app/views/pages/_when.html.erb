@@ -1,5 +1,5 @@
 <div class="when-search">
-  <h3><strong>2</strong>/ 2 Let's filter now with your <span><%=current_user.profile.level%></span> level and the weather!</h3>
+  <h3><strong>2</strong>/ 2 Add date to filter with weather conditions and your <span><%="#{current_user.profile.level} level!"%></span></h3>
   <%= simple_form_for :search, url: spots_path, method: 'GET' do |f| %>
     <%= f.input :address, as: :string, as: :hidden, placeholder: "Where", input_html: { value: address, class: 'spot_location form-flat-search'}, label: false, required: true %>
     <i class="far fa-calendar-alt date-index datepicker-icon"></i>
