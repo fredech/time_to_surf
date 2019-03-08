@@ -3,8 +3,8 @@
   .date-index.datepicker-icon {
     position: absolute;
     z-index: 1;
-    right: 32px;
-    top: 14px;
+    right: 22px;
+    top: 18px;
     opacity: 1;
     color: $green;
     font-size: 16px;
@@ -12,7 +12,7 @@
   .form-flat-index {
     border-color: $green;
     height: 50px;
-    padding: 0px 15px;
+    padding: 0px 5px;
     font-size: 16px;
     font-weight: bold;
     color: $green;
@@ -23,7 +23,7 @@
   .placeholder-index-form {
     position: absolute;
     z-index: 1;
-    right: 75px;
+    right: 30%;
     top: 15px;
     font-size: 16px;
     color: $green;

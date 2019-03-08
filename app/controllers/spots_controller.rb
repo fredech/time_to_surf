@@ -22,7 +22,6 @@ class SpotsController < ApplicationController
     set_preferred_spots
     set_spots
     set_ratings_n_markers
-
   end
 
   def show
@@ -96,7 +95,9 @@ class SpotsController < ApplicationController
   end
 
   def set_travel_time
-    if params[:search][:travel_time].blank?
+    if params[:search].nil?
+      @travel_time = params[:travel_time]
+    elsif params[:search][:travel_time].blank?
       @travel_time = 30
     elsif params[:search][:start_time].empty?
       @travel_time = 101

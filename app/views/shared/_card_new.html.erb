@@ -6,7 +6,7 @@
     <div class="rate">
       <div class="rate-content">
         <p><strong>Time to surf ?</strong></p>
-        <p><%= "This is the matching rate according to your level!" %></p>
+        <p><%= "This is the matching rate according to your #{current_user.profile.level} level!" %></p>
       </div>
       <div class="rate-doughnut">
         <%= render 'shared/doughnut', rate: overall_rating %>

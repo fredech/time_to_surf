@@ -7,11 +7,10 @@
     <%= render 'shared/map_show', markers: @markers, spot: @spot, start_time: @start_time, address: @address %>
   </div>
 
-
   <div class="content_container">
     <div class="name-spot-preferred">
       <div>
-        <h1> <%= @spot.name %></h1>
+        <h1> <%= @spot.name.capitalize %></h1>
       </div>
       <div>
         <% if @preferred_spots.include?(@spot) %>
@@ -133,9 +132,7 @@
         <% end %>
       </div>
     </div>
-
   </div>
-
 </div>
 
 
