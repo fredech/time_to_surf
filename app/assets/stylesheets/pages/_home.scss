@@ -1,7 +1,7 @@
 .home {
   // background-color: $gray;
-  height: 100vh;
-  width: 100vw;
+  // height: 100vh;
+  // width: 100vw;
   position: relative;
 }
 
@@ -34,7 +34,7 @@
 .home-brand {
   width: 540px;
   position: absolute;
-  top: 100px;
+  top: 20px;
   left: 150px;
   padding: 20px;
   text-align: left;
@@ -58,11 +58,11 @@
     margin-bottom: 0px;
   }
   h3 {
-    margin-top: 50px;
+    margin-top: 40px;
     font-family: "Lato", sans-serif;
     color: white;
     padding-left: 0px;
-    padding-top: 80px;
+    padding-top: 40px;
     padding-right: 50px;
     font-size: 32px;
     font-weight: light;
