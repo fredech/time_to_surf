@@ -24,35 +24,21 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
+    @address = set_params(:address)
+    @start_time = set_params(:start_time)
+    @travel_time = set_params(:travel_time)
+
     @spot = Spot.find(params[:spot_id])
     @review = spot.review
     @review.destroy
     redirect_to spots_path
   end
 
-  # def destroy
-  #   @spot = Spot.find(params[:id])
-  #   @review = spot.review
-  #   @review_id = @review.id
-  #   if @review.destroy
-  #     respond_to do |format|
-  #       format.html { redirect_to dashboard_path }
-  #       format.js { } # <-- will render `app/views/reviews/create.js.erb`
-  #     end
-  #   else
-  #     respond_to do |format|
-  #       format.html { render 'dashboard' }
-  #       format.js { } # <-- idem
-  #     end
-  #   end
-  # end
+  private
 
-
-  # private
-
-  # def set_review
-  #   @review = Review.find(params[:id])
-  # end
+  def set_params(element)
+    params[:search].nil? ? params[element] : params[:search][element]
+  end
 
   def review_params
     params.require(:review).permit(:content, :rating, :photo, :facilities, :access, :condition)

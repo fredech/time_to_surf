@@ -13,11 +13,11 @@
       <h2>Avatar</h2>
       <%= cl_image_tag current_user.photo, class: "avatar-large" %>
       <h2>Username</h2>
-      <p><%= "#{current_user.pseudo}" %><button class="tab_btn"><%= link_to 'Update', edit_user_registration_path, class: "tab_btn" %></button></p>
+      <p><%= "#{current_user.pseudo}" %><button class="tab_btn"><%= link_to 'Update', edit_user_registration_path(address: @address, travel_time: @travel_time, start_time: @start_time), class: "tab_btn" %></button></p>
       <h2>Email</h2>
-      <p><%= "#{current_user.email} " %><button class="tab_btn"><%= link_to 'Update', edit_user_registration_path, class: "tab_btn" %></button></p>
+      <p><%= "#{current_user.email} " %><button class="tab_btn"><%= link_to 'Update', edit_user_registration_path(address: @address, travel_time: @travel_time, start_time: @start_time), class: "tab_btn" %></button></p>
       <h2>Password </h2>
-      <p>••••••• <button class="tab_btn"><%= link_to 'Change', edit_user_registration_path, class: "tab_btn" %></button></p>
+      <p>••••••• <button class="tab_btn"><%= link_to 'Change', edit_user_registration_path(address: @address, travel_time: @travel_time, start_time: @start_time), class: "tab_btn" %></button></p>
     </div>
 
     <div class="payment noshow">
@@ -26,10 +26,10 @@
       <% if current_user.profile.nil? %>
         <p><%= "To de defined" %></p>
       <% else %>
-        <p><%= "#{current_user.profile.address}" %><button class="tab_btn"><%= link_to 'Update', edit_profile_path(current_user), class: "tab_btn" %></button></p>
+        <p><%= "#{current_user.profile.address}" %><button class="tab_btn"><%= link_to 'Update', edit_profile_path(current_user, address: @address, travel_time: @travel_time, start_time: @start_time), class: "tab_btn" %></button></p>
       <% end %>
       <h2>Surfing level</h2>
-      <p><%= "#{@level}" %><button class="tab_btn"><%= link_to 'Update', edit_profile_path(current_user), class: "tab_btn" %></button></p>
+      <p><%= "#{@level}" %><button class="tab_btn"><%= link_to 'Update', edit_profile_path(current_user, address: @address, travel_time: @travel_time, start_time: @start_time), class: "tab_btn" %></button></p>
       <p>Your surf level is a <u>very important factor</u> in determining which spots are best for you.</p>
       <ol>
         <li>Beginner:     wave height less than 1 meter</li>
@@ -41,7 +41,7 @@
 
     <div class="subscription noshow">
       <div class="sub-tab">
-        <h1>Preferred spots<%#= link_to ' | Add a spot', new_preferred_spot_path, class: "navbar-wagon-link" %></h1>
+        <h1>Preferred spots</h1>
         <ul>
           <ul class="list-inline bookings">
             <li style= "width: 15%;"><h2><%= "Name" %></h2></li>
@@ -59,7 +59,7 @@
                 <li style= "width: 25%;"><h2><%= spot.address %></h2></li>
                 <li style= "width: 15%;"><h2><%= spot.best_tide %></h2></li>
                 <li style= "width: 15%;"><h2><%= spot.difficulty_level %></h2></li>
-                <li style= "width: 30%;"><h2><img class="avatar-large" src="<%= spot.photo %>"><%= link_to ' Details ', spot_path(spot), class: "navbar-wagon-link" %><%= link_to ' | Delete ', preferred_spot_path(spot), method: :delete, data: { confirm: "Do you want to exclude it from your preferred spots list ?" }, class: "navbar-wagon-link" %></h2></li>
+                <li style= "width: 30%;"><h2><img class="avatar-large" src="<%= spot.photo %>"><%= link_to ' Details ', spot_path(spot, address: @address, travel_time: @travel_time, start_time: @start_time), class: "navbar-wagon-link" %><%= link_to ' | Delete ', preferred_spot_path(spot), method: :delete, data: { confirm: "Do you want to exclude it from your preferred spots list ?" }, class: "navbar-wagon-link" %></h2></li>
               </ul>
               <% i = i + 1 %>
             <% end %>
@@ -91,7 +91,7 @@
                 <li style= "width: 10%;"><h2><%= session.spot.difficulty_level %></h2></li>
                 <li style= "width: 45%;">
                   <h2>
-                    <img class="avatar-large" src="<%= session.spot.photo %>"><%= link_to ' Details ', spot_path(session.spot, start_time: session.start_time), class: "navbar-wagon-link" %><%= link_to ' | Delete ', surf_session_path(session), method: :delete, remote: true, data: { confirm: "Are you sure you want to delete this session?" }, class: "navbar-wagon-link" %>
+                    <img class="avatar-large" src="<%= session.spot.photo %>"><%= link_to ' Details ', spot_path(session.spot, start_time: session.start_time, address: @address, travel_time: @travel_time), class: "navbar-wagon-link" %><%= link_to ' | Delete ', surf_session_path(session), method: :delete, remote: true, data: { confirm: "Are you sure you want to delete this session?" }, class: "navbar-wagon-link" %>
                     <span class="review-modal navbar-wagon-link" data-toggle="modal" data-target="#session-review-<%= session.id %>">
                       | Review
                     </span>

@@ -18,11 +18,18 @@ class ProfilesController < ApplicationController
   end
 
   def edit
+    # @address = set_params(:address)
+    # @start_time = set_params(:start_time)
+    # @travel_time = set_params(:travel_time)
   end
 
   def update
+    # @address = set_params(:address)
+    # @start_time = set_params(:start_time)
+    # @travel_time = set_params(:travel_time)
+
     if @profile.update(profile_params)
-      redirect_to dashboard_path, notice: 'Profile was successfully updated'
+      redirect_to dashboard_path(address: @address, start_time: @start_time, travel_time: @travel_time), notice: 'Profile was successfully updated'
     else
       render :edit
     end
@@ -42,5 +49,9 @@ class ProfilesController < ApplicationController
 
   def profile_params
     params.require(:profile).permit(:level, :address, :longitude, :latitude, :user_id)
+  end
+
+  def set_params(element)
+    params[:search].nil? ? params[element] : params[:search][element]
   end
 end

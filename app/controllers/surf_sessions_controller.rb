@@ -20,6 +20,10 @@ class SurfSessionsController < ApplicationController
   end
 
   def destroy
+    @address = set_params(:address)
+    @start_time = set_params(:start_time)
+    @travel_time = set_params(:travel_time)
+
     @surf_session = SurfSession.find(params[:id])
     @surf_session_id = @surf_session.id
      if @surf_session.destroy
@@ -38,9 +42,9 @@ class SurfSessionsController < ApplicationController
 
   private
 
-  # def set_surf_session
-  #   @surf_session = SurfSession.find(params[:id])
-  # end
+  def set_params(element)
+    params[:search].nil? ? params[element] : params[:search][element]
+  end
 
   def surf_session_params
     params.require(:surf_session).permit(:start_time, :spot_id)

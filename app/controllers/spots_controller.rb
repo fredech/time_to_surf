@@ -7,6 +7,7 @@ class SpotsController < ApplicationController
   # skip_after_action :verify_authorized, only:[:update, :search, :index]
 
   def index
+
     @start_time = set_params(:start_time)
 
     date_str, hour = @start_time.split(' ')
@@ -14,7 +15,6 @@ class SpotsController < ApplicationController
     @hour = hour ? hour.gsub(/:\d+/, "h") : "12h"
 
     @address = set_params(:address)
-
 
     set_travel_time
 
