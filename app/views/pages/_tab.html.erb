@@ -24,12 +24,12 @@
       <h1>Profile</h1>
       <h2>Address</h2>
       <% if current_user.profile.nil? %>
-        <p><%= "To de defined" %><button class="tab_btn"><%= link_to 'Update', edit_profile_path(current_user), class: "tab_btn" %></button></p>
+        <p><%= "To de defined" %></p>
       <% else %>
         <p><%= "#{current_user.profile.address}" %><button class="tab_btn"><%= link_to 'Update', edit_profile_path(current_user), class: "tab_btn" %></button></p>
       <% end %>
       <h2>Surfing level</h2>
-      <p><%= "#{@level}" %><button class="tab_btn">update</button></p>
+      <p><%= "#{@level}" %><button class="tab_btn"><%= link_to 'Update', edit_profile_path(current_user), class: "tab_btn" %></button></p>
       <p>Your surf level is a <u>very important factor</u> in determining which spots are best for you.</p>
       <ol>
         <li>Beginner:     wave height less than 1 meter</li>
