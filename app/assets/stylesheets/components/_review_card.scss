@@ -2,11 +2,11 @@
 .card-review {
   margin-top: 2px;
   margin-bottom: 2px;
-  height: 207px;
+  height: 200px;
   width: 100%;
   color: white;
   border-radius: 3px;
-  padding-top: 20px;
+  margin-bottom: 15px;
 }
 .review-container {
   position: relative;
@@ -19,7 +19,7 @@
   .review-weighted-average {
   display: flex;
   font-size: 15px;
-  top: 1px;
+  top: -2px;
   left: 13px;
   position: absolute;
   color: $green;
@@ -27,7 +27,7 @@
   .card-comment {
     font-family: "Lato", sans-serif !important;
     position: absolute;
-    width: 100%;
+    width: 90%;
     left: 13px;
     top: 70px;
     line-height: 20;
@@ -45,8 +45,8 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  top: -5px;
-  right: 5px;
+  top: -11px;
+  right: 17px;
   z-index: 1;
   }
   &:hover {
