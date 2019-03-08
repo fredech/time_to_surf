@@ -21,13 +21,13 @@
 .donut-segment {
   animation: donut-chart-fill 1s reverse ease-in;
   transform-origin: center;
-  stroke: #20B66A;
+  stroke: #23CA76;
 }
 
 .donut-text {
   font-family: 'Lato', sans-serif;
   font-weight: bold;
-  fill: #20B66A;
+  fill: #23CA76;
 }
 
 .donut-label {
@@ -40,7 +40,7 @@
 
 .donut-percent {
   font-size: 0.6em;
-  fill: #20B66A;
+  fill: #23CA76;
   line-height: 1;
   transform: translateY(0.6em);
 }
