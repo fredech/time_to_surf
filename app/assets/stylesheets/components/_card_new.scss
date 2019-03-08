@@ -29,12 +29,11 @@
       margin-bottom: 40px;
     }
     .rate {
-
       overflow: hidden;
+      display: flex;
       .rate-content {
         height: 100px;
-        width: 55%;
-        padding: 0px;
+        padding-right: 10px;
         margin: 0px;
         p{
           color: $gray;
@@ -47,17 +46,8 @@
         }
       }
       .rate-doughnut {
-        float: left;
-        padding: 0px;
-        height: 80px;
-        width: 80px;
+        width: 150px;
         margin: 0px;
-        padding-left: 0px;
-        align-items: center;
-        justify-content: center;
-        position: absolute;
-        top: 100px;
-        left: 195px;
       }
     }
     .card-link {

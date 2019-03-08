@@ -8,7 +8,7 @@
     </div>
   </div>
   <!-- Right Navigation -->
-  <div class="navbar-wagon-right hidden-xs hidden-sm">
+  <div class="navbar-wagon-right hidden-xs hidden-sm <%= 'navbar-wagon-right-white' unless (request.path == '/' || (request.path == '/spots' && @start_time.blank?)) %>">
     <% if user_signed_in? %>
       <!-- Links when logged in -->
       <%= link_to "Results",  address.nil? ? root_path : spots_path(address: address, start_time: start_time, travel_time: travel_time), class: "navbar-wagon-item #{(request.path == '/' || request.path == '/spots') ? 'navbar-wagon-link-hide' : 'navbar-wagon-link'}" %>

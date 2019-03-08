@@ -21,13 +21,13 @@
     position: relative;
     .btn-create-show-map {
       width: 150px;
-      background-color: $blue-google;
+      background-color: $green;
       height: 50px;
       font-size: 16px;
       position: fixed;
-      bottom: 40vh;
-      left: 2vw;
-      border-color: $blue;
+      bottom: 55vh;
+      left: 37vw;
+      border-color: $green;
       align-items: center;
       display: flex;
       justify-content: center;
@@ -38,7 +38,7 @@
         background-color: $white;
         font-weight: bold;
         color: $green;
-        border: solid 3px $blue;
+        border: solid 3px $green;
       }
     }
   }
@@ -180,45 +180,3 @@ and (min-width : 800px) {
     display: none;
   }
 }
-
-
-// .review_container {
-//   justify-content: center;
-//   border-bottom: solid 1px $light-gray;
-//   padding-bottom: 24px;
-//   left: 40px;
-//   z-index: 3;
-//   position: absolute;
-// }
-
-// .review_number {
-//   width: 300px;
-//   margin-top: 20px;
-//   margin-bottom: 20px;
-//   border-bottom: solid 1px $light-gray;
-// }
-
-// .review_photo {
-//   z-index: 100;
-//   width: 100%;
-//   height: 400px;
-//   margin-top: 40px;
-//   margin-bottom: 40px;
-//   position: relative;
-//   background-size: cover;
-//   background-position: center;
-//   h5 {
-//     opacity: 0;
-//     color: white;
-//   }
-//   &:hover {
-//     background-image: linear-gradient(rgba(30,30,30, 0.3) rgba(30,30,30, 0.3));
-//     margin-left: -30px;
-//     transition: all ease 0.5s;
-//     z-index: 2;
-//   }
-// }
-
-// .spot_reviews {
-//   background-color: $white;
-// }
