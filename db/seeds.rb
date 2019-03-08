@@ -354,7 +354,7 @@ spot_30.save!
 puts "#{Spot.count} spots created"
 
 
-users = [antoine, alice, fred, damien, georgette]
+users = [antoine, alice, damien, georgette]
 
 
 
@@ -392,13 +392,14 @@ surf_session_6.save!
 
 surf_session_7 = SurfSession.new( start_time: "2019-03-01 12:00",
                                   user: users.sample,
-                                  spot: Spot.all.sample )
+                                  spot: spot_19 )
 surf_session_7.save!
+
 
 
 surf_session_8 = SurfSession.new( start_time: "2019-03-01 12:00",
                                   user: users.sample,
-                                  spot: Spot.all.sample )
+                                  spot: spot_19 )
 surf_session_8.save!
 
 surf_session_9 = SurfSession.new( start_time: "2019-03-01 12:00",
