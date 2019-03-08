@@ -7,6 +7,7 @@ class SpotsController < ApplicationController
   # skip_after_action :verify_authorized, only:[:update, :search, :index]
 
   def index
+
     @start_time = set_params(:start_time)
 
     date_str, hour = @start_time.split(' ')
@@ -17,7 +18,7 @@ class SpotsController < ApplicationController
 
     set_travel_time
 
-    @level = set_params(:level)
+    @level = current_user.profile.level
 
     set_preferred_spots
     set_spots
@@ -26,6 +27,7 @@ class SpotsController < ApplicationController
 
   def show
     @address = set_params(:address)
+    @travel_time = set_params(:travel_time)
     @address = current_user.profile.address if @address.nil?
 
     @start_time = set_params(:start_time)

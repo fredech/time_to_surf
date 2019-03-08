@@ -35,10 +35,10 @@ def define_hour_msw(searched_date, hour_searched)
   return (elements[hour_searched] + add_hour)
 end
 
-def weather_condition(spot, date_s, hour_searched)
+def weather_condition(spot, date, hour_searched)
   result = {}
-
   hour = define_hour(hour_searched)
+  date_s = (date < Date.today) ? Date.today : date
   searched_date = define_searched_date(date_s)
   hour_msw = define_hour_msw(date_s, hour_searched)
 

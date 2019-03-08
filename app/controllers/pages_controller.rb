@@ -15,6 +15,7 @@ class PagesController < ApplicationController
     @user_preferred_real_spots = Spot.where(id: current_user.preferred_spots.pluck(:spot_id))
     @address = set_params(:address)
     @start_time = set_params(:start_time)
+    @travel_time = set_params(:travel_time)
   end
 
   private
