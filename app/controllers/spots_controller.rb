@@ -15,9 +15,10 @@ class SpotsController < ApplicationController
 
     @address = set_params(:address)
 
+
     set_travel_time
 
-    @level = set_params(:level)
+    @level = current_user.profile.level
 
     set_preferred_spots
     set_spots
@@ -26,6 +27,7 @@ class SpotsController < ApplicationController
 
   def show
     @address = set_params(:address)
+    @travel_time = set_params(:travel_time)
     @address = current_user.profile.address if @address.nil?
 
     @start_time = set_params(:start_time)
