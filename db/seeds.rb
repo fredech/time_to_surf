@@ -385,106 +385,106 @@ surf_session_5 = SurfSession.new( start_time: "2019-03-01 12:00",
                                   spot: spot_17 )
 surf_session_5.save!
 
-surf_session_5 = SurfSession.new( start_time: "2019-03-01 12:00",
+surf_session_6 = SurfSession.new( start_time: "2019-03-01 12:00",
                                   user: users.sample,
                                   spot: spot_17 )
-surf_session_5.save!
+surf_session_6.save!
 
-surf_session_5 = SurfSession.new( start_time: "2019-03-01 12:00",
+surf_session_7 = SurfSession.new( start_time: "2019-03-01 12:00",
                                   user: users.sample,
                                   spot: Spot.all.sample )
-surf_session_5.save!
+surf_session_7.save!
 
 
-surf_session_5 = SurfSession.new( start_time: "2019-03-01 12:00",
+surf_session_8 = SurfSession.new( start_time: "2019-03-01 12:00",
                                   user: users.sample,
                                   spot: Spot.all.sample )
-surf_session_5.save!
+surf_session_8.save!
 
-surf_session_5 = SurfSession.new( start_time: "2019-03-01 12:00",
+surf_session_9 = SurfSession.new( start_time: "2019-03-01 12:00",
                                   user: users.sample,
                                   spot: Spot.all.sample )
-surf_session_5.save!
+surf_session_9.save!
 
-surf_session_5 = SurfSession.new( start_time: "2019-03-01 12:00",
+surf_session_10 = SurfSession.new( start_time: "2019-03-01 12:00",
                                   user: users.sample,
                                   spot: Spot.all.sample )
-surf_session_5.save!
+surf_session_10.save!
 
-surf_session_5 = SurfSession.new( start_time: "2019-03-01 12:00",
+surf_session_11 = SurfSession.new( start_time: "2019-03-01 12:00",
                                   user: users.sample,
                                   spot: Spot.all.sample )
-surf_session_5.save!
+surf_session_11.save!
 
-surf_session_5 = SurfSession.new( start_time: "2019-03-01 12:00",
+surf_session_12 = SurfSession.new( start_time: "2019-03-01 12:00",
                                   user: users.sample,
                                   spot: Spot.all.sample )
-surf_session_5.save!
+surf_session_12.save!
 
-surf_session_5 = SurfSession.new( start_time: "2019-03-01 12:00",
+surf_session_13 = SurfSession.new( start_time: "2019-03-01 12:00",
                                   user: users.sample,
                                   spot: Spot.all.sample )
-surf_session_5.save!
+surf_session_13.save!
 
-surf_session_5 = SurfSession.new( start_time: "2019-03-01 12:00",
+surf_session_14 = SurfSession.new( start_time: "2019-03-01 12:00",
                                   user: users.sample,
                                   spot: Spot.all.sample )
-surf_session_5.save!
+surf_session_14.save!
 
-surf_session_5 = SurfSession.new( start_time: "2019-03-01 12:00",
+surf_session_15 = SurfSession.new( start_time: "2019-03-01 12:00",
                                   user: users.sample,
                                   spot: Spot.all.sample )
-surf_session_5.save!
+surf_session_15.save!
 
-surf_session_5 = SurfSession.new( start_time: "2019-03-01 12:00",
+surf_session_16 = SurfSession.new( start_time: "2019-03-01 12:00",
                                   user: users.sample,
                                   spot: Spot.all.sample )
-surf_session_5.save!
+surf_session_16.save!
 
-surf_session_5 = SurfSession.new( start_time: "2019-03-01 12:00",
+surf_session_17 = SurfSession.new( start_time: "2019-03-01 12:00",
                                   user: users.sample,
                                   spot: Spot.all.sample )
-surf_session_5.save!
+surf_session_17.save!
 
-surf_session_5 = SurfSession.new( start_time: "2019-03-01 12:00",
+surf_session_18 = SurfSession.new( start_time: "2019-03-01 12:00",
                                   user: users.sample,
                                   spot: Spot.all.sample )
-surf_session_5.save!
+surf_session_18.save!
 
-surf_session_5 = SurfSession.new( start_time: "2019-03-01 12:00",
+surf_session_19 = SurfSession.new( start_time: "2019-03-01 12:00",
                                   user: users.sample,
                                   spot: Spot.all.sample )
-surf_session_5.save!
+surf_session_19.save!
 
-surf_session_5 = SurfSession.new( start_time: "2019-03-01 12:00",
+surf_session_20 = SurfSession.new( start_time: "2019-03-01 12:00",
                                   user: users.sample,
                                   spot: Spot.all.sample )
-surf_session_5.save!
+surf_session_20.save!
 
-surf_session_5 = SurfSession.new( start_time: "2019-03-01 12:00",
+surf_session_21 = SurfSession.new( start_time: "2019-03-01 12:00",
                                   user: users.sample,
                                   spot: Spot.all.sample )
-surf_session_5.save!
+surf_session_21.save!
 
-surf_session_5 = SurfSession.new( start_time: "2019-03-01 12:00",
+surf_session_22 = SurfSession.new( start_time: "2019-03-01 12:00",
                                   user: users.sample,
                                   spot: Spot.all.sample )
-surf_session_5.save!
+surf_session_22.save!
 
-surf_session_5 = SurfSession.new( start_time: "2019-03-01 12:00",
+surf_session_23 = SurfSession.new( start_time: "2019-03-01 12:00",
                                   user: users.sample,
                                   spot: Spot.all.sample )
-surf_session_5.save!
+surf_session_23.save!
 
-surf_session_5 = SurfSession.new( start_time: "2019-03-01 12:00",
+surf_session_24 = SurfSession.new( start_time: "2019-03-01 12:00",
                                   user: users.sample,
                                   spot: Spot.all.sample )
-surf_session_5.save!
+surf_session_24.save!
 
-surf_session_5 = SurfSession.new( start_time: "2019-03-01 12:00",
+surf_session_25 = SurfSession.new( start_time: "2019-03-01 12:00",
                                   user: users.sample,
                                   spot: Spot.all.sample )
-surf_session_5.save!
+surf_session_25.save!
 
 puts "#{SurfSession.count} Surf sessions created"
 
