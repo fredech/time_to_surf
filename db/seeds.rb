@@ -1,3 +1,4 @@
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -361,32 +362,32 @@ puts "create Surf sessions..."
 
 surf_session_1 = SurfSession.new( start_time: "2019-03-01 12:00",
                                   user: users.sample,
-                                  spot: Spot.all.sample )
+                                  spot: spot_3 )
 surf_session_1.save!
 
 surf_session_2 = SurfSession.new( start_time: "2019-03-01 12:00",
                                   user: users.sample,
-                                  spot: Spot.all.sample)
+                                  spot: spot_3)
 surf_session_2.save!
 
 surf_session_3 = SurfSession.new( start_time: "2019-03-01 12:00",
                                   user: users.sample,
-                                  spot: Spot.all.sample )
+                                  spot: spot_3 )
 surf_session_3.save!
 
 surf_session_4 = SurfSession.new( start_time: "2019-03-01 12:00",
                                   user: users.sample,
-                                  spot: Spot.all.sample )
+                                  spot: spot_17 )
 surf_session_4.save!
 
 surf_session_5 = SurfSession.new( start_time: "2019-03-01 12:00",
                                   user: users.sample,
-                                  spot: Spot.all.sample )
+                                  spot: spot_17 )
 surf_session_5.save!
 
 surf_session_5 = SurfSession.new( start_time: "2019-03-01 12:00",
                                   user: users.sample,
-                                  spot: Spot.all.sample )
+                                  spot: spot_17 )
 surf_session_5.save!
 
 surf_session_5 = SurfSession.new( start_time: "2019-03-01 12:00",
@@ -495,7 +496,7 @@ review_1 = Review.new(  content: "Beautiful beach, we had a great session",
                         facilities: '5',
                         access: '5',
                         condition: '5',
-                        surf_session: SurfSession.all.sample )
+                        surf_session: surf_session_5)
 review_1.remote_photo_url = url
 review_1.save!
 
@@ -504,7 +505,7 @@ review_2 = Review.new(  content: "Beach was good for beginners",
                         facilities: '3',
                         access: '4',
                         condition: '5',
-                        surf_session: SurfSession.all.sample)
+                        surf_session: surf_session_4)
 review_2.remote_photo_url = url
 review_2.save!
 
@@ -513,7 +514,7 @@ review_3 = Review.new(  content: "Quite a long walk to get to the beach, but onc
                         facilities: '3',
                         access: '2',
                         condition: '4',
-                        surf_session: SurfSession.all.sample )
+                        surf_session: surf_session_6)
 review_3.remote_photo_url = url
 review_3.save!
 
@@ -522,7 +523,7 @@ review_4 = Review.new(  content: "Great waves, but beach full of rocks",
                         facilities: '3',
                         access: '3',
                         condition: '3',
-                        surf_session: SurfSession.all.sample )
+                        surf_session: surf_session_1)
 review_4.remote_photo_url = url
 review_4.save!
 
@@ -531,7 +532,7 @@ review_5 = Review.new(  content: "Sandy beach with great coffee shop. Waves coul
                         facilities: '5',
                         access: '5',
                         condition: '4',
-                        surf_session: SurfSession.all.sample )
+                        surf_session: surf_session_2)
 review_5.remote_photo_url = url
 review_5.save!
 
@@ -540,7 +541,7 @@ review_6 = Review.new(  content: "Beatiful beach but very touristy. Waves not gr
                         facilities: '3',
                         access: '5',
                         condition: '2',
-                        surf_session: SurfSession.all.sample)
+                        surf_session: surf_session_3)
 review_6.remote_photo_url = url
 review_6.save!
 
@@ -661,189 +662,187 @@ review_19 = Review.new(  content: "Great beach!",
                         surf_session: SurfSession.all.sample)
 review_19.remote_photo_url = url
 review_19.save!
- ---
+
 
 url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1551958740/Reviews/New%20Photos/resizedshutterstock_446243254_trestraou_beach_of_perros-guirec_in_brittany_france.jpg"
-review_19 = Review.new(  content: "Perfect beach for kids to learn to surf",
+review_20 = Review.new(  content: "Perfect beach for kids to learn to surf",
                         facilities: '5',
                         access: '5',
                         condition: '5',
                         surf_session: SurfSession.all.sample)
-review_19.remote_photo_url = url
-review_19.save!
+review_20.remote_photo_url = url
+review_20.save!
 
 url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1551958740/Reviews/New%20Photos/La-Torche-Surf-Spot-for-beginners-in-Brittany-France.jpg"
-review_19 = Review.new(  content: "Very narrow drive down to the beach but once we were there the conditions were perfect",
+review_21 = Review.new(  content: "Very narrow drive down to the beach but once we were there the conditions were perfect",
                         facilities: '3',
                         access: '2',
                         condition: '5',
                         surf_session: SurfSession.all.sample)
-review_19.remote_photo_url = url
-review_19.save!
+review_21.remote_photo_url = url
+review_21.save!
 
 url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1551958740/Reviews/New%20Photos/surfing-in-biarritz-768x576.jpg"
-review_19 = Review.new(  content: "We were all beginners and had a great time",
+review_22 = Review.new(  content: "We were all beginners and had a great time",
                         facilities: '4',
                         access: '4',
                         condition: '3',
                         surf_session: SurfSession.all.sample)
-review_19.remote_photo_url = url
-review_19.save!
+review_22.remote_photo_url = url
+review_22.save!
 
 url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1551958740/Reviews/New%20Photos/surfing-la-mauvaise-gre%CC%80ve-brittany.jpg"
-review_19 = Review.new(  content: "Great surf session",
+review_23 = Review.new(  content: "Great surf session",
                         facilities: '5',
                         access: '5',
                         condition: '5',
                         surf_session: SurfSession.all.sample)
-review_19.remote_photo_url = url
-review_19.save!
+review_23.remote_photo_url = url
+review_23.save!
 
 url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1551958740/Reviews/New%20Photos/0-presqu-ile-de-quiberon-surf-yannick-le-gal-1920x1278.jpg"
-review_19 = Review.new(  content: "15 min walk down the beach, quite annoying when you're carrying a board, but otherwise nice conditions",
+review_24 = Review.new(  content: "15 min walk down the beach, quite annoying when you're carrying a board, but otherwise nice conditions",
                         facilities: '3',
                         access: '2',
                         condition: '4',
                         surf_session: SurfSession.all.sample)
-review_19.remote_photo_url = url
-review_19.save!
+review_24.remote_photo_url = url
+review_24.save!
 
 url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1551958740/Reviews/New%20Photos/Isla_Margarita_and_Sucre.jpg"
-review_19 = Review.new(  content: "Thanks for the recommendation, exactly what I was looking for",
+review_25 = Review.new(  content: "Thanks for the recommendation, exactly what I was looking for",
                         facilities: '5',
                         access: '3',
                         condition: '5',
                         surf_session: SurfSession.all.sample)
-review_19.remote_photo_url = url
-review_19.save!
+review_25.remote_photo_url = url
+review_25.save!
 
 url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1551958739/Reviews/New%20Photos/beach_lostmarch_la_palue.jpg"
-review_19 = Review.new(  content: "Great beach!",
+review_26 = Review.new(  content: "Great beach!",
                         facilities: '5',
                         access: '5',
                         condition: '3',
                         surf_session: SurfSession.all.sample)
-review_19.remote_photo_url = url
-review_19.save!
+review_26.remote_photo_url = url
+review_26.save!
 
 url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1551958739/Reviews/New%20Photos/image.jpg"
-review_19 = Review.new(  content: "Great beach for beginners!",
+review_27 = Review.new(  content: "Great beach for beginners!",
                         facilities: '5',
                         access: '5',
                         condition: '5',
                         surf_session: SurfSession.all.sample)
-review_19.remote_photo_url = url
-review_19.save!
+review_27.remote_photo_url = url
+review_27.save!
 
 url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1551958740/Reviews/New%20Photos/Isla_Margarita_and_Sucre.jpg"
-review_19 = Review.new(  content: "Great beach!",
+review_28 = Review.new(  content: "Great beach!",
                         facilities: '3',
                         access: '3',
                         condition: '5',
                         surf_session: SurfSession.all.sample)
-review_19.remote_photo_url = url
-review_19.save!
+review_28.remote_photo_url = url
+review_28.save!
 
 url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1551958740/Reviews/New%20Photos/La-Torche-Surf-Spot-for-beginners-in-Brittany-France.jpg"
-review_19 = Review.new(  content: "Thanks for the recommendation!",
+review_29 = Review.new(  content: "Thanks for the recommendation!",
                         facilities: '4',
                         access: '3',
                         condition: '5',
                         surf_session: SurfSession.all.sample)
-review_19.remote_photo_url = url
-review_19.save!
-
------------------
+review_29.remote_photo_url = url
+review_29.save!
 
 url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1551964717/Reviews/New%20Photos/Final%20photos/surfing-cote-des-basques-biarritz_1.jpg"
-review_19 = Review.new(  content: "Amazing waves",
+review_30 = Review.new(  content: "Amazing waves",
                         facilities: '5',
                         access: '5',
                         condition: '5',
                         surf_session: SurfSession.all.sample)
-review_19.remote_photo_url = url
-review_19.save!
+review_30.remote_photo_url = url
+review_30.save!
 
 url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1551964717/Reviews/New%20Photos/Final%20photos/la-vague-basque-instruction.jpg"
-review_19 = Review.new(  content: "We had a great time",
+review_31 = Review.new(  content: "We had a great time",
                         facilities: '4',
                         access: '4',
                         condition: '4',
                         surf_session: SurfSession.all.sample)
-review_19.remote_photo_url = url
-review_19.save!
+review_31.remote_photo_url = url
+review_31.save!
 
 url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1551964717/Reviews/New%20Photos/Final%20photos/97ff5b5c23c82287559552b36b16e270_L.jpg"
-review_19 = Review.new(  content: "Great recommendation, conditions were perfect. No where to get anything to eat on the beach",
+review_32 = Review.new(  content: "Great recommendation, conditions were perfect. No where to get anything to eat on the beach",
                         facilities: '2',
                         access: '5',
                         condition: '5',
                         surf_session: SurfSession.all.sample)
-review_19.remote_photo_url = url
-review_19.save!
+review_32.remote_photo_url = url
+review_32.save!
 
 url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1551964717/Reviews/New%20Photos/Final%20photos/surfing-cote-des-basques-biarritz.jpg"
-review_19 = Review.new(  content: "Thanks for the recommendation!",
+review_33 = Review.new(  content: "Thanks for the recommendation!",
                         facilities: '4',
                         access: '3',
                         condition: '5',
                         surf_session: SurfSession.all.sample)
-review_19.remote_photo_url = url
-review_19.save!
+review_33.remote_photo_url = url
+review_33.save!
 
 url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1551964717/Reviews/New%20Photos/Final%20photos/destination-biarritz-3-b.jpg"
-review_19 = Review.new(  content: "Waves quite small but otherwise good session",
+review_34 = Review.new(  content: "Waves quite small but otherwise good session",
                         facilities: '3',
                         access: '5',
                         condition: '4',
                         surf_session: SurfSession.all.sample)
-review_19.remote_photo_url = url
-review_19.save!
+review_34.remote_photo_url = url
+review_34.save!
 
 url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1551964717/Reviews/New%20Photos/Final%20photos/500-grandeplage-france.jpg"
-review_19 = Review.new(  content: "Thanks TTS, perfect recommendation!",
+review_35 = Review.new(  content: "Thanks TTS, perfect recommendation!",
                         facilities: '5',
                         access: '5',
                         condition: '5',
                         surf_session: SurfSession.all.sample)
-review_19.remote_photo_url = url
-review_19.save!
+review_35.remote_photo_url = url
+review_35.save!
 
 url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1551964717/Reviews/New%20Photos/Final%20photos/destination-biarritz-3-b_1.jpg"
-review_19 = Review.new(  content: "Thanks for the recommendation!",
+review_36 = Review.new(  content: "Thanks for the recommendation!",
                         facilities: '4',
                         access: '3',
                         condition: '5',
                         surf_session: SurfSession.all.sample)
-review_19.remote_photo_url = url
-review_19.save!
+review_36.remote_photo_url = url
+review_36.save!
 
 url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1551964717/Reviews/New%20Photos/Final%20photos/camping-biarritz-pays-basque.jpg"
-review_19 = Review.new(  content: "Great session",
+review_37 = Review.new(  content: "Great session",
                         facilities: '4',
                         access: '3',
                         condition: '5',
                         surf_session: SurfSession.all.sample)
-review_19.remote_photo_url = url
-review_19.save!
+review_37.remote_photo_url = url
+review_37.save!
 
 url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1551964717/Reviews/New%20Photos/Final%20photos/article_Biarritz-Pays-Basque_1120x490.jpg"
-review_19 = Review.new(  content: "Quite a lot of rocks on the beach but waves nice",
+review_38 = Review.new(  content: "Quite a lot of rocks on the beach but waves nice",
                         facilities: '4',
                         access: '3',
                         condition: '4',
                         surf_session: SurfSession.all.sample)
-review_19.remote_photo_url = url
-review_19.save!
+review_38.remote_photo_url = url
+review_38.save!
 
 url = "https://res.cloudinary.com/dwze88uqm/image/upload/v1551964716/Reviews/New%20Photos/Final%20photos/biarritz-01-hi.jpg"
-review_19 = Review.new(  content: "Perfect surf session",
+review_39 = Review.new(  content: "Perfect surf session",
                         facilities: '5',
                         access: '5',
                         condition: '5',
                         surf_session: SurfSession.all.sample)
-review_19.remote_photo_url = url
-review_19.save!
+review_39.remote_photo_url = url
+review_39.save!
 
 puts "#{Review.count} reviews created"
 
