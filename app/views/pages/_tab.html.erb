@@ -86,7 +86,7 @@
                   <%= render 'shared/preferred_spot', spot: session.spot %>
                 </li>
                 <li style= "width: 15%;"><h2><%= session.spot.name %></h2></li>
-                <li style= "width: 15%;"><h2><%= session.spot.address %></h2></li>
+                <li style= "width: 15%;"><h2><%= session.start_time.strftime('%d/%m/%Y') %></h2></li>
                 <li style= "width: 10%;"><h2><%= session.spot.best_tide %></h2></li>
                 <li style= "width: 10%;"><h2><%= session.spot.difficulty_level %></h2></li>
                 <li style= "width: 45%;">
@@ -115,15 +115,14 @@
                             <%= f.input :photo_cache, as: :hidden %>
                             <%= cl_image_tag "", width: 300, class: "hidden", id: "photo-preview-#{session.id}" %>
                           </div>
-                        </div>
-                        <div class="modal-footer">
-                          <%= f.submit "Create a review", class:"btn-flat-style-index" %>
-                        </div>
-                      <% end %>
+                          <div class="modal-footer">
+                            <%= f.submit "Create a review", class:"btn-flat-style-index" %>
+                          </div>
+                        <% end %>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </ul>
+                </ul>
             <% end %>
           </div>
         </ul>
